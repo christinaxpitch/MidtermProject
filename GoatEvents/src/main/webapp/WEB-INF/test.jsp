@@ -10,5 +10,7 @@
 
 <h1>this is fun!!!!!!!!!!!!!!!!!!!!!!!</h1>
 
+<p> ${user.username }</p>
+<p> ${user } </p>
 </body>
 </html>
