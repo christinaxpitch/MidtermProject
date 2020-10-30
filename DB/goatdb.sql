@@ -100,9 +100,9 @@ CREATE TABLE IF NOT EXISTS `venue` (
   `capacity` INT NULL,
   `description` TEXT NULL,
   `logo` VARCHAR(5000) NULL,
-  `manager_id` INT(11) NOT NULL,
-  `created_at` DATETIME NOT NULL,
-  `last_update` DATETIME NOT NULL,
+  `manager_id` INT(11) NULL,
+  `created_at` DATETIME NULL,
+  `last_update` DATETIME NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_venue_address1_idx` (`address_id` ASC),
   INDEX `fk_venue_user1_idx` (`manager_id` ASC),
@@ -136,8 +136,8 @@ CREATE TABLE IF NOT EXISTS `event` (
   `title` VARCHAR(300) NULL,
   `image` VARCHAR(5000) NULL,
   `event_date` DATE NULL,
-  `created_at` DATETIME NOT NULL,
-  `last_update` DATETIME NOT NULL,
+  `created_at` DATETIME NULL,
+  `last_update` DATETIME NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_event_venue1_idx` (`venue_id` ASC),
   CONSTRAINT `fk_event_venue1`
@@ -247,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `event_id` INT(11) NOT NULL,
   `user_id` INT(11) NOT NULL,
-  `comment_date` DATETIME NOT NULL,
+  `comment_date` DATETIME NULL,
   `content` TEXT NULL,
   `rating` SMALLINT(5) NULL,
   PRIMARY KEY (`id`),
@@ -267,11 +267,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `artist_has_event`
+-- Table `artist_event`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `artist_has_event` ;
+DROP TABLE IF EXISTS `artist_event` ;
 
-CREATE TABLE IF NOT EXISTS `artist_has_event` (
+CREATE TABLE IF NOT EXISTS `artist_event` (
   `artist_id` INT(11) NOT NULL,
   `event_id` INT(11) NOT NULL,
   PRIMARY KEY (`artist_id`, `event_id`),
@@ -300,3 +300,83 @@ GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'goatuser'@'localhos
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `amenity`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `goatdb`;
+INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (1, 'baby changing stations ', 'baby changing stations somewhere in the restrooms');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `artist`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `goatdb`;
+INSERT INTO `artist` (`id`, `artist_type`, `artist_name`) VALUES (1, 'high pitch singer', 'Cristina Mile High Pitch');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `address`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `goatdb`;
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`, `phone`) VALUES (1, '123 Sesame St.', 'Denver', 'CO', '80014', '303-555-1267');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `user`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `goatdb`;
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (1, 'dFresh', '123456', 1, 'Vendor', 1, 'Douglas', 'Sigmon', NULL, 'dfresh@SD.com');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `venue`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `goatdb`;
+INSERT INTO `venue` (`id`, `name`, `address_id`, `capacity`, `description`, `logo`, `manager_id`, `created_at`, `last_update`) VALUES (1, 'Doug\'s Mega Venue', 1, 50000, 'Mega venue that can be used to hold huge events or sectioned off to hold many different small events', NULL, 1, NULL, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `event`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `goatdb`;
+INSERT INTO `event` (`id`, `description`, `start_time`, `end_time`, `max_capacity`, `number_of_tickets`, `venue_id`, `title`, `image`, `event_date`, `created_at`, `last_update`) VALUES (1, 'various beer and bacon vendors', '20:00:00', '22:00:00', '3000', 3000, 1, 'Beer and Bacon Fest', NULL, NULL, NULL, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `event_type`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `goatdb`;
+INSERT INTO `event_type` (`id`, `category`) VALUES (1, 'comedy');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `comment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `goatdb`;
+INSERT INTO `comment` (`id`, `event_id`, `user_id`, `comment_date`, `content`, `rating`) VALUES (1, 1, 1, NULL, 'Dude the beer and bacon were of GOD!!', 5);
+
+COMMIT;
+
