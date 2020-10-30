@@ -94,4 +94,13 @@ class VenueTest {
 		assertEquals(1, venue.getEvents().size());
 		assertEquals("various beer and bacon vendors", venue.getEvents().get(0).getDescription());
 	}
+
+	@Test
+	@DisplayName("test venue mapping to venueAmenity")
+	void test6() {
+		assertNotNull(venue);
+		assertNotNull(venue.getVenueAmenities());
+		assertTrue(venue.getVenueAmenities().size() > 0);
+		assertEquals("8 bathrooms", venue.getVenueAmenities().get(0).getDescription());
+	}
 }

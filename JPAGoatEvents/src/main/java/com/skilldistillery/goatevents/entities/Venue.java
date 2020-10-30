@@ -15,6 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 @Entity
 public class Venue {
 	// FIELDS ============================================
@@ -26,8 +29,10 @@ public class Venue {
 	private int capacity;
 	private String logo;
 	@Column(name = "created_at")
+	@CreationTimestamp
 	private LocalDateTime createdAt;
 	@Column(name = "last_update")
+	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
 	@OneToOne
 	@JoinColumn(name = "address_id")
@@ -40,6 +45,8 @@ public class Venue {
 	private User user;
 	@OneToMany(mappedBy = "venue")
 	private List<Event> events;
+	@OneToMany(mappedBy = "venue")
+	private List<VenueAmenity> venueAmenities;
 
 	public User getUser() {
 		return user;
@@ -135,6 +142,14 @@ public class Venue {
 		this.events = events;
 	}
 
+	public List<VenueAmenity> getVenueAmenities() {
+		return venueAmenities;
+	}
+
+	public void setVenueAmenities(List<VenueAmenity> venueAmenities) {
+		this.venueAmenities = venueAmenities;
+	}
+
 	// Hashcode AND Equals =============================
 	@Override
 	public int hashCode() {
@@ -158,14 +173,14 @@ public class Venue {
 		return true;
 	}
 
-	// ToString =============================
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Venue [id=").append(id).append(", name=").append(name).append(", description=")
-				.append(description).append(", capacity=").append(capacity).append(", logo=").append(logo)
-				.append(", user=").append(", createdAt=").append(createdAt).append(", lastUpdate=").append(lastUpdate)
-				.append("]");
+		builder.append("Venue [name=").append(name).append(", description=").append(description).append(", capacity=")
+				.append(capacity).append(", logo=").append(logo).append(", createdAt=").append(createdAt)
+				.append(", lastUpdate=").append(lastUpdate).append(", address=").append(address).append(", users=")
+				.append(users).append(", user=").append(user).append(", events=").append(events)
+				.append(", venueAmenities=").append(venueAmenities).append("]");
 		return builder.toString();
 	}
 }

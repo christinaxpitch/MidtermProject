@@ -14,47 +14,57 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class AmentityTest {
+class VenueAmenityTest {
+
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Amenity amenity;
+	private VenueAmenity venueAmenity;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("GoatEvents");
+
 	}
 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
 		emf.close();
+
 	}
 
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		amenity = em.find(Amenity.class, 1);
+		VenueAmenityId pid = new VenueAmenityId(1, 1);
+		venueAmenity = em.find(VenueAmenity.class, pid);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		amenity = null;
-	}
-
-	@Test
-	@DisplayName("test amenity entity mapping")
-	void test() {
-		assertNotNull(amenity);
-		assertEquals("baby changing stations", amenity.getName());
+		venueAmenity = null;
 
 	}
 
 	@Test
-	@DisplayName("test amenity entity mapping")
+	@DisplayName("Test venue amenity to DB")
 	void test1() {
-		assertNotNull(amenity);
-		assertEquals("8 bathrooms", amenity.getVenueAmenities().get(0).getDescription());
+		assertNotNull(venueAmenity);
+		assertEquals("8 bathrooms", venueAmenity.getDescription());
+	}
 
+	@Test
+	@DisplayName("Test venue amenity to amenity")
+	void test2() {
+		assertNotNull(venueAmenity);
+		assertEquals("baby changing stations", venueAmenity.getAmenity().getName());
+	}
+
+	@Test
+	@DisplayName("Test venue amenity to venue")
+	void test3() {
+		assertNotNull(venueAmenity);
+		assertEquals("Doug's Mega Venue", venueAmenity.getVenue().getName());
 	}
 
 }

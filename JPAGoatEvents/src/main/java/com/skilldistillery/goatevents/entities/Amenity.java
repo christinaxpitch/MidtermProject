@@ -1,9 +1,12 @@
 package com.skilldistillery.goatevents.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Amenity {
@@ -15,6 +18,10 @@ public class Amenity {
 	private String name;
 	
 	private String description;
+	
+	@OneToMany(mappedBy = "amenity")
+	private List<VenueAmenity> venueAmenities;
+
 
 	public int getId() {
 		return id;
@@ -33,6 +40,14 @@ public class Amenity {
 	}
 
 	
+
+	public List<VenueAmenity> getVenueAmenities() {
+		return venueAmenities;
+	}
+
+	public void setVenueAmenities(List<VenueAmenity> venueAmenities) {
+		this.venueAmenities = venueAmenities;
+	}
 
 	@Override
 	public int hashCode() {
