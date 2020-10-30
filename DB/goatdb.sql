@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `description` TEXT NULL DEFAULT NULL,
   `start_time` TIME NOT NULL,
   `end_time` TIME NULL DEFAULT NULL,
-  `max_capacity` VARCHAR(45) NULL DEFAULT NULL,
+  `max_capacity` INT NULL DEFAULT NULL,
   `number_of_tickets` INT(11) NULL DEFAULT NULL,
   `venue_id` INT(11) NOT NULL,
   `title` VARCHAR(300) NULL,
@@ -356,7 +356,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `goatdb`;
-INSERT INTO `event` (`id`, `description`, `start_time`, `end_time`, `max_capacity`, `number_of_tickets`, `venue_id`, `title`, `image`, `event_date`, `created_at`, `last_update`) VALUES (1, 'various beer and bacon vendors', '20:00:00', '22:00:00', '3000', 3000, 1, 'Beer and Bacon Fest', NULL, NULL, NULL, NULL);
+INSERT INTO `event` (`id`, `description`, `start_time`, `end_time`, `max_capacity`, `number_of_tickets`, `venue_id`, `title`, `image`, `event_date`, `created_at`, `last_update`) VALUES (1, 'various beer and bacon vendors', '20:00:00', '22:00:00', 3000, 3000, 1, 'Beer and Bacon Fest', NULL, NULL, NULL, NULL);
 
 COMMIT;
 
