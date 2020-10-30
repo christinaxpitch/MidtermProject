@@ -1,5 +1,6 @@
 package com.skilldistillery.goatevents.entities;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,6 +13,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 @Entity
 public class User {
 	@Id
@@ -19,17 +23,32 @@ public class User {
 	private int id;
 
 	private String username;
+
 	private String password;
+
 	private int enabled;
+
 	private String role;
-//	private Address address;
+
 	@Column(name = "first_name")
 	private String firstName;
+
 	@Column(name = "last_name")
 	private String lastName;
+
 	@Column(name = "profile_pic")
 	private String image;
+
 	private String email;
+
+	@Column(name = "created_at")
+	@CreationTimestamp
+	private LocalDateTime createdAt;
+
+	@Column(name = "last_update")
+	@UpdateTimestamp
+	private LocalDateTime lastUpdate;
+
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
@@ -173,11 +192,52 @@ public class User {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("User [id=").append(id).append(", username=").append(username).append(", password=")
-				.append(password).append(", enabled=").append(enabled).append(", role=").append(role)
-				.append(", firstName=").append(firstName).append(", lastName=").append(lastName).append(", image=")
-				.append(image).append(", email=").append(email).append("]");
+		builder.append("User [username=");
+		builder.append(username);
+		builder.append(", password=");
+		builder.append(password);
+		builder.append(", enabled=");
+		builder.append(enabled);
+		builder.append(", role=");
+		builder.append(role);
+		builder.append(", firstName=");
+		builder.append(firstName);
+		builder.append(", lastName=");
+		builder.append(lastName);
+		builder.append(", image=");
+		builder.append(image);
+		builder.append(", email=");
+		builder.append(email);
+		builder.append(", createdAt=");
+		builder.append(createdAt);
+		builder.append(", lastUpdate=");
+		builder.append(lastUpdate);
+		builder.append(", address=");
+		builder.append(address);
+		builder.append(", venues=");
+		builder.append(venues);
+		builder.append(", managerVenues=");
+		builder.append(managerVenues);
+		builder.append(", userComments=");
+		builder.append(userComments);
+		builder.append("]");
 		return builder.toString();
+	}
+
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public LocalDateTime getLastUpdate() {
+		return lastUpdate;
+	}
+
+	public void setLastUpdate(LocalDateTime lastUpdate) {
+		this.lastUpdate = lastUpdate;
 	}
 
 }

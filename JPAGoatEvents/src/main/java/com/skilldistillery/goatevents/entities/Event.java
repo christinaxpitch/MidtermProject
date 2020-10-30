@@ -14,6 +14,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 @Entity
 public class Event {
 	@Id
@@ -42,21 +45,24 @@ public class Event {
 	private LocalDateTime eventDate;
 
 	@Column(name = "created_at")
+	@CreationTimestamp
 	private LocalDateTime createdAt;
 
 	@Column(name = "last_update")
+	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
+
 	@ManyToOne
 	@JoinColumn(name = "venue_id")
 	private Venue venue;
-	
-	@OneToMany (mappedBy = "event")
+
+	@OneToMany(mappedBy = "event")
 	private List<Comment> comments;
-	
+
 	@ManyToMany
 	@JoinTable(name = "artist_event", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "artist_id"))
 	private List<Artist> artists;
-	
+
 	@ManyToMany
 	@JoinTable(name = "event_type_has_event", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "event_type_id"))
 	private List<EventType> eventTypes;
@@ -121,7 +127,6 @@ public class Event {
 		this.title = title;
 	}
 
-	
 	public List<EventType> getEventTypes() {
 		return eventTypes;
 	}
@@ -161,7 +166,6 @@ public class Event {
 	public void setLastUpdate(LocalDateTime lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
-
 
 	public List<Artist> getArtists() {
 		return artists;

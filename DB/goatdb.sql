@@ -75,6 +75,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `last_name` VARCHAR(45) NULL,
   `profile_pic` VARCHAR(5000) NULL,
   `email` VARCHAR(150) NULL,
+  `created_at` DATETIME NULL,
+  `last_update` DATETIME NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
   INDEX `fk_user_address1_idx` (`address_id` ASC),
@@ -336,7 +338,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `goatdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (1, 'dFresh', '123456', 1, 'Vendor', 1, 'Douglas', 'Sigmon', NULL, 'dfresh@SD.com');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`, `created_at`, `last_update`) VALUES (1, 'dFresh', '123456', 1, 'Vendor', 1, 'Douglas', 'Sigmon', NULL, 'dfresh@SD.com', NULL, NULL);
 
 COMMIT;
 
