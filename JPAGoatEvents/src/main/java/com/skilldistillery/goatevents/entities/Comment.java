@@ -1,6 +1,7 @@
 package com.skilldistillery.goatevents.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Comment {
@@ -16,9 +19,6 @@ public class Comment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
-	@Column(name = "event_id")
-	private int eventId;
 
 	@Column(name = "comment_date")
 	private LocalDateTime commentDate;
@@ -30,6 +30,9 @@ public class Comment {
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
+	
+	@ManyToOne 
+	private Event event;
 
 	public Comment() {
 		super();
@@ -41,14 +44,6 @@ public class Comment {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getEventId() {
-		return eventId;
-	}
-
-	public void setEventId(int eventId) {
-		this.eventId = eventId;
 	}
 
 	public LocalDateTime getCommentDate() {
@@ -83,12 +78,23 @@ public class Comment {
 		this.user = user;
 	}
 
+	
+
+
+	public Event getEvent() {
+		return event;
+	}
+
+	public void setEvent(Event event) {
+		this.event = event;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Comment [id=").append(id).append(", eventId=").append(eventId).append(", commentDate=")
-				.append(commentDate).append(", content=").append(content).append(", rating=").append(rating)
-				.append(", user=").append(user).append("]");
+		builder.append("Comment [id=").append(id).append(", commentDate=").append(commentDate).append(", content=")
+				.append(content).append(", rating=").append(rating).append(", user=").append(user).append(", event=")
+				.append(event).append("]");
 		return builder.toString();
 	}
 

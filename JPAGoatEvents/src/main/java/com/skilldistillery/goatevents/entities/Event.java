@@ -1,6 +1,7 @@
 package com.skilldistillery.goatevents.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Event {
@@ -45,6 +49,17 @@ public class Event {
 	@ManyToOne
 	@JoinColumn(name = "venue_id")
 	private Venue venue;
+	
+	@OneToMany (mappedBy = "event")
+	private List<Comment> comments;
+	
+	@ManyToMany
+	@JoinTable(name = "artist_event", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "artist_id"))
+	private List<Artist> artists;
+	
+	@ManyToMany
+	@JoinTable(name = "event_type_has_event", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "event_type_id"))
+	private List<EventType> eventTypes;
 
 	public Event() {
 		super();
@@ -106,6 +121,15 @@ public class Event {
 		this.title = title;
 	}
 
+	
+	public List<EventType> getEventTypes() {
+		return eventTypes;
+	}
+
+	public void setEventTypes(List<EventType> eventTypes) {
+		this.eventTypes = eventTypes;
+	}
+
 	public String getImage() {
 		return image;
 	}
@@ -138,13 +162,22 @@ public class Event {
 		this.lastUpdate = lastUpdate;
 	}
 
-//	public Venue getVenue() {
-//		return venue;
-//	}
-//
-//	public void setVenue(Venue venue) {
-//		this.venue = venue;
-//	}
+
+	public List<Artist> getArtists() {
+		return artists;
+	}
+
+	public void setArtists(List<Artist> artists) {
+		this.artists = artists;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
 
 	public Venue getVenue() {
 		return venue;

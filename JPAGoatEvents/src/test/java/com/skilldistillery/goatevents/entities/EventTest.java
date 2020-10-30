@@ -2,6 +2,7 @@ package com.skilldistillery.goatevents.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -59,4 +60,39 @@ class EventTest {
 				event.getVenue().getDescription());
 		assertEquals(50000, event.getVenue().getCapacity());
 	}
+	
+	@Test
+	@DisplayName("This is to test the event to comment mapping")
+	void test3() {
+		assertNotNull(event);
+		assertNotNull(event.getComments());
+		assertTrue(event.getComments().size() > 0);
+		assertEquals(1, event.getComments().size());
+		assertEquals("Dude the beer and bacon were of GOD!!", event.getComments().get(0).getContent());
+		
+	}
+	
+	@Test
+	@DisplayName("This is to test the artist to event mapping")
+	void test4() {
+		assertNotNull(event);
+		assertNotNull(event.getArtists());
+		assertTrue(event.getArtists().size() > 0);
+		assertEquals(1, event.getArtists().size());
+		assertEquals("Cristina Mile High Pitch", event.getArtists().get(0).getArtistName());
+		
+	}
+	
+	@Test
+	@DisplayName("This is to test the event to event type mapping")
+	void test5() {
+		assertNotNull(event);
+		assertNotNull(event.getEventTypes());
+		assertTrue(event.getEventTypes().size() > 0);
+		assertEquals("comedy", event.getEventTypes().get(0).getCategory());
+
+		
+	}
+	
+	
 }

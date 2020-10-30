@@ -1,9 +1,12 @@
 package com.skilldistillery.goatevents.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +18,9 @@ public class EventType {
 	private int id;
 	
 	private String category;
+	
+	@ManyToMany (mappedBy = "eventTypes")
+	private List <Event> events;
 
 	public EventType() {
 		super();
@@ -32,6 +38,23 @@ public class EventType {
 
 	public String getCategory() {
 		return category;
+	}
+
+	
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	@Override
@@ -63,6 +86,7 @@ public class EventType {
 		return true;
 	}
 
+	
 	
 	
 }

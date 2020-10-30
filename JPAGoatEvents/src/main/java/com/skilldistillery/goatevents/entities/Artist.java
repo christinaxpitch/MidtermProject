@@ -1,10 +1,13 @@
 package com.skilldistillery.goatevents.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Artist {
@@ -17,6 +20,9 @@ private String artistType;
 
 @Column(name="artist_name")
 private String artistName;
+
+@ManyToMany (mappedBy = "artists")
+private List<Event> events;
 
 @Override
 public int hashCode() {
@@ -38,6 +44,15 @@ public boolean equals(Object obj) {
 	if (id != other.id)
 		return false;
 	return true;
+}
+
+
+public List<Event> getEvents() {
+	return events;
+}
+
+public void setEvents(List<Event> events) {
+	this.events = events;
 }
 
 public int getId() {

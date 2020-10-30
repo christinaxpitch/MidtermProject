@@ -2,6 +2,7 @@ package com.skilldistillery.goatevents.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -49,5 +50,15 @@ class ArtistTest {
 		assertEquals("high pitch singer", artist.getArtistType());
 		assertEquals("Cristina Mile High Pitch", artist.getArtistName());
 		
+	}
+	
+	@Test
+	@DisplayName("test artist mapping to events")
+	void test2() {
+		assertNotNull(artist);
+		assertNotNull(artist.getEvents());
+		assertTrue(artist.getEvents().size() > 0);
+		assertEquals("Beer and Bacon Fest", artist.getEvents().get(0).getTitle());
+
 	}
 }

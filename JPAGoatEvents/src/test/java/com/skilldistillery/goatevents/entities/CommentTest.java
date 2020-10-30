@@ -56,5 +56,13 @@ class CommentTest {
 		assertEquals("Vendor", comment.getUser().getRole());
 		assertEquals("Sigmon", comment.getUser().getLastName());
 	}
+	
+	@Test
+	@DisplayName("This is to test the comment to event mapping")
+	void test3() {
+		assertNotNull(comment);
+		assertNotNull(comment.getEvent());
+		assertEquals("Beer and Bacon Fest", comment.getEvent().getTitle());
+	}
 
 }

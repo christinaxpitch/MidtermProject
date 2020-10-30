@@ -49,6 +49,14 @@ class EventTypeTest {
 		
 	}
 	
-	
+	@Test
+	@DisplayName("This is to test the event type to event mapping")
+	void test6() {
+		assertNotNull(et);
+		assertNotNull(et.getEvents());
+		assertTrue(et.getEvents().size() > 0);
+		assertEquals("Beer and Bacon Fest", et.getEvents().get(0).getTitle());
+
+	}
 
 }
