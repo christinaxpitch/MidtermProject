@@ -214,12 +214,12 @@ public class User {
 		builder.append(lastUpdate);
 		builder.append(", address=");
 		builder.append(address);
-		builder.append(", venues=");
-		builder.append(venues);
-		builder.append(", managerVenues=");
-		builder.append(managerVenues);
-		builder.append(", userComments=");
-		builder.append(userComments);
+//		builder.append(", venues=");
+//		builder.append(venues);
+//		builder.append(", managerVenues=");
+//		builder.append(managerVenues);
+//		builder.append(", userComments=");
+//		builder.append(userComments);
 		builder.append("]");
 		return builder.toString();
 	}

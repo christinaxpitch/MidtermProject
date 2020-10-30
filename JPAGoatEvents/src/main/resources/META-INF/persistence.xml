@@ -16,8 +16,8 @@
 		<class>com.skilldistillery.goatevents.entities.EventType</class>
 		<class>com.skilldistillery.goatevents.entities.User</class>
 		<class>com.skilldistillery.goatevents.entities.Venue</class>
-<!-- 		<class>com.skilldistillery.goatevents.entities.VenueAmenity</class>
- -->
+		<class>com.skilldistillery.goatevents.entities.VenueAmenity</class>
+
 
 		<properties>
 			<property name="javax.persistence.jdbc.url"
