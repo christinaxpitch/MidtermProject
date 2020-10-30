@@ -5,13 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.skilldistillery.goatevents.data.TestDAO;
+import com.skilldistillery.goatevents.data.GoatDAO;
 
 @Controller
-public class TestController {
+public class GoatController {
 
 	@Autowired
-	private TestDAO dao;
+	private GoatDAO dao;
 	
 	
 	@RequestMapping (path = "test.do")

@@ -11,7 +11,7 @@ import com.skilldistillery.goatevents.entities.User;
 
 @Service
 @Transactional
-public class TestDAOJPAImpl implements TestDAO {
+public class GoatDAOJPAImpl implements GoatDAO {
 
 	@PersistenceContext
 	private EntityManager em;
