@@ -1,30 +1,44 @@
 package com.skilldistillery.goatevents.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String username;
 	private String password;
 	private int enabled;
 	private String role;
 //	private Address address;
-	@Column(name="first_name")
+	@Column(name = "first_name")
 	private String firstName;
-	@Column(name="last_name")
+	@Column(name = "last_name")
 	private String lastName;
-	@Column(name="profile_pic")
+	@Column(name = "profile_pic")
 	private String image;
 	private String email;
-	
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+	@ManyToMany(mappedBy = "users")
+	private List<Venue> venues;
+	@OneToMany(mappedBy = "user")
+	private List<Venue> managerVenues;
+	@OneToMany(mappedBy = "user")
+	private List<Comment> userComments;
 
 	public String getPassword() {
 		return password;
@@ -49,14 +63,6 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-
-//	public Address getAddress() {
-//		return address;
-//	}
-//
-//	public void setAddress(Address address) {
-//		this.address = address;
-//	}
 
 	public String getFirstName() {
 		return firstName;
@@ -105,7 +111,38 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public List<Venue> getManagerVenues() {
+		return managerVenues;
+	}
+
+	public void setManagerVenues(List<Venue> managerVenues) {
+		this.managerVenues = managerVenues;
+	}
+
+	public List<Venue> getVenues() {
+		return venues;
+	}
+
+	public void setVenues(List<Venue> venues) {
+		this.venues = venues;
+	}
+
+	public List<Comment> getUserComments() {
+		return userComments;
+	}
+
+	public void setUserComments(List<Comment> userComments) {
+		this.userComments = userComments;
+	}
 
 	public User() {
 		super();

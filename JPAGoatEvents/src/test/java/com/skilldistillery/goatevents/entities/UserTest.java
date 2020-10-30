@@ -2,6 +2,7 @@ package com.skilldistillery.goatevents.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,10 +19,10 @@ class UserTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private User user;
-	
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		 emf = Persistence.createEntityManagerFactory("GoatEvents");
+		emf = Persistence.createEntityManagerFactory("GoatEvents");
 	}
 
 	@AfterAll
@@ -48,7 +49,36 @@ class UserTest {
 		assertEquals("dFresh", user.getUsername());
 		assertEquals("Vendor", user.getRole());
 		assertEquals("Sigmon", user.getLastName());
-		
+
+	}
+
+	@Test
+	@DisplayName("test user mapping to address")
+	void test2() {
+		assertNotNull(user);
+		assertEquals("123 Sesame St.", user.getAddress().getStreet());
+		assertEquals("Denver", user.getAddress().getCity());
+		assertEquals("80014", user.getAddress().getZip());
+
+	}
+
+	@Test
+	@DisplayName("test manager user mapping to venue")
+	void test3() {
+		assertNotNull(user);
+		assertNotNull(user.getVenues());
+		assertTrue(user.getVenues().size() > 0);
+		assertEquals(1, user.getVenues().size());
+	}
+
+	@Test
+	@DisplayName("test user mapping to comment")
+	void test4() {
+		assertNotNull(user);
+		assertNotNull(user.getUserComments());
+		assertTrue(user.getUserComments().size() > 0);
+		assertEquals(1, user.getUserComments().size());
+		assertEquals("Dude the beer and bacon were of GOD!!", user.getUserComments().get(0).getContent());
 	}
 
 }

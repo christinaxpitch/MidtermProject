@@ -1,12 +1,19 @@
 package com.skilldistillery.goatevents.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Venue {
@@ -16,14 +23,31 @@ public class Venue {
 	private int id;
 	private String name;
 	private String description;
-//	private Address address;
 	private int capacity;
 	private String logo;
-//	private User user;
 	@Column(name = "created_at")
 	private LocalDateTime createdAt;
 	@Column(name = "last_update")
 	private LocalDateTime lastUpdate;
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+	@ManyToMany
+	@JoinTable(name = "user_venue", joinColumns = @JoinColumn(name = "venue_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	private List<User> users;
+	@ManyToOne
+	@JoinColumn(name = "manager_id")
+	private User user;
+	@OneToMany(mappedBy = "venue")
+	private List<Event> events;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	// CONSTRUCTORS ======================================
 	public Venue() {
@@ -55,13 +79,13 @@ public class Venue {
 		this.description = description;
 	}
 
-//	public Address getAddress() {
-//		return address;
-//	}
-//
-//	public void setAddress(Address address) {
-//		this.address = address;
-//	}
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public int getCapacity() {
 		return capacity;
@@ -79,14 +103,6 @@ public class Venue {
 		this.logo = logo;
 	}
 
-//	public User getUser() {
-//		return user;
-//	}
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
-
 	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
@@ -101,6 +117,22 @@ public class Venue {
 
 	public void setLastUpdate(LocalDateTime lastUpdate) {
 		this.lastUpdate = lastUpdate;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
 	}
 
 	// Hashcode AND Equals =============================

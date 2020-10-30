@@ -7,41 +7,44 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Event {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String description;
-	
+
 	@Column(name = "start_time")
 	private LocalDateTime startTime;
-	
+
 	@Column(name = "end_time")
 	private LocalDateTime endTime;
-	
-	@Column(name ="max_capacity")
-	private  int maxCapacity;
-	
+
+	@Column(name = "max_capacity")
+	private int maxCapacity;
+
 	@Column(name = "number_of_tickets")
 	private int numOfTickets;
-	
+
 	private String title;
-	
+
 	private String image;
-	
+
 	@Column(name = "event_date")
 	private LocalDateTime eventDate;
-	
+
 	@Column(name = "created_at")
 	private LocalDateTime createdAt;
-	
+
 	@Column(name = "last_update")
 	private LocalDateTime lastUpdate;
-	
-//	private Venue venue;
+	@ManyToOne
+	@JoinColumn(name = "venue_id")
+	private Venue venue;
 
 	public Event() {
 		super();
@@ -95,7 +98,6 @@ public class Event {
 		this.numOfTickets = numOfTickets;
 	}
 
-
 	public String getTitle() {
 		return title;
 	}
@@ -143,6 +145,14 @@ public class Event {
 //	public void setVenue(Venue venue) {
 //		this.venue = venue;
 //	}
+
+	public Venue getVenue() {
+		return venue;
+	}
+
+	public void setVenue(Venue venue) {
+		this.venue = venue;
+	}
 
 	@Override
 	public int hashCode() {
@@ -194,13 +204,5 @@ public class Event {
 		builder.append("]");
 		return builder.toString();
 	}
-
-
-
-	
-	
-	
-	
-	
 
 }

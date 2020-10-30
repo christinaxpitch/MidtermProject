@@ -7,31 +7,34 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Comment {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(name = "event_id")
 	private int eventId;
-	
-	@Column(name = "user_id")
-	private int userId;
-	
+
 	@Column(name = "comment_date")
 	private LocalDateTime commentDate;
-	
+
 	private String content;
-	
+
 	private int rating;
+
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	public Comment() {
 		super();
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -46,14 +49,6 @@ public class Comment {
 
 	public void setEventId(int eventId) {
 		this.eventId = eventId;
-	}
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 
 	public LocalDateTime getCommentDate() {
@@ -80,14 +75,21 @@ public class Comment {
 		this.rating = rating;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Comment [id=").append(id).append(", eventId=").append(eventId).append(", userId=")
-				.append(userId).append(", commentDate=").append(commentDate).append(", text=").append(content)
-				.append(", rating=").append(rating).append("]");
+		builder.append("Comment [id=").append(id).append(", eventId=").append(eventId).append(", commentDate=")
+				.append(commentDate).append(", content=").append(content).append(", rating=").append(rating)
+				.append(", user=").append(user).append("]");
 		return builder.toString();
 	}
 
-	
 }

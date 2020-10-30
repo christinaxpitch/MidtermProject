@@ -18,10 +18,10 @@ class CommentTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private Comment comment;
-	
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		 emf = Persistence.createEntityManagerFactory("GoatEvents");
+		emf = Persistence.createEntityManagerFactory("GoatEvents");
 	}
 
 	@AfterAll
@@ -44,10 +44,17 @@ class CommentTest {
 	@Test
 	@DisplayName("This is to test the comment entities content field")
 	void test() {
-	assertNotNull(comment);
-	assertEquals("Dude the beer and bacon were of GOD!!", comment.getContent());
-	
-}
-	
+		assertNotNull(comment);
+		assertEquals("Dude the beer and bacon were of GOD!!", comment.getContent());
+	}
+
+	@Test
+	@DisplayName("This is to test the comment to user mapping")
+	void test2() {
+		assertNotNull(comment);
+		assertEquals("dFresh", comment.getUser().getUsername());
+		assertEquals("Vendor", comment.getUser().getRole());
+		assertEquals("Sigmon", comment.getUser().getLastName());
+	}
 
 }

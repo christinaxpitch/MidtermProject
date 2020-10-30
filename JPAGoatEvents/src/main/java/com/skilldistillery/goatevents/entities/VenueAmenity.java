@@ -1,13 +1,16 @@
 //package com.skilldistillery.goatevents.entities;
 //
 //import javax.persistence.Entity;
+//import javax.persistence.IdClass;
 //import javax.persistence.Table;
 //
 //@Entity
 //@Table(name = "venue_amenity")
+//@IdClass(VenueAmenity.class)
 //public class VenueAmenity {
 //
 //	// FIELDS ============================================
+//	
 //	private Amenity amenity;
 //	private Venue venue;
 //

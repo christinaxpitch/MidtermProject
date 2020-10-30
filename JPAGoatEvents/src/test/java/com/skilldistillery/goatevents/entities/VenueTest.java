@@ -17,7 +17,6 @@ import org.junit.jupiter.api.Test;
 
 class VenueTest {
 
-
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private Venue venue;
@@ -49,14 +48,50 @@ class VenueTest {
 	}
 
 	@Test
-	@DisplayName("testing customer entity")
+	@DisplayName("testing venue entity")
 	void test1() {
 		assertNotNull(venue);
 		assertEquals("Doug's Mega Venue", venue.getName());
-		assertEquals("Mega venue that can be used to hold huge events or sectioned off to hold many different small events",
+		assertEquals(
+				"Mega venue that can be used to hold huge events or sectioned off to hold many different small events",
 				venue.getDescription());
 		assertEquals(50000, venue.getCapacity());
-
 	}
 
+	@Test
+	@DisplayName("test venue mapping to address")
+	void test2() {
+		assertNotNull(venue);
+		assertEquals("123 Sesame St.", venue.getAddress().getStreet());
+		assertEquals("Denver", venue.getAddress().getCity());
+		assertEquals("80014", venue.getAddress().getZip());
+	}
+
+	@Test
+	@DisplayName("testing venue to user mappings ManyToMany")
+	void test3() {
+		assertNotNull(venue);
+		assertNotNull(venue.getUsers());
+		assertTrue(venue.getUsers().size() > 0);
+		assertEquals(1, venue.getUsers().size());
+	}
+
+	@Test
+	@DisplayName("test venue mapping to user manyToOne")
+	void test4() {
+		assertNotNull(venue);
+		assertEquals("dFresh", venue.getUser().getUsername());
+		assertEquals("Vendor", venue.getUser().getRole());
+		assertEquals("Sigmon", venue.getUser().getLastName());
+	}
+
+	@Test
+	@DisplayName("test venue mapping to event")
+	void test5() {
+		assertNotNull(venue);
+		assertNotNull(venue.getEvents());
+		assertTrue(venue.getEvents().size() > 0);
+		assertEquals(1, venue.getEvents().size());
+		assertEquals("various beer and bacon vendors", venue.getEvents().get(0).getDescription());
+	}
 }

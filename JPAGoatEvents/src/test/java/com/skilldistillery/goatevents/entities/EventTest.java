@@ -18,10 +18,10 @@ class EventTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private Event event;
-	
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		 emf = Persistence.createEntityManagerFactory("GoatEvents");
+		emf = Persistence.createEntityManagerFactory("GoatEvents");
 	}
 
 	@AfterAll
@@ -46,7 +46,17 @@ class EventTest {
 	void test() {
 		assertNotNull(event);
 		assertEquals("Beer and Bacon Fest", event.getTitle());
-		
+
 	}
 
+	@Test
+	@DisplayName("test Event to venue mapping")
+	void test2() {
+		assertNotNull(event);
+		assertEquals("Doug's Mega Venue", event.getVenue().getName());
+		assertEquals(
+				"Mega venue that can be used to hold huge events or sectioned off to hold many different small events",
+				event.getVenue().getDescription());
+		assertEquals(50000, event.getVenue().getCapacity());
+	}
 }
