@@ -68,7 +68,7 @@ class UserTest {
 		assertNotNull(user);
 		assertNotNull(user.getVenues());
 		assertTrue(user.getVenues().size() > 0);
-		assertEquals(1, user.getVenues().size());
+		assertEquals(50000, user.getVenues().get(0).getCapacity());
 	}
 
 	@Test
@@ -77,7 +77,6 @@ class UserTest {
 		assertNotNull(user);
 		assertNotNull(user.getUserComments());
 		assertTrue(user.getUserComments().size() > 0);
-		assertEquals(1, user.getUserComments().size());
 		assertEquals("Dude the beer and bacon were of GOD!!", user.getUserComments().get(0).getContent());
 	}
 

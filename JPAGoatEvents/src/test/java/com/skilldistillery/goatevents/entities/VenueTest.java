@@ -73,7 +73,7 @@ class VenueTest {
 		assertNotNull(venue);
 		assertNotNull(venue.getUsers());
 		assertTrue(venue.getUsers().size() > 0);
-		assertEquals(1, venue.getUsers().size());
+		assertEquals("Sigmon", venue.getUsers().get(0).getLastName());
 	}
 
 	@Test
@@ -91,7 +91,6 @@ class VenueTest {
 		assertNotNull(venue);
 		assertNotNull(venue.getEvents());
 		assertTrue(venue.getEvents().size() > 0);
-		assertEquals(1, venue.getEvents().size());
 		assertEquals("various beer and bacon vendors", venue.getEvents().get(0).getDescription());
 	}
 

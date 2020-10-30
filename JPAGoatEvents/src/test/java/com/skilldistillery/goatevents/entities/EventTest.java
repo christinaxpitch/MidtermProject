@@ -67,7 +67,6 @@ class EventTest {
 		assertNotNull(event);
 		assertNotNull(event.getComments());
 		assertTrue(event.getComments().size() > 0);
-		assertEquals(1, event.getComments().size());
 		assertEquals("Dude the beer and bacon were of GOD!!", event.getComments().get(0).getContent());
 		
 	}
@@ -78,7 +77,6 @@ class EventTest {
 		assertNotNull(event);
 		assertNotNull(event.getArtists());
 		assertTrue(event.getArtists().size() > 0);
-		assertEquals(1, event.getArtists().size());
 		assertEquals("Cristina Mile High Pitch", event.getArtists().get(0).getArtistName());
 		
 	}
