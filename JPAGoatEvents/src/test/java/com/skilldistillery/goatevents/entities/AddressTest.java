@@ -43,7 +43,7 @@ class AddressTest {
 	}
 
 	@Test
-	@DisplayName("test user entity mapping")
+	@DisplayName("test address entity mapping")
 	void test() {
 		assertNotNull(address);
 		assertEquals("123 Sesame St.", address.getStreet());
