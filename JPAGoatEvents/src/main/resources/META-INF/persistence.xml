@@ -8,8 +8,16 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider
     </provider>
 
+		<class>com.skilldistillery.goatevents.entities.Address</class>
+		<class>com.skilldistillery.goatevents.entities.Amenity</class>
+		<class>com.skilldistillery.goatevents.entities.Artist</class>
+		<class>com.skilldistillery.goatevents.entities.Comment</class>
+		<class>com.skilldistillery.goatevents.entities.Event</class>
+		<class>com.skilldistillery.goatevents.entities.EventType</class>
 		<class>com.skilldistillery.goatevents.entities.User</class>
-
+		<class>com.skilldistillery.goatevents.entities.Venue</class>
+<!-- 		<class>com.skilldistillery.goatevents.entities.VenueAmenity</class>
+ -->
 
 		<properties>
 			<property name="javax.persistence.jdbc.url"
