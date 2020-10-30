@@ -306,7 +306,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `goatdb`;
-INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (1, 'baby changing stations ', 'baby changing stations somewhere in the restrooms');
+INSERT INTO `amenity` (`id`, `name`, `description`) VALUES (1, 'baby changing stations', 'baby changing stations somewhere in the restrooms');
 
 COMMIT;
 
