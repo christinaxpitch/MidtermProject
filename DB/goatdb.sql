@@ -372,11 +372,51 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `user_venue`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `goatdb`;
+INSERT INTO `user_venue` (`user_id`, `venue_id`) VALUES (1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `event_type_has_event`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `goatdb`;
+INSERT INTO `event_type_has_event` (`event_type_id`, `event_id`) VALUES (1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `venue_amenity`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `goatdb`;
+INSERT INTO `venue_amenity` (`amenity_id`, `venue_id`, `description`) VALUES (1, 1, '8 bathrooms');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `comment`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `goatdb`;
 INSERT INTO `comment` (`id`, `event_id`, `user_id`, `comment_date`, `content`, `rating`) VALUES (1, 1, 1, NULL, 'Dude the beer and bacon were of GOD!!', 5);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `artist_event`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `goatdb`;
+INSERT INTO `artist_event` (`artist_id`, `event_id`) VALUES (1, 1);
 
 COMMIT;
 
