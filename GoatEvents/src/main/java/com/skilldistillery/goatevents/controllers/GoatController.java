@@ -14,7 +14,7 @@ public class GoatController {
 	private GoatDAO dao;
 	
 	
-	@RequestMapping (path = "test.do")
+	@RequestMapping (path = {"/", "test.do"})
 	public String home(Model model) {
 		model.addAttribute("user", dao.getTestUser());
 		return "test";

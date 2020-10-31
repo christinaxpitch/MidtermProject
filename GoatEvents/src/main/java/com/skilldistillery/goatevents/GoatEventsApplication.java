@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
-@EntityScan("com.skilldistillery.jpagoatevents")
+@EntityScan("com.skilldistillery.goatevents")
 public class GoatEventsApplication {
 
 	public static void main(String[] args) {
