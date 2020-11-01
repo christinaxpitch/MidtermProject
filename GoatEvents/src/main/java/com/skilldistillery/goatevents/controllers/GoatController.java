@@ -19,7 +19,7 @@ public class GoatController {
 		model.addAttribute("user", dao.getTestUser());
 		return "Home";
 	}
-	@RequestMapping (path = {"/", "signUp.do"})
+	@RequestMapping (path = "signUp.do")
 	public String signUp(Model model) {
 		model.addAttribute("user", dao.getTestUser());
 		return "SignUp";
