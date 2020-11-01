@@ -13,27 +13,36 @@
 </head>
 <body>
 
-
+	<ul id="menu">
+		<li><a href="home.do"><img
+				src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
+		<li id="signup"></li>
+	</ul>
+	<br>
 	<form action="signUp.do" method="POST">
 		<a> First Name: <input type="text" name="episodes" /><br>
 			Last Name: <input type="text" name="firstEpisode" /> <br> User
 			Name: <input type="text" name="seasonName" /> <br> <input
-			type="submit" class="button" value="Add" /> <input type="checkbox"
-			name="choice-animals" id="choice-animals-dogs"> <label
-			for="choice-animals-dogs">Venue Owner</label>
-			<div class="reveal-if-active">
-				Venue Name: <input type="text" name="episodes" /><br> Venue
-				Address: <input type="text" name="episodes" /><br> Venue
-				Email: <input type="text" name="episodes" /><br> Venue
-				Description: <input type="text" name="episodes" /><br>
-			</div> <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-				integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-				crossorigin="anonymous"></script> <script
-				src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-				integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-				crossorigin="anonymous"></script> <script
-				src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
-				integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
-				crossorigin="anonymous"></script>
+			type="checkbox" name="choice-user" id="choice-user"> <label
+			for="choice-user">Venue Owner</label> <br> <input type="submit"
+			class="button" value="Add" />
+		</a>
+		<div class="reveal-if-active">
+			Venue Name: <input type="text" name="episodes" /><br> Venue
+			Address: <input type="text" name="episodes" /><br> Venue Email:
+			<input type="text" name="episodes" /><br> Venue Description: <input
+				type="txext" name="episodes" /><br>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+			integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+			integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+			crossorigin="anonymous"></script>
 </body>
 </html>
