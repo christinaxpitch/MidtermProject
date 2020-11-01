@@ -14,10 +14,10 @@ public class GoatController {
 	private GoatDAO dao;
 	
 	
-	@RequestMapping (path = {"/", "test.do"})
+	@RequestMapping (path = {"/", "home.do"})
 	public String home(Model model) {
 		model.addAttribute("user", dao.getTestUser());
-		return "test";
+		return "Home";
 	}
 
 }
