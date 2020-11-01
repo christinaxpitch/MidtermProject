@@ -153,3 +153,169 @@ a {
 	text-decoration: none;
 	background-color: transparent;
 }
+
+/* Aaron Playing */
+#menu, #menu ul
+{
+	list-style: none;
+	border: 1px solid #000;
+	background-color: #dc3545;
+	padding: 0 0 26px 0;
+	margin: 0;
+}
+#menu li
+{
+	float: left;
+	margin-right: 3px;
+	position: relative;
+}
+
+#menu ul
+{
+	position: absolute;
+	top: 45px;
+	left: -1px;
+	width: 200px;
+	padding: 0;
+	display: none;
+}
+
+#menu a:link, #menu a:visited
+{
+	display: block;
+	font-family: Tahoma;
+	font-size: 0.75em;
+	font-weight: bold;
+	text-align: left;
+	text-decoration: none;
+	color: black;
+	padding: 5px;
+}
+#menu li:hover
+{
+	background-color: none;
+}
+#menu li:hover ul
+{
+	display: block;
+}
+#menu #signup{
+    border-radius: 0 3px 3px 0;
+    float: right;
+    text-shadow: 0 1px 0 #fff
+  }
+
+ #inputs input {
+    background: #f1f1f1;
+    padding: 6px 5px;
+    margin: 0 0 5px 0;
+    width: 238px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px #ccc inset;
+  }
+
+ #inputs input:focus {
+    background-color: #fff;
+    border-color: #e8c291;
+    outline: none;
+    box-shadow: 0 0 0 1px #e8c291 inset;
+  }
+
+  #login #actions {
+    margin: 10px 0 0 0;
+  }
+
+  #login #submit {
+    background-color: #d14545;
+    background-image: linear-gradient(top, #e97171, #d14545);
+    border-radius: 3px;
+    text-shadow: 0 1px 0 rgba(0,0,0,.5);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.3),
+                0 1px 0 rgba(255, 255, 255, 0.3) inset;
+    border: 1px solid #7e1515;
+    float: left;
+    height: 30px;
+    padding: 0;
+    width: 100px;
+    cursor: pointer;
+    font: bold 14px Arial, Helvetica;
+    color: #fff;
+  }
+
+
+  #login #submit:active {
+    outline: none;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+  }
+
+  #login label {
+    float: right;
+    line-height: 30px;
+  }
+
+  #login label input {
+    position: relative;
+    top: 2px;
+    right: 2px;
+  }
+  
+.dropbtn {
+	font-family: Tahoma;
+	font-size: 0.75em;
+	font-weight: bold;
+	text-align: left;
+	text-decoration: none;
+	color: black;
+	padding: 5px;
+  border: none;
+  position: relative;
+  display:block;
+  cursor:pointer;
+  text-shadow: 0 1px 0 #fff
+}
+
+.dropdown {
+	
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+
+.dropcheck {
+	float: right;
+    position: absolute;
+    left: 9999px;
+
+}
+
+
+
+
+.dropcheck:checked ~ .dropdown-content {
+  display: block;
+}
+
+.dropcheck:checked + .dropbtn {
+  background-color: white;
+}

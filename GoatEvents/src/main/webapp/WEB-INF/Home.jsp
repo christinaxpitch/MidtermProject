@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
@@ -13,6 +14,41 @@
 <title>Test Page</title>
 </head>
 <body>
+
+<ul id="menu">
+  <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
+        <li id="signup">
+        <a href="">Sign up FREE</a>
+      </li>
+      <li class="dropdown">
+  <input id="dropcheck" class="dropcheck" type="checkbox">
+  <label for="dropcheck" class="dropbtn">Log in ▼</label>
+          
+       
+        <div class="dropdown-content">
+          <form>
+            <fieldset id="inputs">
+              <input  id="username"
+                      type="email"
+                      name="Email"
+                      placeholder="Your email address"
+                      required>
+              <input  id="password"
+                      type="password"
+                      name="Password"
+                      placeholder="Password"
+                      required>
+            </fieldset>
+            <fieldset id="actions">
+              <input  type="submit"
+                      id="submit"
+                      value="Log in">
+            </fieldset>
+          </form>
+        </div>
+      
+   </li>
+    </ul>
 
 	<h1>this is fun!!!!!!!!!!!!!!!!!!!!!!!</h1>
 
