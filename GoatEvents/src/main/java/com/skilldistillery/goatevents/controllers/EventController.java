@@ -2,6 +2,7 @@ package com.skilldistillery.goatevents.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,7 +15,6 @@ import com.skilldistillery.goatevents.entities.Event;
 public class EventController {
 	@Autowired
 	private EventDAO dao;
-	
 	
 	@RequestMapping(path = "event.do" , method = RequestMethod.POST)
 	public ModelAndView addEvent(Event event, RedirectAttributes ra) {
@@ -38,6 +38,14 @@ public class EventController {
 		mv.setViewName("event/deleted");
 		return mv;
 	}
+	
+	@RequestMapping(path = "getEvent.do", params = "eid")
+	public String showEvent(Integer eid, Model model) {
+		Event event = dao.findById(eid);
+		model.addAttribute("event", event);
+		return "event/show";
+	}
+	
 	
 	
 	
