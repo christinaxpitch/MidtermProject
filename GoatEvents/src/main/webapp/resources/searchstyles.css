@@ -217,6 +217,10 @@ a {
 	float: right;
 	text-shadow: 0 1px 0 #fff
 }
+#menu #profile {
+	border-radius: 0 3px 3px 0;
+	float: right;
+}
 
 #inputs input {
 	background: #f1f1f1;

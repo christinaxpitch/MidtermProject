@@ -17,7 +17,7 @@
 <body>
 <header>
 <c:choose>
-<c:when test="${empty vendor }">
+<c:when test="${empty user }">
 
 <ul id="menu">
   <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
@@ -72,10 +72,8 @@
 
 <ul id="menu">
   <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
-        <li id="profile"><a href="user.do">Profile</a></li>
         <li id="signup">
-        <a href="user.do"><img src="${user.image}" height=40px width=40px></a>
-      </li>
+        <a href="user.do"><img src="${user.image}" height=45px width=45px></a>
        </ul>
 
 
