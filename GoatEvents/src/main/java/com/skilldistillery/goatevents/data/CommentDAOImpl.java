@@ -40,7 +40,7 @@ public class CommentDAOImpl implements CommentDAO {
 		em.remove(deleteComment);	
 		boolean commentWasDeleted = !em.contains(deleteComment);
 		em.flush();
-		em.getTransaction().commit();
+//		em.getTransaction().commit();
 		em.close();
 		return commentWasDeleted;
 	}
