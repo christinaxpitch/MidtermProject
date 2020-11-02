@@ -51,6 +51,19 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav,
 	display: block;
 }
 
+/*  label {
+	display: inline-block;
+	float: left;
+	clear: left;
+	width: 100px;
+	text-align: left;
+}  */
+
+/* input {
+	display: inline-block;
+	float: right;
+} */
+
 body {
 	margin: 0;
 	font-family: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI",
