@@ -1,19 +1,22 @@
 package com.skilldistillery.goatevents.data;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
 
 import com.skilldistillery.goatevents.entities.Event;
 
 @Transactional
+@Service
 public class EventDAOImpl implements EventDAO {
-	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("GoatEvents");
-
+	
+	@PersistenceContext
+	private EntityManager em;
+	
 	@Override
 	public Event addEvent(Event newEvent) {
-		EntityManager em = emf.createEntityManager();
 		em.persist(newEvent);
 		em.flush();
 		em.close();
@@ -22,7 +25,6 @@ public class EventDAOImpl implements EventDAO {
 
 	@Override
 	public boolean deleteEvent(int id) {
-		EntityManager em = emf.createEntityManager();
 		Event deletedEvent = em.find(Event.class, id);
 		boolean eventWasDeleted = !em.contains(deletedEvent);
 		em.flush();
@@ -32,8 +34,6 @@ public class EventDAOImpl implements EventDAO {
 
 	@Override
 	public Event updateEvent(int id, Event event) {
-		EntityManager em = emf.createEntityManager();
-		
 		Event updatedEvent = em.find(Event.class, id);
 		updatedEvent.setTitle(event.getTitle());
 		updatedEvent.setDescription(event.getDescription());
