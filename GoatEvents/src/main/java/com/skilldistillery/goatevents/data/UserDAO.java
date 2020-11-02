@@ -2,6 +2,7 @@ package com.skilldistillery.goatevents.data;
 
 import java.util.List;
 
+import com.skilldistillery.goatevents.entities.Address;
 import com.skilldistillery.goatevents.entities.User;
 import com.skilldistillery.goatevents.entities.Venue;
 
@@ -16,5 +17,9 @@ public interface UserDAO {
 	boolean deactivateUser(int id);
 
 	List<Venue> venueFavoritesList();
+
+	Venue addVenue(Venue newVenue);
+
+	Address addAddress(Address newAddress);
 
 }

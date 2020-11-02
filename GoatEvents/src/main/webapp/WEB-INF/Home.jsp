@@ -18,7 +18,7 @@
 <ul id="menu">
   <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
         <li id="signup">
-        <a href="signUp.do">Sign up FREE</a>
+        <a href="signUpInput.do">Sign up FREE</a>
       </li>
       <li id="drop" class="dropdown">
   <input id="dropcheck" class="dropcheck" type="checkbox">

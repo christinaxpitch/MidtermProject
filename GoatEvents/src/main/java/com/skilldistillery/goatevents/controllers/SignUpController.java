@@ -5,19 +5,37 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.skilldistillery.goatevents.data.GoatDAO;
+import com.skilldistillery.goatevents.data.UserDAO;
+import com.skilldistillery.goatevents.data.VenueDAO;
+import com.skilldistillery.goatevents.entities.Address;
 import com.skilldistillery.goatevents.entities.User;
+import com.skilldistillery.goatevents.entities.Venue;
 
 @Controller
 public class SignUpController {
 
 	@Autowired
-	private SignUpController SignUpDao;
+	private UserDAO userDao;
+//	private VenueDAO venueDao;
+
+	@RequestMapping(path = "signUpInput.do")
+	public String signUpInput() {
+		return "signUpInput";
+	}
 
 	@RequestMapping(path = "signUp.do")
-	public String signUp(Model model) {
-		model.addAttribute("user", SignUpDao.getTestUser());
-		return "SignUp";
+	public String signUp(User newUser, Address address, Venue venue, Model model) {
+		User user = userDao.addUser(newUser);
+		if (address != null) {
+			System.err.println("*********************************" + address);
+			userDao.addAddress(address);
+		}
+		if (venue != null) {
+			System.err.println("*********************************" + venue);
+			userDao.addVenue(venue);
+		}
+		model.addAttribute("user", user);
+		return "Home";
 	}
 
 }

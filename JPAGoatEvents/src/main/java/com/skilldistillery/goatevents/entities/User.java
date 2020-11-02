@@ -45,7 +45,7 @@ public class User {
 	@CreationTimestamp
 	private LocalDateTime createdAt;
 
-	@Column(name = "updated_at")
+	@Column(name = "last_update")
 	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
 

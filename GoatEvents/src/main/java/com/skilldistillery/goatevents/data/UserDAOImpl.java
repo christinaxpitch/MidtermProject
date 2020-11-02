@@ -5,6 +5,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
+
+import com.skilldistillery.goatevents.entities.Address;
 import com.skilldistillery.goatevents.entities.User;
 import com.skilldistillery.goatevents.entities.Venue;
 
@@ -19,7 +21,6 @@ public class UserDAOImpl implements UserDAO {
 	public User addUser(User newUser) {
 		em.persist(newUser);
 		em.flush();
-		em.close();
 		return newUser;
 	}
 
@@ -27,8 +28,21 @@ public class UserDAOImpl implements UserDAO {
 	public User addUserVenue(User newUser, Venue newVenue) {
 		em.persist(newUser);
 		em.flush();
-		em.close();
 		return newUser;
+	}
+
+	@Override
+	public Venue addVenue(Venue newVenue) {
+		em.persist(newVenue);
+		em.flush();
+		return newVenue;
+	}
+
+	@Override
+	public Address addAddress(Address newAddress) {
+		em.persist(newAddress);
+		em.flush();
+		return newAddress;
 	}
 
 	@Override
@@ -40,7 +54,6 @@ public class UserDAOImpl implements UserDAO {
 		updateUser.setLastName(user.getLastName());
 		updateUser.setEmail(user.getEmail());
 		em.flush();
-		em.close();
 		return updateUser;
 	}
 
@@ -56,8 +69,7 @@ public class UserDAOImpl implements UserDAO {
 		deactivateUser.setEnabled(0);
 //		em.remove(deactivateUser);
 		em.flush();
-		em.close();
-		if(deactivateUser.getEnabled() == 0) {
+		if (deactivateUser.getEnabled() == 0) {
 			userDeactivated = true;
 			return userDeactivated;
 		}

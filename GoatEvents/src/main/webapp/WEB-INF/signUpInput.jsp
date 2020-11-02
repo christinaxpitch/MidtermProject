@@ -22,13 +22,18 @@
 	<form action="signUp.do" method="POST">
 		<a> First Name: <br> <input type="text" name="firstName" /><br>
 			Last Name: <br> <input type="text" name="lastName" /> <br>
-			User Name: <br> <input type="text" name="userName" /> <br>
-		<br> <input type="checkbox" name="choice-user" id="choice-user">
+			User Name: <br> <input type="text" name="username" /> <br>
+			Password: <br> <input type="text" name="password" /> <br>
+			<input type="hidden" name="enabled" value="1" /> <br> <input
+			type="checkbox" name="choice-user" id="choice-user"/> 
 			<label for="choice-user">Venue Owner</label>
 			<div class="reveal-if-active">
-				Venue Name: <br> <input type="text" name="venueName" /><br>
-				Venue Address: <br> <input type="text" name="address" /><br>
-				Venue Email: <br> <input type="text" name="email" /><br>
+				Venue Name: <br> <input type="text" name="name" /><br>
+				Venue Street: <br> <input type="text" name="street" /><br>
+				Venue City: <br> <input type="text" name="city" /><br>
+				Venue State: <br> <input type="text" name="state" /><br>
+				Venue Zip: <br> <input type="text" name="zip" /><br>
+				Venue Phone Number: <br> <input type="text" name="phone" /><br>
 				Venue Description: <br> <input type="text" name="description" /><br>
 			</div> <input type="submit" class="button" value="Add" />
 		</a>
