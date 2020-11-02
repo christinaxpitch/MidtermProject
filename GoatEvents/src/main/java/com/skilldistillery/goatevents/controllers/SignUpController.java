@@ -26,13 +26,16 @@ public class SignUpController {
 	@RequestMapping(path = "signUp.do")
 	public String signUp(User newUser, Address address, Venue venue, Model model) {
 		User user = userDao.addUser(newUser);
-		if (address != null) {
+		if (address != null && ! address.getStreet().equals("")) {
 			System.err.println("*********************************" + address);
-			userDao.addAddress(address);
-		}
-		if (venue != null) {
-			System.err.println("*********************************" + venue);
-			userDao.addVenue(venue);
+			Address userAddress = userDao.addAddress(address);
+			user.setAddress(userAddress);
+
+			if (venue != null) {
+				System.err.println("*********************************" + venue);
+				venue.setAddress(userAddress);
+				Venue venueAddress = userDao.addVenue(venue);
+			}
 		}
 		model.addAttribute("user", user);
 		return "Home";

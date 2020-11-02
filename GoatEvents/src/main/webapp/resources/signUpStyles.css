@@ -248,7 +248,7 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
 	opacity: 1;
 	max-height: 130px; /* little bit of a magic number :( */
 	overflow: visible;
-	padding: 5px 3px 225px;
+	padding: 5px 3px 400px;
 	transform: scale(1);
 	text-align: center;
 }
