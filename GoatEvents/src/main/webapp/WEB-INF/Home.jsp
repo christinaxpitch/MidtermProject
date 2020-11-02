@@ -20,7 +20,7 @@
         <li id="signup">
         <a href="signUp.do">Sign up FREE</a>
       </li>
-      <li class="dropdown">
+      <li id="drop" class="dropdown">
   <input id="dropcheck" class="dropcheck" type="checkbox">
   <label for="dropcheck" class="dropbtn">Log in ▼</label>
           

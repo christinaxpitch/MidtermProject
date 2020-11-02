@@ -212,7 +212,11 @@ a {
 	float: right;
 	text-shadow: 0 1px 0 #fff
 }
-
+#menu #drop {
+	border-radius: 0 3px 3px 0;
+	float: right;
+	text-shadow: 0 1px 0 #fff
+}
 #inputs input {
 	background: #f1f1f1;
 	padding: 6px 5px;

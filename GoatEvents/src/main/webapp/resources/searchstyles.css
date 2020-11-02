@@ -71,7 +71,7 @@ body {
 	/* fixed viewport against scroll ups and downs*/
 	background-attachment: fixed;
 	height: 100%;
-	text-shadow: 1px 1px white;
+	text-shadow: 1px 1px black;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -179,7 +179,14 @@ a {
 	position: relative;
 }
 
-
+#menu ul {
+	position: absolute;
+	top: 45px;
+	left: -1px;
+	width: 200px;
+	padding: 0;
+	display: none;
+}
 
 #menu a:link, #menu a:visited {
 	display: block;
@@ -192,7 +199,20 @@ a {
 	padding: 5px;
 }
 
+#menu li:hover {
+	background-color: none;
+}
+
+#menu li:hover ul {
+	display: block;
+}
+
 #menu #signup {
+	border-radius: 0 3px 3px 0;
+	float: right;
+	text-shadow: 0 1px 0 #fff
+}
+#menu #drop {
 	border-radius: 0 3px 3px 0;
 	float: right;
 	text-shadow: 0 1px 0 #fff
@@ -294,8 +314,7 @@ a {
 
 .dropcheck {
 	position: absolute;
-	left: 20px;
-	visibility: hidden;
+	left: 9999px;
 }
 
 .dropcheck:checked ~ .dropdown-content {
@@ -304,13 +323,4 @@ a {
 
 .dropcheck:checked+.dropbtn {
 	background-color: white;
-}
-header{
-	height:25px;
-}
-#menu #profile{
-		border-radius: 0 3px 3px 0;
-	float: right;
-	text-shadow: 0 1px 0 #fff
-	
 }
