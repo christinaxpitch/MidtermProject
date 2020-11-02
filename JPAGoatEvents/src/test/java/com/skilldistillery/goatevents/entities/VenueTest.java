@@ -62,9 +62,9 @@ class VenueTest {
 	@DisplayName("test venue mapping to address")
 	void test2() {
 		assertNotNull(venue);
-		assertEquals("123 Sesame St.", venue.getAddress().getStreet());
-		assertEquals("Denver", venue.getAddress().getCity());
-		assertEquals("80014", venue.getAddress().getZip());
+		assertEquals("10 Sigmon Ct", venue.getAddress().getStreet());
+		assertEquals("Los Angeles", venue.getAddress().getCity());
+		assertEquals("75893", venue.getAddress().getZip());
 	}
 
 	@Test
