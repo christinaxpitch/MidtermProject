@@ -98,7 +98,7 @@ DROP TABLE IF EXISTS `venue` ;
 CREATE TABLE IF NOT EXISTS `venue` (
   `id` INT(11) NOT NULL,
   `name` VARCHAR(150) NOT NULL,
-  `address_id` INT NOT NULL,
+  `address_id` INT NULL,
   `capacity` INT NULL,
   `description` TEXT NULL,
   `logo` VARCHAR(5000) NULL,
