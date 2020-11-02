@@ -15,6 +15,11 @@ public class EventController {
 	@Autowired
 	private EventDAO dao;
 	
+	@RequestMapping(path= {"/", "home.do"})
+	public String index() {
+		return "home";
+	}
+	
 	@RequestMapping(path = "event.do" , method = RequestMethod.POST)
 	public ModelAndView addEvent(Event event, RedirectAttributes ra) {
 		Event newEvent = dao.addEvent(event);
