@@ -24,9 +24,13 @@
 			Last Name: <br> <input type="text" name="lastName" /> <br>
 			User Name: <br> <input type="text" name="username" /> <br>
 			Password: <br> <input type="text" name="password" /> <br>
-			<input type="hidden" name="enabled" value="1" /> <br> <input
-			type="checkbox" name="choice-user" id="choice-user"/> 
+			<input type="hidden" name="enabled" value="1" /> <br> 
+			<input type="hidden" name="role" value="User" /> <br> 
+			
+			<input
+			type="checkbox" name="role" value="Vendor" id="choice-user"/> 
 			<label for="choice-user">Venue Owner</label>
+		
 			<div class="reveal-if-active">
 				Venue Name: <br> <input type="text" name="name" /><br>
 				Venue Street: <br> <input type="text" name="street" /><br>

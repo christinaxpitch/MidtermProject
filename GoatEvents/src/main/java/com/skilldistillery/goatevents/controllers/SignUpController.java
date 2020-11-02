@@ -26,7 +26,7 @@ public class SignUpController {
 	@RequestMapping(path = "signUp.do")
 	public String signUp(User newUser, Address address, Venue venue, Model model) {
 		User user = userDao.addUser(newUser);
-		if (address != null && ! address.getStreet().equals("")) {
+		if (address != null && !address.getStreet().equals("")) {
 			System.err.println("*********************************" + address);
 			Address userAddress = userDao.addAddress(address);
 			user.setAddress(userAddress);
