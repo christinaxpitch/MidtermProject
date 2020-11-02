@@ -32,15 +32,5 @@ public class GoatController {
 		return "user";
 	}
 
-	@RequestMapping(path = "search.do")
-	public String search(Model model) {
-		User testuser = dao.getTestUser();
-		if (testuser.getImage() == null) {
-			testuser.setImage(
-					"https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg");
-		}
-		model.addAttribute("user", testuser);
-		return "searchresult";
-	}
 
 }
