@@ -61,7 +61,17 @@ body {
 	line-height: 1.5;
 	color: #dc3545;
 	text-align: left;
-	background-color: #fff;
+	background-color: rgba(255, 242, 0, 0.7);
+	background-image: url("images/RockingOut5.png");
+	background-position: center center;
+	/* removing tilings and repeatition*/
+	background-repeat: no-repeat;
+	/* to scale image to fit the screen */
+	background-size: cover;
+	/* fixed viewport against scroll ups and downs*/
+	background-attachment: fixed;
+	height: 100%;
+	text-shadow: 1px 1px white;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -309,4 +319,3 @@ a {
 .dropcheck:checked+.dropbtn {
 	background-color: white;
 }
-

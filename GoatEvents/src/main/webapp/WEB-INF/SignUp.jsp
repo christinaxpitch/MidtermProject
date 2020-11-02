@@ -20,16 +20,16 @@
 	</ul>
 	<br>
 	<form action="signUp.do" method="POST">
-		<a> First Name: <br> <input type="text" name="episodes" /><br>
-			Last Name: <br> <input type="text" name="firstEpisode" /> <br>
-			User Name: <br> <input type="text" name="seasonName" /> <br>
+		<a> First Name: <br> <input type="text" name="firstName" /><br>
+			Last Name: <br> <input type="text" name="lastName" /> <br>
+			User Name: <br> <input type="text" name="userName" /> <br>
 		<br> <input type="checkbox" name="choice-user" id="choice-user">
 			<label for="choice-user">Venue Owner</label>
 			<div class="reveal-if-active">
-				Venue Name: <br> <input type="text" name="episodes" /><br>
-				Venue Address: <br> <input type="text" name="episodes" /><br>
-				Venue Email: <br> <input type="text" name="episodes" /><br>
-				Venue Description: <br> <input type="txext" name="episodes" /><br>
+				Venue Name: <br> <input type="text" name="venueName" /><br>
+				Venue Address: <br> <input type="text" name="address" /><br>
+				Venue Email: <br> <input type="text" name="email" /><br>
+				Venue Description: <br> <input type="text" name="description" /><br>
 			</div> <input type="submit" class="button" value="Add" />
 		</a>
 	</form>
