@@ -30,7 +30,7 @@
           
        
         <div class="dropdown-content">
-          <form>
+          <form action="credentials.do">
             <fieldset id="inputs">
               <input  id="username"
                       type="email"
@@ -53,20 +53,6 @@
       
    </li>
     </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </c:when>
 <c:otherwise>
 
@@ -75,58 +61,35 @@
         <li id="signup">
         <a href="user.do"><img src="${user.image}" height=45px width=45px></a>
        </ul>
-
-
-      
-  
-   </c:otherwise>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</c:otherwise>
 </c:choose>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </header>
+<div class="container-fluid">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
 
 
 
