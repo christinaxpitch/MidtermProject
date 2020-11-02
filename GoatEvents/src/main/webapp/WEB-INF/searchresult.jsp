@@ -66,7 +66,20 @@
 </header>
 <div class="container-fluid">
 			<h6>Your Search contained ${count} results</h6>
-			
+			<c:if test="${empty object}">
+	<c:if test="${empty objects }">No Results found</c:if>
+<c:forEach var="o" items="${objects}">
+<table>
+<tr><td>
+
+
+
+
+
+</table>
+
+
+</c:forEach>
 
 
 
@@ -74,8 +87,7 @@
 
 
 
-
-
+</c:if>
 
 
 
