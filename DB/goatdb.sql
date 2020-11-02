@@ -363,7 +363,6 @@ COMMIT;
 START TRANSACTION;
 USE `goatdb`;
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`, `created_at`, `last_update`) VALUES (1, 'dFresh', '123456', 1, 'Vendor', 1, 'Douglas', 'Sigmon', NULL, 'dfresh@SD.com', NULL, NULL);
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (1, 'dFresh', '123456', 1, 'Vendor', 1, 'Douglas', 'Sigmon', NULL, 'dfresh@SD.com');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (2, 'cpShawty', '654321', 1, 'Vendor', 2, 'Cristina', 'Pitch', NULL, 'highPitch@SD.com');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (3, 'RyanNoRona', '98765', 1, 'Vendor', 3, 'Ryan', 'Miskoviak ', NULL, 'ryMiskovi@SD');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (4, 'KeepItCoolAC', '890765', 1, 'Vendor', 4, 'Aaron', 'Cottrell', NULL, 'ACdc@SD.com');
@@ -380,7 +379,6 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `goatdb`;
-INSERT INTO `venue` (`id`, `name`, `address_id`, `capacity`, `description`, `logo`, `manager_id`, `created_at`, `last_update`) VALUES (1, 'Doug\'s Mega Venue', 1, 50000, 'Mega venue that can be used to hold huge events or sectioned off to hold many different small events', NULL, 1, NULL, NULL);
 INSERT INTO `venue` (`id`, `name`, `address_id`, `capacity`, `description`, `logo`, `manager_id`, `created_at`, `last_update`) VALUES (1, 'Doug\'s Mega Venue', 9, 50000, 'Mega venue that can be used to hold huge events or sectioned off to hold many different small events', NULL, 1, NULL, NULL);
 INSERT INTO `venue` (`id`, `name`, `address_id`, `capacity`, `description`, `logo`, `manager_id`, `created_at`, `last_update`) VALUES (2, 'Christinas  Venue', 10, 1000, 'venue for small and niche events', NULL, 2, NULL, NULL);
 INSERT INTO `venue` (`id`, `name`, `address_id`, `capacity`, `description`, `logo`, `manager_id`, `created_at`, `last_update`) VALUES (3, 'Cat Playground', 11, 50, 'A venue for all the cool cats and kittens. (Note: \"cool cats and kittens\" is a saying for people. Health restrictions do not allow actual cats into this venue)', NULL, 3, NULL, NULL);
@@ -398,7 +396,6 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `goatdb`;
-INSERT INTO `event` (`id`, `description`, `start_time`, `end_time`, `max_capacity`, `number_of_tickets`, `venue_id`, `title`, `image`, `event_date`, `created_at`, `last_update`) VALUES (1, 'various beer and bacon vendors', '20:00:00', '22:00:00', 3000, 3000, 1, 'Beer and Bacon Fest', NULL, NULL, NULL, NULL);
 INSERT INTO `event` (`id`, `description`, `start_time`, `end_time`, `max_capacity`, `number_of_tickets`, `venue_id`, `title`, `image`, `event_date`, `created_at`, `last_update`) VALUES (1, 'various beer and bacon vendors', '20:00:00', '22:00:00', 3000, 3000, 1, 'Beer and Bacon Fest', NULL, '2020-11-06', NULL, NULL);
 INSERT INTO `event` (`id`, `description`, `start_time`, `end_time`, `max_capacity`, `number_of_tickets`, `venue_id`, `title`, `image`, `event_date`, `created_at`, `last_update`) VALUES (2, 'music festival with 50000 people  at Dougs mega venue', '12:00:00', NULL, 50000, 50000, 1, 'Big Robs music fest', NULL, '2020-12-29', NULL, NULL);
 INSERT INTO `event` (`id`, `description`, `start_time`, `end_time`, `max_capacity`, `number_of_tickets`, `venue_id`, `title`, `image`, `event_date`, `created_at`, `last_update`) VALUES (3, 'a group of tiny violen artist playing a sad violen song for the tears of sadness', '21:00:00', '23:00:00', 400, 400, 2, 'Crybaby Violen ', NULL, '2020-11-20', NULL, NULL);
