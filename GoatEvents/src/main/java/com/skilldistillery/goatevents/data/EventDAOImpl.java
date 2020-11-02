@@ -52,4 +52,14 @@ public class EventDAOImpl implements EventDAO {
 		return null;
 	}
 
+	@Override
+	public Event findById(int id) {
+		Event event = em.find(Event.class, id);
+		em.close();
+		return event;
+		
+	}
+	
+	
+
 }
