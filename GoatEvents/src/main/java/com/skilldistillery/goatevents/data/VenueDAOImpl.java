@@ -1,5 +1,7 @@
 package com.skilldistillery.goatevents.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -45,6 +47,12 @@ public class VenueDAOImpl implements VenueDAO{
 		em.flush();
 		em.close();
 		return VenueWasDeleted;
+	}
+
+	@Override
+	public List<Venue> findAllVenues() {
+			String jpql = "SELECT * FROM Venue v";
+			return em.createQuery(jpql, Venue.class).getResultList();
 	}
 }
 
