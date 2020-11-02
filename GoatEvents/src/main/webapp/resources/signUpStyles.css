@@ -61,7 +61,20 @@ body {
 	line-height: 1.5;
 	color: #dc3545;
 	text-align: left;
-	background-color: #fff;
+	background-color: rgba(255, 242, 0, 0.7);
+	background-image: url("images/RockingOut5.png");
+	background-position: center center;
+	/* removing tilings and repeatition*/
+	background-repeat: no-repeat;
+	/* to scale image to fit the screen */
+	background-size: cover;
+	/* fixed viewport against scroll ups and downs*/
+	background-attachment: fixed;
+	height: 100%;
+}
+
+jpg {
+	opacity: 0.5;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -309,4 +322,23 @@ a {
 .dropcheck:checked+.dropbtn {
 	background-color: white;
 }
+/*THIS IS HOW TO MAKE THINGS APPER WHEN CHECKED*/
+.reveal-if-active {
+	opacity: 0;
+	max-height: 0;
+	overflow: hidden;
+	transform: scale(0.8);
+	transition: 0.5s;
+}
+/*THIS IS HOW TO MAKE THINGS APPER WHEN CHECKED*/
+input[type="checkbox"]:checked ~ .reveal-if-active {
+	opacity: 1;
+	max-height: 130px; /* little bit of a magic number :( */
+	overflow: visible;
+	padding: 5px 4px 90px;
+	transform: scale(1);
+}
 
+form {
+	padding: 5px 8px;
+}

@@ -51,11 +51,16 @@ public class UserDAOImpl implements UserDAO {
 	 */
 	@Override
 	public boolean deactivateUser(int id) {
+		boolean userDeactivated = false;
 		User deactivateUser = em.find(User.class, id);
-		em.remove(deactivateUser);
-		boolean userDeactivated = !em.contains(deactivateUser);
+		deactivateUser.setEnabled(0);
+//		em.remove(deactivateUser);
 		em.flush();
 		em.close();
+		if(deactivateUser.getEnabled() == 0) {
+			userDeactivated = true;
+			return userDeactivated;
+		}
 		return userDeactivated;
 	}
 

@@ -13,11 +13,15 @@ public class GoatController {
 	@Autowired
 	private GoatDAO dao;
 	
-	
-	@RequestMapping (path = "test.do")
+	@RequestMapping (path = {"/", "home.do"})
 	public String home(Model model) {
 		model.addAttribute("user", dao.getTestUser());
-		return "test";
+		return "Home";
+	}
+	@RequestMapping (path = "signUp.do")
+	public String signUp(Model model) {
+		model.addAttribute("user", dao.getTestUser());
+		return "SignUp";
 	}
 
 }

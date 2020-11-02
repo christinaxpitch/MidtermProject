@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,17 +7,33 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="resources/styles.css">
+<link rel="stylesheet" href="resources/signUpStyles.css">
 <meta charset="UTF-8">
-<title>Test Page</title>
+<title>Insert title here</title>
 </head>
 <body>
 
-	<h1>this is fun!!!!!!!!!!!!!!!!!!!!!!!</h1>
-
-	<p>${user.username}</p>
-	<%-- <p> ${user } </p>
- --%>
+	<ul id="menu">
+		<li><a href="home.do"><img
+				src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
+		<li id="signup"></li>
+	</ul>
+	<br>
+	<form action="signUp.do" method="POST">
+		<a> First Name: <input type="text" name="episodes" /><br>
+			Last Name: <input type="text" name="firstEpisode" /> <br> User
+			Name: <input type="text" name="seasonName" /> <br> <input
+			type="checkbox" name="choice-user" id="choice-user"> <label
+			for="choice-user">Venue Owner</label>
+			<div class="reveal-if-active">
+				Venue Name: <input type="text" name="episodes" /><br> Venue
+				Address: <input type="text" name="episodes" /><br> Venue
+				Email: <input type="text" name="episodes" /><br> Venue
+				Description: <input type="txext" name="episodes" /><br>
+			</div> 
+		<input type="submit" class="button" value="Add" />
+		</a>
+	</form>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
