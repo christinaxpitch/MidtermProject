@@ -75,6 +75,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `last_name` VARCHAR(45) NULL,
   `profile_pic` VARCHAR(5000) NULL,
   `email` VARCHAR(150) NULL,
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
   INDEX `fk_user_address1_idx` (`address_id` ASC),
@@ -360,14 +362,14 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `goatdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (1, 'dFresh', '123456', 1, 'Vendor', 1, 'Douglas', 'Sigmon', NULL, 'dfresh@SD.com');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (2, 'cpShawty', '654321', 1, 'Vendor', 2, 'Cristina', 'Pitch', NULL, 'highPitch@SD.com');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (3, 'RyanNoRona', '98765', 1, 'Vendor', 3, 'Ryan', 'Miskoviak ', NULL, 'ryMiskovi@SD');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (4, 'KeepItCoolAC', '890765', 1, 'Vendor', 4, 'Aaron', 'Cottrell', NULL, 'ACdc@SD.com');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (5, 'DeeDizzle', '1234879', 1, 'User', 5, 'Denise', 'Dizzle', NULL, 'saucin@SD.com');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (6, 'RobbyRoundHouse', '847602', 1, 'User', 6, 'Rob', 'Rose', NULL, 'RickyRobby@SD.com');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (7, 'eagleEyeJ', '1209844', 1, 'User', 7, 'Jeremy', 'Acuity', NULL, 'EyeSeeYew@SD.com');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (8, 'AntMan', '75839', 1, 'User', 8, 'Anthony ', 'Soprano', NULL, 'slimJenkins@SD.com');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`, `created_at`, `updated_at`) VALUES (1, 'dFresh', '123456', 1, 'Vendor', 1, 'Douglas', 'Sigmon', NULL, 'dfresh@SD.com', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`, `created_at`, `updated_at`) VALUES (2, 'cpShawty', '654321', 1, 'Vendor', 2, 'Cristina', 'Pitch', NULL, 'highPitch@SD.com', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`, `created_at`, `updated_at`) VALUES (3, 'RyanNoRona', '98765', 1, 'Vendor', 3, 'Ryan', 'Miskoviak ', NULL, 'ryMiskovi@SD', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`, `created_at`, `updated_at`) VALUES (4, 'KeepItCoolAC', '890765', 1, 'Vendor', 4, 'Aaron', 'Cottrell', NULL, 'ACdc@SD.com', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`, `created_at`, `updated_at`) VALUES (5, 'DeeDizzle', '1234879', 1, 'User', 5, 'Denise', 'Dizzle', NULL, 'saucin@SD.com', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`, `created_at`, `updated_at`) VALUES (6, 'RobbyRoundHouse', '847602', 1, 'User', 6, 'Rob', 'Rose', NULL, 'RickyRobby@SD.com', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`, `created_at`, `updated_at`) VALUES (7, 'eagleEyeJ', '1209844', 1, 'User', 7, 'Jeremy', 'Acuity', NULL, 'EyeSeeYew@SD.com', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`, `created_at`, `updated_at`) VALUES (8, 'AntMan', '75839', 1, 'User', 8, 'Anthony ', 'Soprano', NULL, 'slimJenkins@SD.com', NULL, NULL);
 
 COMMIT;
 
