@@ -65,6 +65,8 @@
 </c:choose>
 </header>
 <div class="container-fluid">
+			<h6>Your Search contained ${count} results</h6>
+			
 
 
 
