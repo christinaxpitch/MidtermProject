@@ -65,19 +65,24 @@
 </c:choose>
 </header>
 <div class="container-fluid">
+			<c:if test="${empty event}">
+			<c:if test="${empty venue}">
+	<c:if test="${empty venues  }"></c:if>
+	<c:if test="${empty events  }">No Results found</c:if>
 			<h6>Your Search contained ${count} results</h6>
-			<c:if test="${empty object}">
-	<c:if test="${empty objects }">No Results found</c:if>
-<c:forEach var="o" items="${objects}">
-<table>
-<tr><td>
-
-
-
-
-
+<c:forEach var="e" items="${events}">
+<div>
+<table class="table table-striped table-hover, table-light">
+<thead class=“thead thead-dark”>
+<tr><td><img src="${e.image }" height= 70px width= 70px></td></tr>
+<tr><td>${e.eventDate.month } ${e.eventDate.dayOfMonth }, ${e.eventDate.year }</td></tr>
+<tr><td>${e.title }</td></tr>
+<tr><td>${e.venue.name }</td></tr>
+<tr><td>${e.numOfTickets } tickets available</td></tr>
+<tr><td>${e.maxCapacity } max capacity</td></tr>
+<tr><td>${e.description }</td></tr>
 </table>
-
+</div>
 
 </c:forEach>
 
@@ -85,7 +90,7 @@
 
 
 
-
+</c:if>
 
 </c:if>
 
