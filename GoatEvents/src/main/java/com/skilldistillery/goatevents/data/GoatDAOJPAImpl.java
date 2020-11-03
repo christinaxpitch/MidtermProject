@@ -38,7 +38,8 @@ public class GoatDAOJPAImpl implements GoatDAO {
 		String jpql = "SELECT e FROM Event e"
 				+ " WHERE title LIKE :title "
 //				+ "OR eventDate LIKE :date "
-				+ "OR description LIKE :desc";
+				+ "OR description LIKE :desc "
+				+ "ORDER BY eventDate ASC";
 		List<Event> emps = em.createQuery(jpql, Event.class).setParameter("title", "%" + search + "%").setParameter("desc", "%" + search + "%").getResultList();
 		
 		return emps;
