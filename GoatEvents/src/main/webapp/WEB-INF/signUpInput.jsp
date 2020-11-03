@@ -20,10 +20,10 @@
 	</ul>
 	<br>
 	<form action="signUp.do" method="POST">
-		<a> First Name: <br> <input type="text" name="firstName" /><br>
-			Last Name: <br> <input type="text" name="lastName" /> <br>
-			User Name: <br> <input type="text" name="username" /> <br>
-			Password: <br> <input type="text" name="password" /> <br>
+		<h4><a> First Name: </h4> <input type="text" name="firstName" /><br>
+			<h4>Last Name: </h4><input type="text" name="lastName" /> <br>
+			<h4>User Name: </h4><input type="text" name="username" /> <br>
+			<h4>Password: </h4><input type="text" name="password" /> <br>
 			<input type="hidden" name="enabled" value="1" /> <br> 
 			<input type="hidden" name="role" value="User" /> <br> 
 			
@@ -40,6 +40,11 @@
 				Venue Phone Number: <br> <input type="text" name="phone" /><br>
 				Venue Description: <br> <input type="text" name="description" /><br>
 			</div> <input type="submit" class="button" value="Add" />
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
 		</a>
 	</form>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
