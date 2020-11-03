@@ -28,7 +28,7 @@
     </form>
   </div></li>
         <li id="signup">
-        <a href="signUp.do">Sign up FREE</a>
+        <a href="signUpInput.do">Sign up FREE</a>
       </li>
 		<li id="drop" class="dropdown"><input id="dropcheck"
 			class="dropcheck" type="checkbox"> <label for="dropcheck"
