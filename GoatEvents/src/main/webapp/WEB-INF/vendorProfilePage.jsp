@@ -8,6 +8,7 @@
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="resources/signUpStyles.css">
+<link rel="stylesheet" href="resources/searchstyles.css">
 <meta charset="UTF-8">
 <title>Venue Page (Login)</title>
 </head>
@@ -24,13 +25,6 @@
 	<br>
 
 <h2>List of Your Events:</h2>
-
-
-
-			<form action="home.do" method="GET">
-				<input type="hidden" name="" value="" /> <input type="submit"
-					value="Back to home page" />
-			</form>
 		
 		
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

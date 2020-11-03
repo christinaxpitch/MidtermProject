@@ -11,10 +11,59 @@
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="resources/signUpStyles.css">
+<link rel="stylesheet" href="resources/searchstyles.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+<header>
+<c:choose>
+<c:when test="${empty sessionScope.loginUser}">
+<ul id="menu">
+  <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
+       <li>   <div class="search-container">
+    <form id="searchForm" action="search.do">
+      <input id="searchText" type="text" placeholder="Search.." name="search">
+      <button id="searchSubmit" type="submit">Search</button>
+    </form>
+  </div></li>
+        <li id="signup">
+        <a href="signUpInput.do">Sign up FREE</a>
+      </li>
+		<li id="drop" class="dropdown"><input id="dropcheck"
+			class="dropcheck" type="checkbox"> <label for="dropcheck"
+			class="dropbtn">Log in ▼</label>
+			<div class="dropdown-content">
+				<form action="login.do" method="GET">
+					<fieldset id="inputs">
+						<input id="email" type="email" name="email"
+							placeholder="Your email address" required> <input
+							id="password" type="password" name="password"
+							placeholder="Password" required>
+					</fieldset>
+					<fieldset id="actions">
+						<input type="submit" id="submit" value="Log in">
+					</fieldset>
+				</form>
+			</div></li>
+    </ul>
+</c:when>
+<c:otherwise>
+<ul id="menu">
+  <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
+ <li>   <div class="search-container">
+    <form id="searchForm" action="search.do">
+      <input id="searchText" type="text" placeholder="Search.." name="search">
+      <button id="searchSubmit" type="submit">Search</button>
+    </form>
+  </div></li>
+<li id="signup">
+        <a href="user.do"><img src="${sessionScope.loginUser.image}" height=45px width=45px></a>
+       </ul>
+</c:otherwise>
+</c:choose>
+</header>
+
 
 <div>
 <h3>New Venue Details:</h3>
@@ -36,9 +85,8 @@
 				<p>Adding venue failed.</p>
 			</c:otherwise>
 		</c:choose>
-		<h2>Thank you for updating your venue!</h2>
-		<form action="home.do" method="GET">
-		<input type="submit" class="button" value="Home Page" />
+		<h5>Thank you for updating your venue!<h5>
+
 	</form>
 	</div>
 
