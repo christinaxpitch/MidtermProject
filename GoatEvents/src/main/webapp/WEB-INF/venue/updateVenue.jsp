@@ -40,7 +40,7 @@
 			<button type="submit" name="id" value="${venue.id}">Submit</button>
 			</form><br>
 			<br>
-			<form action="/" method="GET">
+			<form action="updateVenue.do" method="GET">
 				<input type="hidden" name="" value="" /> <input type="submit"
 					value="Back to home page" />
 			</form>
