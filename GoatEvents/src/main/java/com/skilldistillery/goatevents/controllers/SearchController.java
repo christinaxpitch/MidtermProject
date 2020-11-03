@@ -20,13 +20,13 @@ public class SearchController {
 	private GoatDAO dao;
 	
 	@RequestMapping (path = "search.do")
-	public String search(Model model, String keyword) {
+	public String search(Model model, String search) {
 	User testuser = dao.getTestUser();
 		if(testuser.getImage() == null) {
 			testuser.setImage("https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg");
 		}
-		List<Event> eventList =  dao.findEventFromSearch(keyword);
-		List<Venue> venueList = dao.findVenueFromSearch(keyword);
+		List<Event> eventList =  dao.findEventFromSearch(search);
+		List<Venue> venueList = dao.findVenueFromSearch(search);
 		int count = 0;
 		for (Event event : eventList) {
 			if(event.getImage() == null) {
@@ -42,7 +42,7 @@ public class SearchController {
 		}
 			
 		model.addAttribute("count", count);
-		model.addAttribute("keyword", keyword);
+		model.addAttribute("keyword", search);
 		model.addAttribute("events", eventList);
 		model.addAttribute("venues", venueList);
 		model.addAttribute("user", testuser);
