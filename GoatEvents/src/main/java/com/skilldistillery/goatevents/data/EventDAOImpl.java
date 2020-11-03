@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.goatevents.entities.Event;
+import com.skilldistillery.goatevents.entities.Venue;
 
 @Transactional
 @Service
@@ -58,6 +59,11 @@ public class EventDAOImpl implements EventDAO {
 		em.close();
 		return event;
 		
+	}
+
+	@Override
+	public Venue findVenueById(int id) {
+		return em.find(Venue.class, id);
 	}
 	
 	

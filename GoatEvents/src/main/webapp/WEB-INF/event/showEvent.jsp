@@ -22,7 +22,7 @@
 				</tr>
 				<tr>
 					<td>Description :</td>
-					<td>${event.descrition}</td>
+					<td>${event.description}</td>
 				</tr>
 				<tr>
 					<td>Start Time</td>
