@@ -54,6 +54,7 @@ public class VenueDAOImpl implements VenueDAO{
 			String jpql = "SELECT * FROM Venue v";
 			return em.createQuery(jpql, Venue.class).getResultList();
 	}
+
 }
 
 
