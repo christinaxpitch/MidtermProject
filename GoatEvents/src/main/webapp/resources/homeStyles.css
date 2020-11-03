@@ -92,15 +92,14 @@ h1, h2, h3, h4, h5, h6 {
 h1, h3 {
 	text-align: center;
 }
-#header{
-		text-align: center;
-	
+
+#header {
+	text-align: center;
 }
 
 h1 {
 	text-decoration: underline;
-		text-shadow: 3px 3px 5px black , 4px 4px 3px white , 6px 6px 5px black;
-	
+	text-shadow: 3px 3px 5px black, 4px 4px 3px white, 6px 6px 5px black;
 }
 
 p {
@@ -266,4 +265,18 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
 form {
 	padding: 5px 8px;
 	text-align: center;
+}
+
+#textSlide {
+	float: center;
+	height: 800px;
+	width: 800px;
+}
+
+#slides {
+	border-style: groove;
+	border-color: red;
+	height: 539px;
+	width: 807px;
+	float: center;
 }
