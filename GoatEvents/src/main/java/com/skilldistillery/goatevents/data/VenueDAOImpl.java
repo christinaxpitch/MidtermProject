@@ -23,7 +23,6 @@ public class VenueDAOImpl implements VenueDAO{
 	public Venue addVenue(Venue venue) {
 		em.persist(venue);
 		em.flush();
-		em.close();
 		return venue;
 	}
 
@@ -38,7 +37,6 @@ public class VenueDAOImpl implements VenueDAO{
 		newVenue.setCreatedAt(venue.getCreatedAt());
 		newVenue.setLastUpdate(venue.getLastUpdate());
 		em.flush();
-		em.close();
 		return newVenue;
 	}
 
@@ -48,20 +46,19 @@ public class VenueDAOImpl implements VenueDAO{
 		em.remove(deleteVenue);	
 		boolean VenueWasDeleted = !em.contains(deleteVenue);
 		em.flush();
-		em.close();
 		return VenueWasDeleted;
 	}
 
 	@Override
 	public List<Venue> findAllVenues() {
-			String jpql = "SELECT * FROM Venue v";
+			String jpql = "SELECT v FROM Venue v";
 			return em.createQuery(jpql, Venue.class).getResultList();
 	}
 
 	@Override
 	public Address venueAddress(int id) {
 		Address addr = new Address();
-		String jpql = "SELECT * from address JOIN venue ON venue.address_id = address.id WHERE venue.id = :id";
+		String jpql = "SELECT a from Address a JOIN Venue v ON v.address_id = a.id WHERE v.id = :id";
 		em.createQuery("jpql")
 			.setParameter("address", addr)
 			.executeUpdate();
