@@ -21,7 +21,7 @@ public class SearchController {
 	
 	@RequestMapping (path = "search.do")
 	public String search(Model model, String keyword) {
-		keyword= "Doug";
+		keyword= "music";
 	User testuser = dao.getTestUser();
 		if(testuser.getImage() == null) {
 			testuser.setImage("https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg");
