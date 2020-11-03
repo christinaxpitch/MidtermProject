@@ -30,11 +30,11 @@ public class VenueDAOImpl implements VenueDAO{
 	public Venue updateVenue(int id, Venue venue) {
 		Venue newVenue = em.find(Venue.class, id);		
 		newVenue.setName(venue.getName());
-		newVenue.setAddress(venue.getAddress());
+//		newVenue.setAddress(venue.getAddress());
 		newVenue.setCapacity(venue.getCapacity());
 		newVenue.setDescription(venue.getDescription());
-		newVenue.setLogo(venue.getLogo());
-		newVenue.setCreatedAt(venue.getCreatedAt());
+//		newVenue.setLogo(venue.getLogo());
+//		newVenue.setCreatedAt(venue.getCreatedAt());
 		newVenue.setLastUpdate(venue.getLastUpdate());
 		em.flush();
 		return newVenue;
@@ -55,17 +55,6 @@ public class VenueDAOImpl implements VenueDAO{
 			return em.createQuery(jpql, Venue.class).getResultList();
 	}
 
-	@Override
-	public Address venueAddress(int id) {
-		Address addr = new Address();
-		String jpql = "SELECT a from Address a JOIN Venue v ON v.address_id = a.id WHERE v.id = :id";
-		em.createQuery("jpql")
-			.setParameter("address", addr)
-			.executeUpdate();
-		return addr;
-	}
-
-	
 
 
 }

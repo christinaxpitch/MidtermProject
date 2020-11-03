@@ -17,7 +17,6 @@
 <body>
 
 <div>
-<h2>Thank you for updating your venue!</h2>
 <h3>New Venue Details:</h3>
 
 		<c:choose>
@@ -28,8 +27,8 @@
 					<li>Venue Name: ${venue.name}</li>
 					<li>Description: ${venue.description}</li>
 					<li>Capacity: ${venue.capacity}</li>
-					<li>Last Updated: $(venue.last_update) </li>
-					<li>Address : ${address.id }</li>
+					<li>Last Updated: ${venue.lastUpdate}</li>
+					<li>Address: ${venue.address.street} ${venue.address.city}, ${venue.address.state} ${venue.address.zip}</li>
 
 				</ul>
 			</c:when>
@@ -37,7 +36,7 @@
 				<p>Adding venue failed.</p>
 			</c:otherwise>
 		</c:choose>
-		
+		<h2>Thank you for updating your venue!</h2>
 		<form action="home.do" method="GET">
 		<input type="submit" class="button" value="Home Page" />
 	</form>

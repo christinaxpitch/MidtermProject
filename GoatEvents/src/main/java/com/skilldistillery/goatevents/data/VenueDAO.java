@@ -12,6 +12,5 @@ public interface VenueDAO {
 	public Venue updateVenue(int id, Venue Venue);
 	public boolean deleteVenue(int id);
 	public List<Venue> findAllVenues();
-	public Address venueAddress(int id);
 	
 }
