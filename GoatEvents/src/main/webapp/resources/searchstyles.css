@@ -163,6 +163,13 @@ a {
 	text-decoration: none;
 	background-color: transparent;
 }
+.table{
+
+	background: rgba(255,255,255,0.5);
+}
+table tr td {
+	opacity: 1.0;
+}
 
 /* Aaron Playing */
 #menu, #menu ul {
