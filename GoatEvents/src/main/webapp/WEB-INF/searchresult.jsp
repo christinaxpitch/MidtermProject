@@ -91,6 +91,7 @@
 <thead class=“thead thead-dark”>
 <tr><td><img src="${v.logo }" height= 70px width= 70px></td></tr>
 <tr><td>${v.name }</td></tr>
+<tr><td>${v.address.street} ${v.address.city} ${v.address.state} ${v.address.zip}</td></tr>
 <tr><td>${v.capacity } capacity</td></tr>
 <tr><td>${v.description }</td></tr>
 </table>
