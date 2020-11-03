@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="resources/styles.css">
 <meta charset="UTF-8">
 <title>Event Was Deleted Successfully</title>
 </head>

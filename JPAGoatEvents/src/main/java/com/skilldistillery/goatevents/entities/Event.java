@@ -149,7 +149,7 @@ public class Event {
 		return eventDate;
 	}
 
-	public void setEventDate(LocalDate eventDate) {
+	public void setEventDate(LocalDate eventdate) {
 		this.eventDate = eventDate;
 	}
 

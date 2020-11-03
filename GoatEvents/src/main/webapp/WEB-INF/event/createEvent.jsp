@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" href="resources/styles.css">
+<title>Create Event</title>
 </head>
 <body>
 <h4>Create New Event</h4>
@@ -29,8 +30,8 @@
 		<label for="numOfTickets">Number Of Tickets:</label>
 		<input type="text" name="numOfTickets" value="50000"> 
 		<br>
-		<label for="eventDate">Event Date:</label>
-		<input type="datetime-local" name="eventDate" value=""> 
+		<label for="eDate">Event Date:</label>
+		<input type="date" name="eDate" value=""> 
 		<br>
 		
 		<button type="submit" name = "vid" value = "${venue.id}">Submit</button>

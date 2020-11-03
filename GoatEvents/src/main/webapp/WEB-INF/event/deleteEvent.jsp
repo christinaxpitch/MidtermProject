@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="resources/styles.css">
 <title>Delete Event</title>
 </head>
 <body>
