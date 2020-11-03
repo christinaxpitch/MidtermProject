@@ -47,6 +47,9 @@ public class SignUpController {
 	public String loginUser(Model mode , String email, String password, HttpSession session){
 		User user = userDao.login(email, password);
 		if(user != null) {
+			if(user.getImage() == null) {
+				user.setImage("https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg");
+			}
 			session.setAttribute("loginUser", user);
 		}
 		boolean isVendor = userDao.isVendor(user);

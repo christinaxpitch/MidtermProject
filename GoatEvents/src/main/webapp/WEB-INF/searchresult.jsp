@@ -21,6 +21,12 @@
 
 <ul id="menu">
   <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
+       <li>   <div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit">Submit</button>
+    </form>
+  </div></li>
         <li id="signup">
         <a href="signUp.do">Sign up FREE</a>
       </li>
@@ -75,12 +81,13 @@
 <table class="table table-striped table-hover, table-light">
 <thead class=“thead thead-dark”>
 <tr><td><img src="${e.image }" height= 70px width= 70px></td></tr>
-<tr><td>${e.eventDate.month } ${e.eventDate.dayOfMonth }, ${e.eventDate.year }</td></tr>
-<tr><td>${e.title }</td></tr>
-<tr><td>${e.venue.name }</td></tr>
-<tr><td>${e.numOfTickets } tickets available</td></tr>
-<tr><td>${e.maxCapacity } max capacity</td></tr>
-<tr><td>${e.description }</td></tr>
+<tr><td>Date:</td><td>${e.eventDate.month } ${e.eventDate.dayOfMonth }, ${e.eventDate.year }</td></tr>
+<tr><td>Time:</td><td>${e.startTime}</td></tr>
+<tr><td>Event:</td><td>${e.title }</td></tr>
+<tr><td>Venue:</td><td>${e.venue.name }</td></tr>
+<tr><td>Tickets Available:</td><td>${e.numOfTickets }</td></tr>
+<tr><td>Event Capacity:</td><td>${e.maxCapacity }</td></tr>
+<tr><td>Description:</td><td>${e.description }</td></tr>
 </table>
 </div>
 
@@ -90,10 +97,10 @@
 <table class="table table-striped table-hover, table-light">
 <thead class=“thead thead-dark”>
 <tr><td><img src="${v.logo }" height= 70px width= 70px></td></tr>
-<tr><td>${v.name }</td></tr>
-<tr><td>${v.address.street} ${v.address.city} ${v.address.state} ${v.address.zip}</td></tr>
-<tr><td>${v.capacity } capacity</td></tr>
-<tr><td>${v.description }</td></tr>
+<tr><td>Venue:</td><td>${v.name }</td></tr>
+<tr><td>Address:</td><td>${v.address.street} ${v.address.city} ${v.address.state} ${v.address.zip}</td></tr>
+<tr><td>Max Capacity:</td><td>${v.capacity }</td></tr>
+<tr><td>Description:</td><td>${v.description }</td></tr>
 </table>
 </div>
 
