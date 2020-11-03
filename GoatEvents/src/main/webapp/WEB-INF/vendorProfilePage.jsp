@@ -11,10 +11,10 @@
 <h2>Thank you for being a vendor!</h2>
 
 	<br>
-	<a href="addVenue.jsp">Add a new Venue</a>
+	<a href="addVenueHomepage.do">Add a new Venue</a>
 	<br>
 	<br>
-	<a href="updateVenue.jsp">Update a Current Venue</a>
+	<a href="updateVenueHomepage.do">Update a Current Venue</a>
 	<br>
 	<br>
 

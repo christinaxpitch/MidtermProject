@@ -14,6 +14,18 @@ public class VenueController {
 	private VenueDAO venueDAO;
 	
 	
+//	this method is the href on the vendor profile page that brings the vendor to addVenue page
+	@RequestMapping (path = "addVenueHomepage.do")
+	public String addVenueHomepage() {
+		return "venue/addVenue";
+	}
+//	this method is the href on the vendor profile page that brings the vendor to updateVenue page
+	@RequestMapping (path = "updateVenueHomepage.do")
+	public String updateVenueHomepage() {
+		return "venue/updateVenue";
+	}
+	
+	
 	@RequestMapping(path = "vendor.do")
 	public String vendorProfile(Model model) {
 		model.addAttribute("user", dao.getTestUser());
