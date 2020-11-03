@@ -20,7 +20,6 @@ public class EventDAOImpl implements EventDAO {
 	public Event addEvent(Event newEvent) {
 		em.persist(newEvent);
 		em.flush();
-		em.close();
 		return newEvent;
 	}
 
@@ -30,7 +29,6 @@ public class EventDAOImpl implements EventDAO {
 		em.remove(deletedEvent);
 		boolean eventWasDeleted = !em.contains(deletedEvent);
 		em.flush();
-		em.close();
 		return eventWasDeleted;
 	}
 
@@ -49,20 +47,20 @@ public class EventDAOImpl implements EventDAO {
 		updatedEvent.setNumOfTickets(event.getNumOfTickets());
 		
 		em.flush();
-		em.close();
 		return null;
 	}
 
 	@Override
 	public Event findById(int id) {
 		Event event = em.find(Event.class, id);
-		em.close();
+		em.flush();
 		return event;
 		
 	}
 
 	@Override
 	public Venue findVenueById(int id) {
+		em.flush();
 		return em.find(Venue.class, id);
 	}
 	
