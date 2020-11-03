@@ -62,5 +62,3 @@ public class SignUpController {
 	}
 
 }
-// boolean on manager id in impl = > return vendorprofilepage if true. => if false return userprofilepage 
-// 
