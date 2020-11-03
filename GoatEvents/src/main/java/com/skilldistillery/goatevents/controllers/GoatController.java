@@ -19,6 +19,7 @@ public class GoatController {
 
 	@Autowired
 	private GoatDAO dao;
+	@Autowired
 	private UserDAO userDao;
 
 	@RequestMapping(path = { "/", "home.do" })
@@ -29,10 +30,20 @@ public class GoatController {
 
 	@RequestMapping(path = "user.do")
 	public String userProfile(Model model, HttpSession session) {
-		model.addAttribute("user", dao.getTestUser());
-		List<Venue> userVenues = userDao.venueFavoritesList((User) session.getAttribute("loginUser"));
-		model.addAttribute("venueFavoritesList", userVenues);
-		return "user";
+//		model.addAttribute("user", dao.getTestUser());
+		User user = (User) session.getAttribute("loginUser");
+//		System.out.println(user.getVenues().get(0).getEvents());
+		System.out.println("*************************" + user.getVenues().size());
+//		System.out.println(user.getVenues().get(0).getVenueAmenities());
+		if (user.getVenues().size() > 0) {
+			List<Venue> userVenues = userDao.venueFavoritesList(user);
+			System.out.println("*************************" + userVenues);
+//		List<Venue> userVenues = user.getVenues();
+			System.out.println("*************************" + user.getVenues().get(0));
+
+			model.addAttribute("venueFavoritesList", userVenues);
+		}
+		return "userProfilePage";
 	}
 
 	@RequestMapping(path = "vendor.do")
@@ -40,6 +51,5 @@ public class GoatController {
 		model.addAttribute("user", dao.getTestUser());
 		return "user";
 	}
-
 
 }

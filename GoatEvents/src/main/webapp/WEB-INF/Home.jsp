@@ -12,41 +12,71 @@
 <link rel="stylesheet" href="resources/styles.css">
 <link rel="stylesheet" href="resources/signUpStyles.css">
 <link rel="stylesheet" href="resources/homeStyles.css">
+<link rel="stylesheet" href="resources/searchstyles.css">
 <meta charset="UTF-8">
 <title>Home Page</title>
 </head>
 <body>
 
-	<ul id="menu">
-		<li><a href="home.do"><img
-				src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
-		<li id="signup"><a href="signUpInput.do">Sign up FREE</a></li>
-		<li id="drop" class="dropdown"><input id="dropcheck"
-			class="dropcheck" type="checkbox"> <label for="dropcheck"
-			class="dropbtn">Log in ▼</label>
+	<header>
+		<c:choose>
+			<c:when test="${empty sessionScope.loginUser}">
+				<ul id="menu">
+					<li><a href="home.do"><img
+							src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
+					<li>
+						<div class="search-container">
+							<form id="searchForm" action="search.do">
+								<input id="searchText" type="text" placeholder="Search.."
+									name="search">
+								<button id="searchSubmit" type="submit">Search</button>
+							</form>
+						</div>
+					</li>
+					<li id="signup"><a href="signUpInput.do">Sign up FREE</a></li>
+					<li id="drop" class="dropdown"><input id="dropcheck"
+						class="dropcheck" type="checkbox"> <label for="dropcheck"
+						class="dropbtn">Log in ▼</label>
+						<div class="dropdown-content">
+							<form action="login.do" method="GET">
+								<fieldset id="inputs">
+									<input id="email" type="email" name="email"
+										placeholder="Your email address" required> <input
+										id="password" type="password" name="password"
+										placeholder="Password" required>
+								</fieldset>
+								<fieldset id="actions">
+									<input type="submit" id="submit" value="Log in">
+								</fieldset>
+							</form>
+						</div></li>
+				</ul>
+			</c:when>
+			<c:otherwise>
+				<ul id="menu">
+					<li><a href="home.do"><img
+							src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
+					<li id="signup"><a href="user.do"><img
+							src="${sessionScope.loginUser.image}" height=45px width=45px></a>
+					<li>
+						<div class="search-container">
+							<form id="searchForm" action="search.do">
+								<input id="searchText" type="text" placeholder="Search.."
+									name="search">
+								<button id="searchSubmit" type="submit">Search</button>
+							</form>
+						</div>
+					</li>
 
 
-			<div class="dropdown-content">
-				<form action="login.do" method="GET">
-					<fieldset id="inputs">
-						<input id="email" type="email" name="email"
-							placeholder="Your email address" required> <input
-							id="password" type="password" name="password"
-							placeholder="Password" required>
-					</fieldset>
-					<fieldset id="actions">
-						<input type="submit" id="submit" value="Log in">
-					</fieldset>
-				</form>
-			</div></li>
-	</ul>
+				</ul>
+			</c:otherwise>
+		</c:choose>
+	</header>
 	<br>
 	<h1>THE G.O.A.T Events</h1>
 	<br>
-	<form action="search.do" method="POST">
-		Search Events: <br> <input type="text" name="search" /><br>
-		<input type="submit" class="button" value="Search" />
-	</form>
+
 	<br>
 	<h3>Upcoming Events</h3>
 	<div id="textSlide" class="container-sm">

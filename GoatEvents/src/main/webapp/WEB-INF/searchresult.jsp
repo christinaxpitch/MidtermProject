@@ -56,6 +56,15 @@
   <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
         <li id="signup">
         <a href="user.do"><img src="${sessionScope.loginUser.image}" height=45px width=45px></a>
+        				<li>
+						<div class="search-container">
+							<form id="searchForm" action="search.do">
+								<input id="searchText" type="text" placeholder="Search.."
+									name="search">
+								<button id="searchSubmit" type="submit">Search</button>
+							</form>
+						</div>
+					</li>
        </ul>
 </c:otherwise>
 </c:choose>

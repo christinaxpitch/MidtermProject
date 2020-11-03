@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -52,10 +53,13 @@ public class User {
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
-	@ManyToMany(mappedBy = "users")
+	
+	@ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)
 	private List<Venue> venues;
+	
 	@OneToMany(mappedBy = "user")
 	private List<Venue> managerVenues;
+	
 	@OneToMany(mappedBy = "user")
 	private List<Comment> userComments;
 

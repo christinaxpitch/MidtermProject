@@ -1,5 +1,6 @@
 package com.skilldistillery.goatevents.data;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -84,12 +85,15 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return userDeactivated;
 	}
+
 	@Override
 	public List<Venue> venueFavoritesList(User user) {
 		int userId = user.getId();
-		String sql = "Select u.venues from User u where userId = :id ";
-		List<Venue> list = em.createQuery(sql, Venue.class).setParameter("id", userId).getResultList();
-		return list;
+		String sql = "Select u.venues from User u where u.id = :id ";
+		List<Object> list = em.createQuery(sql, Object.class).setParameter("id", userId).getResultList();
+		List<Venue> venues = new ArrayList<>();
+		list.stream().forEach(x -> venues.add((Venue) x));
+		return venues;
 	}
 //	@Override
 //	public List<Event> eventFavoritesList() {
@@ -109,12 +113,14 @@ public class UserDAOImpl implements UserDAO {
 //		System.out.println(login);
 		return login;
 	}
+
 	@Override
 	public boolean isVendor(User vendor) {
 		boolean isVendor = false;
 		int vendorId = vendor.getId();
 		String sql = "Select u from User u join Venue v on v.user.id = u.id where v.user.id = :manager and v.user.role like :userrole";
-		List<User> login = em.createQuery(sql, User.class).setParameter("manager", vendorId).setParameter("userrole", "%vendor%").getResultList();
+		List<User> login = em.createQuery(sql, User.class).setParameter("manager", vendorId)
+				.setParameter("userrole", "%vendor%").getResultList();
 		if (login.size() > 0) {
 			isVendor = true;
 		}

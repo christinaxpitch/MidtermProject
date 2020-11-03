@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,9 +38,12 @@ public class Venue {
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
+	
 	@ManyToMany
 	@JoinTable(name = "user_venue", joinColumns = @JoinColumn(name = "venue_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<User> users;
+	
+	
 	@ManyToOne
 	@JoinColumn(name = "manager_id")
 	private User user;
