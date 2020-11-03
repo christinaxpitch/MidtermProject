@@ -38,12 +38,9 @@ public class Venue {
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
-	
 	@ManyToMany
 	@JoinTable(name = "user_venue", joinColumns = @JoinColumn(name = "venue_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<User> users;
-	
-	
 	@ManyToOne
 	@JoinColumn(name = "manager_id")
 	private User user;
@@ -181,10 +178,8 @@ public class Venue {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Venue [name=").append(name).append(", description=").append(description).append(", capacity=")
-				.append(capacity).append(", logo=").append(logo).append(", createdAt=").append(createdAt)
-				.append(", lastUpdate=").append(lastUpdate).append(", address=").append(address).append(", users=")
-				.append(users).append(", user=").append(user).append(", events=").append(events)
-				.append(", venueAmenities=").append(venueAmenities).append("]");
+				.append(capacity).append(", address=").append(address).append("]");
 		return builder.toString();
 	}
+
 }

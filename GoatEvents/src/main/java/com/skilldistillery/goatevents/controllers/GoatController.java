@@ -30,21 +30,21 @@ public class GoatController {
 
 	@RequestMapping(path = "user.do")
 	public String userProfile(Model model, HttpSession session) {
-//		model.addAttribute("user", dao.getTestUser());
 		User user = (User) session.getAttribute("loginUser");
-//		System.out.println(user.getVenues().get(0).getEvents());
-		System.out.println("*************************" + user.getVenues().size());
-//		System.out.println(user.getVenues().get(0).getVenueAmenities());
 		if (user.getVenues().size() > 0) {
-			List<Venue> userVenues = userDao.venueFavoritesList(user);
-			System.out.println("*************************" + userVenues);
-//		List<Venue> userVenues = user.getVenues();
-			System.out.println("*************************" + user.getVenues().get(0));
+			List<Venue> userVenues = user.getVenues();
 
 			model.addAttribute("venueFavoritesList", userVenues);
 		}
+		boolean isVendor = userDao.isVendor(user);
+		if(isVendor == true) {
+			
+		System.out.println(user);
+		return "vendorProfilePage";
+		}
 		return "userProfilePage";
 	}
+
 
 	@RequestMapping(path = "vendor.do")
 	public String vendorProfile(Model model, HttpSession session) {
