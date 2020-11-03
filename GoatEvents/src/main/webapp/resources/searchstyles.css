@@ -34,7 +34,26 @@
 	-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
 		"Liberation Mono", "Courier New", monospace;
 }
-
+#searchForm {
+ width: 550px;
+ margin-top: none;
+ position: relative;
+ opacity: 0.5;
+}
+.search-container{
+	margin-top: none;
+}
+#searchText {
+margin-top: none;	
+ height: 24px;
+ width: 375px;
+}
+#searchSubmit {	
+ margin-top: none;
+ height: 24px;
+ opacity: 0.9;
+	
+}
 *, *::before, *::after {
 	box-sizing: border-box;
 }

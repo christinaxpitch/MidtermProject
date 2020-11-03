@@ -23,11 +23,7 @@ public class SearchController {
 	
 	@RequestMapping (path = "search.do")
 	public String search(Model model, String search, HttpSession session) {
-
-		User testuser = dao.getTestUser();
-		if(testuser.getImage() == null) {
-			testuser.setImage("https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg");
-		}
+		User user = (User) session.getAttribute("user");
 		List<Event> eventList =  dao.findEventFromSearch(search);
 		List<Venue> venueList = dao.findVenueFromSearch(search);
 		int count = 0;

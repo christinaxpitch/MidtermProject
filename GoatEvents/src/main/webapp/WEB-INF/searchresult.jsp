@@ -17,47 +17,37 @@
 <body>
 <header>
 <c:choose>
-<c:when test="${empty user }">
+<c:when test="${empty sessionScope.loginUser}">
 
 <ul id="menu">
   <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
        <li>   <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit">Submit</button>
+    <form id="searchForm" action="search.do">
+      <input id="searchText" type="text" placeholder="Search.." name="search">
+      <button id="searchSubmit" type="submit">Search</button>
     </form>
   </div></li>
         <li id="signup">
         <a href="signUp.do">Sign up FREE</a>
       </li>
-      <li id="drop" class="dropdown">
-  <input id="dropcheck" class="dropcheck" type="checkbox">
-  <label for="dropcheck" class="dropbtn">Log in ▼</label>
-          
-       
-        <div class="dropdown-content">
-          <form action="credentials.do">
-            <fieldset id="inputs">
-              <input  id="username"
-                      type="email"
-                      name="Email"
-                      placeholder="Your email address"
-                      required>
-              <input  id="password"
-                      type="password"
-                      name="Password"
-                      placeholder="Password"
-                      required>
-            </fieldset>
-            <fieldset id="actions">
-              <input  type="submit"
-                      id="submit"
-                      value="Log in">
-            </fieldset>
-          </form>
-        </div>
-      
-   </li>
+		<li id="drop" class="dropdown"><input id="dropcheck"
+			class="dropcheck" type="checkbox"> <label for="dropcheck"
+			class="dropbtn">Log in ▼</label>
+
+
+			<div class="dropdown-content">
+				<form action="login.do" method="GET">
+					<fieldset id="inputs">
+						<input id="email" type="email" name="email"
+							placeholder="Your email address" required> <input
+							id="password" type="password" name="password"
+							placeholder="Password" required>
+					</fieldset>
+					<fieldset id="actions">
+						<input type="submit" id="submit" value="Log in">
+					</fieldset>
+				</form>
+			</div></li>
     </ul>
 </c:when>
 <c:otherwise>
@@ -65,7 +55,7 @@
 <ul id="menu">
   <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
         <li id="signup">
-        <a href="user.do"><img src="${user.image}" height=45px width=45px></a>
+        <a href="user.do"><img src="${sessionScope.loginUser.image}" height=45px width=45px></a>
        </ul>
 </c:otherwise>
 </c:choose>
@@ -73,8 +63,8 @@
 <div class="container-fluid">
 			<c:if test="${empty event}">
 			<c:if test="${empty venue}">
-	<c:if test="${empty venues  }"></c:if>
-	<c:if test="${empty events  }">No Results found</c:if>
+	<c:if test="${empty venues  }">
+	<c:if test="${empty events  }">No Results found</c:if></c:if>
 			<h6>Your Search contained ${count} results</h6>
 <c:forEach var="e" items="${events}">
 <div>

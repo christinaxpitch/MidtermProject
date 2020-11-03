@@ -27,7 +27,7 @@
 
 
 
-			<form action="updateVenue.do" method="GET">
+			<form action="home.do" method="GET">
 				<input type="hidden" name="" value="" /> <input type="submit"
 					value="Back to home page" />
 			</form>
