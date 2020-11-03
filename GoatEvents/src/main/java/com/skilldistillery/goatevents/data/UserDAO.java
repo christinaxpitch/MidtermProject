@@ -17,8 +17,6 @@ public interface UserDAO {
 
 	boolean deactivateUser(int id);
 
-	List<Venue> venueFavoritesList();
-
 	Venue addVenue(Venue newVenue);
 
 	Address addAddress(Address newAddress);
@@ -28,5 +26,7 @@ public interface UserDAO {
 	User login(String email, String password);
 
 	boolean isVendor(User vendor);
+
+	List<Venue> venueFavoritesList(User user);
 
 }

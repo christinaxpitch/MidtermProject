@@ -84,16 +84,22 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return userDeactivated;
 	}
-
 	@Override
-	public List<Venue> venueFavoritesList() {
-		String sql = "Select v from Venue v join User ";
-		List<Venue> list = em.createQuery(sql, Venue.class).getResultList();
-		for (Venue venues : list) {
-			System.out.println(venues.getEvents());
-		}
+	public List<Venue> venueFavoritesList(User user) {
+		int userId = user.getId();
+		String sql = "Select u.venues from User u where userId = :id ";
+		List<Venue> list = em.createQuery(sql, Venue.class).setParameter("id", userId).getResultList();
 		return list;
 	}
+//	@Override
+//	public List<Event> eventFavoritesList() {
+//		String sql = "Select u. from  v join User ";
+//		List<Venue> list = em.createQuery(sql, Venue.class).getResultList();
+//		for (Venue venues : list) {
+//			System.out.println(venues.getEvents());
+//		}
+//		return list;
+//	}
 
 	@Override
 	public User login(String email, String password) {

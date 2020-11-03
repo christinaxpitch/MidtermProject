@@ -1,5 +1,7 @@
 package com.skilldistillery.goatevents.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,13 +10,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.goatevents.data.GoatDAO;
+import com.skilldistillery.goatevents.data.UserDAO;
 import com.skilldistillery.goatevents.entities.User;
+import com.skilldistillery.goatevents.entities.Venue;
 
 @Controller
 public class GoatController {
 
 	@Autowired
 	private GoatDAO dao;
+	private UserDAO userDao;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model, HttpSession session) {
@@ -25,6 +30,8 @@ public class GoatController {
 	@RequestMapping(path = "user.do")
 	public String userProfile(Model model, HttpSession session) {
 		model.addAttribute("user", dao.getTestUser());
+		List<Venue> userVenues = userDao.venueFavoritesList((User) session.getAttribute("loginUser"));
+		model.addAttribute("venueFavoritesList", userVenues);
 		return "user";
 	}
 

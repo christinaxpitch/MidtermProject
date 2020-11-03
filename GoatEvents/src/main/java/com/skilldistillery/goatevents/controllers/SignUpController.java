@@ -58,7 +58,7 @@ public class SignUpController {
 		System.out.println(user);
 		return "vendorProfilePage";
 		}
-		return "searchresult";
+		return "userProfilePage";
 	}
 
 }
