@@ -11,9 +11,9 @@
 
 Please enter the venue ID of the venue you would like to update:
 
-	<form action="findFilmByID.do" method="GET">
-		ID: <input type="text" name="filmId" /> <input type="submit"
-			value="Get Film" />
+	<form action="findVenueByID.do" method="GET">
+		ID: <input type="text" name="vid" /> <input type="submit"
+			value="Get Venue" />
 	</form>
 
 </body>

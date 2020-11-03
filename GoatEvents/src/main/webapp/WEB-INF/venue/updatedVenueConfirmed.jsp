@@ -28,6 +28,8 @@
 					<li>Venue Name: ${venue.name}</li>
 					<li>Description: ${venue.description}</li>
 					<li>Capacity: ${venue.capacity}</li>
+					<li>Last Updated: $(venue.last_update) </li>
+					<li>Address : ${address.id }</li>
 
 				</ul>
 			</c:when>

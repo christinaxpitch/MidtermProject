@@ -65,11 +65,12 @@ public class VenueController {
 		return mv;
 }
 	
-	@RequestMapping(path = "updateVenue.do", method = RequestMethod.GET)
-	public ModelAndView updateVenue(Integer id, Venue venue) {
-		venueDAO.updateVenue(id, venue);
+	@RequestMapping(path = "updateVenue.do", method = RequestMethod.POST)
+	public ModelAndView updateVenue(Integer vid, Venue venue) {
+		Venue v = venueDAO.updateVenue(vid, venue);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("venue/updateVenue");
+		mv.addObject(v);
+		mv.setViewName("venue/updatedVenueConfirmed");
 		return mv;
 }
 	
@@ -80,17 +81,20 @@ public class VenueController {
 		return mv;
 }
 	
-	@RequestMapping(path = "findVenueByID.do", params = "id", method = RequestMethod.GET)
-	public ModelAndView venueByID(@RequestParam("id") Integer a) {
-		ModelAndView mv = new ModelAndView();
-		Venue v;
+	@RequestMapping(path= "findVenueHomepage.do")
+	public String dch() {
+		return "venue/updateFirstPage";
+	}
+	
+	
+	@RequestMapping(path = "findVenueByID.do", params = "vid", method = RequestMethod.GET)
+	public String showFilm(Integer vid, Model model) {
 		try {
-		v = eventDAO.findVenueById(a);
-			mv.addObject("venue", v);
-			mv.setViewName("venue/updateVenue");
+			Venue venue = eventDAO.findVenueById(vid);
+			model.addAttribute("venue", venue);
 		} catch (Exception e) {
-			mv.setViewName("venue/updateVenue");
+			return "venue/updateVenue";
 		}
-		return mv;
+		return "venue/updateVenue";
 	}
 }

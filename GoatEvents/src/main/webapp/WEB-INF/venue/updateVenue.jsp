@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,35 +17,30 @@
 	<h2>Venue Information: </h2>
  <c:choose>
 		<c:when test="${! empty venue }">
-			Venue you are editing: $(venue.venue} - ${venue.name}
+			Venue you are editing: - ${venue.name}
+			<form action="updateVenue.do" method="POST">
 			<br>
 			<br>
 				<label for="name">Venue Name:</label> <input type="text" name="name"
-					value="${venue.name}" /> <input type="hidden" name="id"
+					value="${venue.name}" /> <input type="hidden" name="vid"
 					value="${venue.id}" /> 
 			<br>
 				<label for="capacity">Venue Capacity:</label> <input type="text" name="capacity"
-					value="${venue.capacity}" /> <input type="hidden" name="id"
+					value="${venue.capacity}" /> <input type="hidden" name="capacity"
 					value="${venue.id}" /> 
 			<br>
 			<br>
 				<label for="description">Venue Description:</label> <input type="text" name="description"
-					value="${venue.capacity}" /> <input type="hidden" name="id"
+					value="${venue.description}" /> <input type="hidden" name="vid"
 					value="${venue.id}" /> 
 			<br>
 			<br>
-				<label for="logo">Venue Logo:</label> <input type="text" name="logo"
-					value="${venue.logo}" /> <input type="hidden" name="id"
-					value="${venue.id}" /> 
-			<br>
-			<br>
-			<button type="submit" name="id" value="${venue.id}">Submit</button>
-			</form><br>
-			<br>
-			<form action="updateVenue.do" method="GET">
-				<input type="hidden" name="" value="" /> <input type="submit"
-					value="Back to home page" />
-			</form>
+			
+		<input type="submit" class="button" value="Submit" />
+		<input type = "hidden" value ="${venue.id }" name = "vid" />
+		</form>
+
+
 		</c:when>
 		<c:otherwise>
 			<p>No result</p>

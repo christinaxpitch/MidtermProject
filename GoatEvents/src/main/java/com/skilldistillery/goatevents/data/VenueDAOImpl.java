@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.goatevents.entities.Address;
 import com.skilldistillery.goatevents.entities.Comment;
 import com.skilldistillery.goatevents.entities.Venue;
 
@@ -27,15 +28,17 @@ public class VenueDAOImpl implements VenueDAO{
 	}
 
 	@Override
-	public Venue updateVenue(int id, Venue Venue) {
+	public Venue updateVenue(int id, Venue venue) {
 		Venue newVenue = em.find(Venue.class, id);		
-		newVenue.setName(newVenue.getName());
-		newVenue.setAddress(newVenue.getAddress());
-		newVenue.setCapacity(newVenue.getCapacity());
-		newVenue.setDescription(newVenue.getDescription());
-		newVenue.setLogo(newVenue.getLogo());
-		newVenue.setCreatedAt(newVenue.getCreatedAt());
-		newVenue.setLastUpdate(newVenue.getLastUpdate());
+		newVenue.setName(venue.getName());
+		newVenue.setAddress(venue.getAddress());
+		newVenue.setCapacity(venue.getCapacity());
+		newVenue.setDescription(venue.getDescription());
+		newVenue.setLogo(venue.getLogo());
+		newVenue.setCreatedAt(venue.getCreatedAt());
+		newVenue.setLastUpdate(venue.getLastUpdate());
+		em.flush();
+		em.close();
 		return newVenue;
 	}
 
@@ -54,6 +57,19 @@ public class VenueDAOImpl implements VenueDAO{
 			String jpql = "SELECT * FROM Venue v";
 			return em.createQuery(jpql, Venue.class).getResultList();
 	}
+
+	@Override
+	public Address venueAddress(int id) {
+		Address addr = new Address();
+		String jpql = "SELECT * from address JOIN venue ON venue.address_id = address.id WHERE venue.id = :id";
+		em.createQuery("jpql")
+			.setParameter("address", addr)
+			.executeUpdate();
+		return addr;
+	}
+
+	
+
 
 }
 
