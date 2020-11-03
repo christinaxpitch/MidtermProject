@@ -97,10 +97,22 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User login(String email, String password) {
-		String sql = "Select u from User u where u.username = :username and u.password = :password";
+		String sql = "Select u from User u where u.email = :email and u.password = :password";
 		User login = em.createQuery(sql, User.class).setParameter("email", email).setParameter("password", password)
 				.getSingleResult();
 //		System.out.println(login);
 		return login;
+	}
+	@Override
+	public boolean isVendor(User vendor) {
+		boolean isVendor = false;
+		int vendorId = vendor.getId();
+		String sql = "Select u from User u join Venue v on v.user.id = u.id where v.user.id = :manager and v.user.role like :userrole";
+		List<User> login = em.createQuery(sql, User.class).setParameter("manager", vendorId).setParameter("userrole", "%vendor%").getResultList();
+		if (login.size() > 0) {
+			isVendor = true;
+		}
+		return isVendor;
+
 	}
 }

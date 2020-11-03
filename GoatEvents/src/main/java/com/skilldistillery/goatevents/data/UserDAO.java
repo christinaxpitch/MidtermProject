@@ -27,4 +27,6 @@ public interface UserDAO {
 
 	User login(String email, String password);
 
+	boolean isVendor(User vendor);
+
 }

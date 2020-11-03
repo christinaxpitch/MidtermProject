@@ -27,11 +27,11 @@
 
 
 			<div class="dropdown-content">
-				<form action="logIn.do" method="GET">
+				<form action="login.do" method="GET">
 					<fieldset id="inputs">
-						<input id="username" type="email" name="email"
+						<input id="email" type="email" name="email"
 							placeholder="Your email address" required> <input
-							id="password" type="password" name="Password"
+							id="password" type="password" name="password"
 							placeholder="Password" required>
 					</fieldset>
 					<fieldset id="actions">
