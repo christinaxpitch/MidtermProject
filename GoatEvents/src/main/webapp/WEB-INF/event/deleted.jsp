@@ -8,6 +8,6 @@
 <title>Event Was Deleted Successfully</title>
 </head>
 <body>
-
+<h1>Event was Successfully Deleted</h1>
 </body>
 </html>

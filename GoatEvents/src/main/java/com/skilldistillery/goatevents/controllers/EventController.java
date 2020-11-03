@@ -56,19 +56,17 @@ public class EventController {
 	return mv;
 	}
 	
-//	@RequestMapping(path= "deleteEventInput.do")
-//	public ModelAndView deleteEventInput() {
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("event/deleteEvent");
-//		return mv;
-//	}
-//	
-//	@RequestMapping(path = "deleteEvent.do", method = RequestMethod.GET)
-//	public ModelAndView deleteEvent(Integer id) {
-//		dao.deleteEvent(id);
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("event/deleted");
-//		return mv;
-//	}
+	@RequestMapping(path= "deleteEventHomepage.do")
+	public String dch() {
+		return "event/deleteEvent";
+	}
+	
+	@RequestMapping(path = "deleteEventForm.do", method = RequestMethod.GET)
+	public ModelAndView deleteEvent(Integer eid) {
+		dao.deleteEvent(eid);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("event/deleted");
+		return mv;
+	}
 	
 }

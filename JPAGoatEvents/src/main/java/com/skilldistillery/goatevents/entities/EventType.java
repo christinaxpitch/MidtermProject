@@ -2,6 +2,7 @@ package com.skilldistillery.goatevents.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,7 @@ public class EventType {
 	
 	private String category;
 	
-	@ManyToMany (mappedBy = "eventTypes")
+	@ManyToMany (mappedBy = "eventTypes",cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List <Event> events;
 
 	public EventType() {

@@ -10,8 +10,8 @@
 <body>
 
 <h4>Delete Event</h4>
-<form action="deleteEvent.do" method="GET">
-Customer ID: <input type="text" name="id" /> <input type="submit"
+<form action="deleteEventForm.do" method="GET">
+Event ID: <input type="text" name="eid" /> <input type="submit"
 	value="Delete Event" />
 </form>
 	
