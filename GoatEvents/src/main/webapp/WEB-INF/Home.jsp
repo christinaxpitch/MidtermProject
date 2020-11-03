@@ -27,9 +27,9 @@
 
 
 			<div class="dropdown-content">
-				<form>
+				<form action="logIn.do" method="GET">
 					<fieldset id="inputs">
-						<input id="username" type="email" name="Email"
+						<input id="username" type="email" name="email"
 							placeholder="Your email address" required> <input
 							id="password" type="password" name="Password"
 							placeholder="Password" required>
@@ -48,7 +48,7 @@
 		<input type="submit" class="button" value="Search" />
 	</form>
 	<br>
-	<h3>Up Coming Events</h3>
+	<h3>Upcoming Events</h3>
 	<div id="textSlide" class="container-sm">
 		<div id="carouselExampleCaptions" class="carousel slide"
 			data-ride="carousel">

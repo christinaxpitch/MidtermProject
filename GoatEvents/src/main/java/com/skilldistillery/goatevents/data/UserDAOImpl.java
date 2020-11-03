@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.goatevents.entities.Address;
+import com.skilldistillery.goatevents.entities.Event;
 import com.skilldistillery.goatevents.entities.User;
 import com.skilldistillery.goatevents.entities.Venue;
 
@@ -57,6 +58,14 @@ public class UserDAOImpl implements UserDAO {
 		return updateUser;
 	}
 
+	@Override
+	public List<Event> findAllEvents() {
+		String jpql = "SELECT e FROM Event e";
+		List<Event> emps = em.createQuery(jpql, Event.class).getResultList();
+		return emps;
+
+	}
+
 	/*
 	 * TODO This is to deactivate user. Needs to be checked, might just be deleting
 	 * user not deactivating. We have an "enabled" column but not exactly sure how
@@ -84,5 +93,14 @@ public class UserDAOImpl implements UserDAO {
 			System.out.println(venues.getEvents());
 		}
 		return list;
+	}
+
+	@Override
+	public User login(String email, String password) {
+		String sql = "Select u from User u where u.username = :username and u.password = :password";
+		User login = em.createQuery(sql, User.class).setParameter("email", email).setParameter("password", password)
+				.getSingleResult();
+//		System.out.println(login);
+		return login;
 	}
 }

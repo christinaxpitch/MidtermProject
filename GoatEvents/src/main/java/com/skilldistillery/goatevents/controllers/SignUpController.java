@@ -35,8 +35,11 @@ public class SignUpController {
 				Venue venueAddress = userDao.addVenue(venue);
 			}
 		}
+		model.addAttribute("eventList", userDao.findAllEvents());
 		model.addAttribute("user", user);
+		
 		return "Home";
 	}
+	
 
 }
