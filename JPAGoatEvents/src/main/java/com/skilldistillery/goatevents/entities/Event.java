@@ -1,6 +1,8 @@
 package com.skilldistillery.goatevents.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -26,10 +28,10 @@ public class Event {
 	private String description;
 
 	@Column(name = "start_time")
-	private LocalDateTime startTime;
+	private LocalTime startTime;
 
 	@Column(name = "end_time")
-	private LocalDateTime endTime;
+	private LocalTime endTime;
 
 	@Column(name = "max_capacity")
 	private int maxCapacity;
@@ -42,7 +44,7 @@ public class Event {
 	private String image;
 
 	@Column(name = "event_date")
-	private LocalDateTime eventDate;
+	private LocalDate eventDate;
 
 	@Column(name = "created_at")
 	@CreationTimestamp
@@ -87,19 +89,19 @@ public class Event {
 		this.description = description;
 	}
 
-	public LocalDateTime getStartTime() {
+	public LocalTime getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(LocalDateTime startTime) {
+	public void setStartTime(LocalTime startTime) {
 		this.startTime = startTime;
 	}
 
-	public LocalDateTime getEndTime() {
+	public LocalTime getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(LocalDateTime endTime) {
+	public void setEndTime(LocalTime endTime) {
 		this.endTime = endTime;
 	}
 
@@ -143,11 +145,11 @@ public class Event {
 		this.image = image;
 	}
 
-	public LocalDateTime getEventDate() {
+	public LocalDate getEventDate() {
 		return eventDate;
 	}
 
-	public void setEventDate(LocalDateTime eventDate) {
+	public void setEventDate(LocalDate eventDate) {
 		this.eventDate = eventDate;
 	}
 
