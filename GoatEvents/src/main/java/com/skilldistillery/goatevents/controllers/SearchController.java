@@ -3,6 +3,8 @@ package com.skilldistillery.goatevents.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +22,9 @@ public class SearchController {
 	private GoatDAO dao;
 	
 	@RequestMapping (path = "search.do")
-	public String search(Model model, String search) {
-	User testuser = dao.getTestUser();
+	public String search(Model model, String search, HttpSession session) {
+
+		User testuser = dao.getTestUser();
 		if(testuser.getImage() == null) {
 			testuser.setImage("https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg");
 		}
@@ -45,7 +48,6 @@ public class SearchController {
 		model.addAttribute("keyword", search);
 		model.addAttribute("events", eventList);
 		model.addAttribute("venues", venueList);
-		model.addAttribute("user", testuser);
 		return "searchresult";
 	}
 	

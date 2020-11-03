@@ -1,5 +1,7 @@
 package com.skilldistillery.goatevents.controllers;
 
+import java.text.ParseException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +30,14 @@ public class EventController {
 	}
 	
 	@RequestMapping(path = "event.do" , method = RequestMethod.POST)
-	public ModelAndView addEvent(Event event, String sTime, int vid, RedirectAttributes ra) {
+	public ModelAndView addEvent(Event event, String sTime, String eTime, String eDate, int vid, RedirectAttributes ra) throws ParseException {
 		LocalTime startTime = LocalTime.parse(sTime);
 		event.setStartTime(startTime);
+		LocalTime endTime = LocalTime.parse(eTime);
+		event.setEndTime(endTime);
+		
+		LocalDate date = LocalDate.parse(eDate);
+		event.setEventDate(date);
 		Venue venue = dao.findVenueById(vid);
 		Event newEvent = dao.addEvent(event);
 		newEvent.setVenue(venue);
@@ -49,19 +56,17 @@ public class EventController {
 	return mv;
 	}
 	
-//	@RequestMapping(path= "deleteEventInput.do")
-//	public ModelAndView deleteEventInput() {
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("event/deleteEvent");
-//		return mv;
-//	}
-//	
-//	@RequestMapping(path = "deleteEvent.do", method = RequestMethod.GET)
-//	public ModelAndView deleteEvent(Integer id) {
-//		dao.deleteEvent(id);
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("event/deleted");
-//		return mv;
-//	}
+	@RequestMapping(path= "deleteEventHomepage.do")
+	public String dch() {
+		return "event/deleteEvent";
+	}
+	
+	@RequestMapping(path = "deleteEventForm.do", method = RequestMethod.GET)
+	public ModelAndView deleteEvent(Integer eid) {
+		dao.deleteEvent(eid);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("event/deleted");
+		return mv;
+	}
 	
 }

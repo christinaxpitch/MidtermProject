@@ -166,9 +166,15 @@ a {
 .table{
 
 	background: rgba(255,255,255,0.5);
+	text-justify:left;
+	text-align: left;
 }
 table tr td {
 	opacity: 1.0;
+}
+td{
+	text-justify:left;
+	text-align: left;
 }
 
 /* Aaron Playing */
@@ -214,6 +220,14 @@ table tr td {
 	display: block;
 }
 
+#menu #search input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
 #menu #signup {
 	border-radius: 0 3px 3px 0;
 	float: right;

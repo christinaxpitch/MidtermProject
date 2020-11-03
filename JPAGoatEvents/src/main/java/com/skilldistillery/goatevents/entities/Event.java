@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -149,7 +150,7 @@ public class Event {
 		return eventDate;
 	}
 
-	public void setEventDate(LocalDate eventDate) {
+	public void setEventDate(LocalDate eventdate) {
 		this.eventDate = eventDate;
 	}
 

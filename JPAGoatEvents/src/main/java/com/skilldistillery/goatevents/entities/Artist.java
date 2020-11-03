@@ -2,6 +2,7 @@ package com.skilldistillery.goatevents.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ private String artistType;
 @Column(name="artist_name")
 private String artistName;
 
-@ManyToMany (mappedBy = "artists")
+@ManyToMany (mappedBy = "artists",cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 private List<Event> events;
 
 @Override

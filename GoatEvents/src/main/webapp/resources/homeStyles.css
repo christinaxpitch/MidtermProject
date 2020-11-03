@@ -98,7 +98,6 @@ h1, h3 {
 }
 
 h1 {
-	text-decoration: underline;
 	text-shadow: 3px 3px 5px black, 4px 4px 3px white, 6px 6px 5px black;
 }
 
@@ -275,7 +274,7 @@ form {
 
 #slides {
 	border-style: groove;
-	border-color: red;
+	border-color: white;
 	height: 539px;
 	width: 807px;
 	float: center;
