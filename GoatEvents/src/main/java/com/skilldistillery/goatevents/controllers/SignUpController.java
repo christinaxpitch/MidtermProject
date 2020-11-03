@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.goatevents.data.UserDAO;
-import com.skilldistillery.goatevents.data.VenueDAO;
 import com.skilldistillery.goatevents.entities.Address;
 import com.skilldistillery.goatevents.entities.User;
 import com.skilldistillery.goatevents.entities.Venue;
@@ -16,7 +15,6 @@ public class SignUpController {
 
 	@Autowired
 	private UserDAO userDao;
-//	private VenueDAO venueDao;
 
 	@RequestMapping(path = "signUpInput.do")
 	public String signUpInput() {

@@ -16,7 +16,7 @@ public class GoatController {
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model) {
-		model.addAttribute("user", dao.getTestUser());
+		model.addAttribute("eventList", dao.findAllEvents());
 		return "Home";
 	}
 
