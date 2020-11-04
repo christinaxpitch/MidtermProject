@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` VARCHAR(200) NOT NULL,
   `enabled` TINYINT(4) NOT NULL DEFAULT '1',
   `role` VARCHAR(45) NULL DEFAULT NULL,
-  `address_id` INT NOT NULL,
+  `address_id` INT,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `profile_pic` VARCHAR(5000) NULL,
