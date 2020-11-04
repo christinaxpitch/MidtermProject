@@ -89,8 +89,8 @@
 <tr><td>Tickets Available:</td><td>${e.numOfTickets }</td></tr>
 <tr><td>Event Capacity:</td><td>${e.maxCapacity }</td></tr>
 <tr><td>Description:</td><td>${e.description }</td></tr>
-<tr><td><form action="buyTicket.do"><button id="buyTickets" type="submit" value=1>Buy Ticket</button></form>
-</td><td><form action="addFav.do"><button id="buyTickets" type="submit" value=${ e.id}>Add Event to my Favorites</button></form></td></tr>
+<tr><td><form action="buyTicket.do"><button name="id" type="submit" value="${e.id}">Buy Ticket</button></form>
+</td><td><form action="addFav.do"><button id="id" type="submit" value="${ e.id}">Add Event to my Favorites</button></form></td></tr>
 </table>
 
 </div>
@@ -105,7 +105,7 @@
 <tr><td>Address:</td><td>${v.address.street} ${v.address.city} ${v.address.state} ${v.address.zip}</td></tr>
 <tr><td>Max Capacity:</td><td>${v.capacity }</td></tr>
 <tr><td>Description:</td><td>${v.description }</td></tr>
-<tr><td><form action="addFavVenue.do"><button id="buyTickets" type="submit" value=${ e.id}>Add Venue to my Favorites</button></form></td></tr>
+<tr><td><form action="addFavVenue.do"><button name="id" type="submit" value="${v.id}">Add Venue to my Favorites</button></form></td></tr>
 </table>
 </div>
 

@@ -55,4 +55,28 @@ public class GoatDAOJPAImpl implements GoatDAO {
 		return emps;
 	}
 
+	@Override
+	public Event buyTicket(Event e) {
+		int ticketNumber = e.getNumOfTickets();
+		ticketNumber--;
+		e.setNumOfTickets(ticketNumber);
+		em.persist(e);
+		return e;
+	}
+
+	@Override
+	public Venue findVenuebyId(Integer id) {
+		return em.find(Venue.class, id);
+			}
+
+	@Override
+	public User addFavVenue(User user, Venue favVenue) {
+		Venue venueToAdd = em.find(Venue.class, favVenue.getId());
+		System.out.println(venueToAdd);
+		user.getUserComments();
+		user.addVenue(venueToAdd);
+		em.persist(user);
+		return user;
+	}
+
 }

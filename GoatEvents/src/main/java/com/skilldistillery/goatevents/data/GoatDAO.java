@@ -16,4 +16,10 @@ public interface GoatDAO {
 
 	List<Event> findAllEvents();
 
+	Event buyTicket(Event e);
+
+	Venue findVenuebyId(Integer id);
+
+	User addFavVenue(User user, Venue favVenue);
+
 }

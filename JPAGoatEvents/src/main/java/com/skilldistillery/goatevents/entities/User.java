@@ -173,6 +173,7 @@ public class User {
 		super();
 	}
 	public void addVenue(Venue venue) {
+		System.out.println(venue);
 		if(venues == null) { venues = new ArrayList<Venue>();}
 		if(!venues.contains(venue)) {
 			venues.add(venue);

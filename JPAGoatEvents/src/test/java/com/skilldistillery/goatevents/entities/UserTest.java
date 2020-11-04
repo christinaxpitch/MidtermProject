@@ -79,5 +79,17 @@ class UserTest {
 		assertTrue(user.getUserComments().size() > 0);
 		assertEquals("Dude the beer and bacon were of GOD!!", user.getUserComments().get(0).getContent());
 	}
+	@Test
+	@DisplayName("test add Venue to favs")
+	void test5() {
+		assertNotNull(user);
+		Venue addVenue = new Venue();
+		addVenue.setName("GOOD TIME BILLYS");
+		addVenue.setDescription("Leisure faciilty specializing in good times and good vibes");
+		user.addVenue(addVenue);
+		assertNotNull(addVenue);
+		assertTrue(user.getVenues().size() > 0);
+		assertTrue(user.getVenues().contains(addVenue));
+	}
 
 }

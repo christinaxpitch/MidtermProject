@@ -1,6 +1,5 @@
 package com.skilldistillery.goatevents.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.skilldistillery.goatevents.data.EventDAO;
 import com.skilldistillery.goatevents.data.GoatDAO;
 import com.skilldistillery.goatevents.entities.Event;
 import com.skilldistillery.goatevents.entities.User;
@@ -20,6 +20,8 @@ public class SearchController {
 
 	@Autowired
 	private GoatDAO dao;
+	@Autowired
+	private EventDAO daoEvent;
 	
 	@RequestMapping (path = "search.do")
 	public String search(Model model, String search, HttpSession session) {
@@ -49,6 +51,35 @@ public class SearchController {
 		return "searchresult";
 	}
 	
+	@RequestMapping(path="buyTicket.do")
+	public String buyTicket(Model model, Integer id , HttpSession session) {
+		Event e = daoEvent.findById(id);
+		dao.buyTicket(e);
+		String search = (String)session.getAttribute("search");
+		List<Event> eventList =  dao.findEventFromSearch(search);
+		int count = 0;
+		for (Event event : eventList) {
+			count++;
+		}
+		List<Venue> venueList = dao.findVenueFromSearch(search);
+		for (Venue venue : venueList) {
+			count++;
+		}
+		model.addAttribute("count", count);
+		model.addAttribute("events", eventList);
+		model.addAttribute("venues", venueList);
+		model.addAttribute("search", search);
+		return "searchresult";
+	}
 	
+	@RequestMapping(path="addFavVenue.do")
+	public String addFavEvent(Model model, Integer id, HttpSession session) {
+		User user = (User)session.getAttribute("loginUser");
+		Venue favVenue = dao.findVenuebyId(id);
+		System.out.println(favVenue);
+		User updated = dao.addFavVenue(user, favVenue);
+		session.setAttribute("loginUser", updated);
+		return "UserProfilePage";
+	}
 
 }
