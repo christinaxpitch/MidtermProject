@@ -92,25 +92,25 @@ public class VenueController {
 	
 //	find a user instead of createUser
 	
-	@RequestMapping(path = "signUp.do")
-	public String addVenue(Address newAddress, Venue newVenue, Model model) {
-		User user = userDao.addUser(newUser);
-		if (newAddress != null && !newAddress.getStreet().equals("")) {
-			System.err.println("*********************************" + newAddress);
-			Address userAddress = venueDAO.createVenueAddress(newAddress);
-			user.setAddress(userAddress);
-
-			if (venue != null) {
-				System.err.println("*********************************" + newVenue);
-				newVenue.setAddress(userAddress);
-				Venue venueAddress = venueDAO.addVenue(newVenue);
-			}
-		}
-		model.addAttribute("eventList", userDao.findAllEvents());
-		model.addAttribute("user", user);
-
-		return "Home";
-	}
+//	@RequestMapping(path = "signUp.do")
+//	public String addVenue(Address newAddress, Venue newVenue, Model model) {
+//		User user = userDao.addUser(newUser);
+//		if (newAddress != null && !newAddress.getStreet().equals("")) {
+//			System.err.println("*********************************" + newAddress);
+//			Address userAddress = venueDAO.createVenueAddress(newAddress);
+//			user.setAddress(userAddress);
+//
+//			if (venue != null) {
+//				System.err.println("*********************************" + newVenue);
+//				newVenue.setAddress(userAddress);
+//				Venue venueAddress = venueDAO.addVenue(newVenue);
+//			}
+//		}
+//		model.addAttribute("eventList", userDao.findAllEvents());
+//		model.addAttribute("user", user);
+//
+//		return "Home";
+//	}
 	
 	
 }
