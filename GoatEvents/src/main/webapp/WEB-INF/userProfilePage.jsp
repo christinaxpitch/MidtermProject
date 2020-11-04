@@ -69,6 +69,10 @@
 			</c:otherwise>
 		</c:choose>
 	</header>
+<form id="searchForm" action="logout.do">
+							
+								<button id="searchSubmit" type="submit">Logout</button>
+							</form>
 
 	<h1>Welcome ${sessionScope.loginUser.username}!</h1>
 

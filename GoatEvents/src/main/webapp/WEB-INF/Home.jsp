@@ -41,7 +41,7 @@
 							<form action="login.do" method="GET">
 								<fieldset id="inputs">
 									<input id="email" type="text" name="email"
-										placeholder="Your email address" required> <input
+										placeholder="Your email or username" required> <input
 										id="password" type="password" name="password"
 										placeholder="Password" required>
 								</fieldset>
