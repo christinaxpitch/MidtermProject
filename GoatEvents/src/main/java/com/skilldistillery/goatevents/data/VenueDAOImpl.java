@@ -70,6 +70,16 @@ public class VenueDAOImpl implements VenueDAO{
 		em.flush();
 		return newAddress;
 	}
+	
+	@Override
+	public User saveUser(User user, Venue newVenue) {
+		User newUser = em.find(User.class, user.getId());
+		Venue venueToAdd = em.find(Venue.class, newVenue.getId());
+		newUser.addVenue(venueToAdd);
+		em.persist(newUser);
+		em.flush();
+		return newUser;
+	}
 
 
 
