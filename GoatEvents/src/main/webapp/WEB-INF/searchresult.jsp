@@ -83,7 +83,8 @@
 <tr><td><img src="${e.image }" height= 70px width= 70px></td></tr>
 <tr><td>Date:</td><td>${e.eventDate.month } ${e.eventDate.dayOfMonth }, ${e.eventDate.year }</td></tr>
 <tr><td>Time:</td><td>${e.startTime}</td></tr>
-<tr><td>Event:</td><td>${e.title }</td></tr>
+<tr><td>Acts:</td><td><c:forEach var="a" items="${e.artists }"> ${a.artistName } ( ${a.artistType} )<br> </c:forEach></td></tr>
+<tr><td>Event:</td><td>${e.title } ( <c:forEach var="et" items="${e.eventTypes }"> ${et.category } </c:forEach> )</td></tr>
 <tr><td>Venue:</td><td>${e.venue.name }</td></tr>
 <tr><td>Tickets Available:</td><td>${e.numOfTickets }</td></tr>
 <tr><td>Event Capacity:</td><td>${e.maxCapacity }</td></tr>
