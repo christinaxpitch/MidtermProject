@@ -74,6 +74,7 @@
 					<li>Venue Name: ${venue.name}</li>
 					<li>Description: ${venue.description}</li>
 					<li>Capacity: ${venue.capacity}</li>
+					<li> </li>
 
 				</ul>
 			</c:when>

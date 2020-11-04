@@ -8,7 +8,7 @@ import com.skilldistillery.goatevents.entities.Venue;
 
 public interface GoatDAO {
 	
-	User getTestUser();
+	User getUserByID(int id);
 
 	List<Event> findEventFromSearch(String keyword);
 

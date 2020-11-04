@@ -21,8 +21,8 @@ public class GoatDAOJPAImpl implements GoatDAO {
 	private EntityManager em;
 	
 	@Override
-	public User getTestUser() {
-		return em.find(User.class, 1);
+	public User getUserByID(int id) {
+		return em.find(User.class, id);
 	}
 	
 	@Override
@@ -80,5 +80,7 @@ public class GoatDAOJPAImpl implements GoatDAO {
 		em.persist(userToUpdate);
 		return userToUpdate;
 	}
+	
+	
 
 }

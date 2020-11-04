@@ -69,6 +69,22 @@
 		<h3>Add a Venue to Our Collection!</h3>
   <form action="addVenue.do" method="POST">
   
+    Venue Street Address:
+    <input type="text" name="street"/> 
+    <br>
+    Venue City:
+    <input type="text" name="city"/> 
+    <br>
+    Venue State
+    <input type="text" name="state"/> 
+    <br>
+	Venue Zip Code:
+    <input type="text" name="zip"/> 
+    <br>
+	Venue Phone Number:
+    <input type="text" name="zip"/> 
+    <br>
+   
     Name of Venue:
     <input type="text" name="name"/> 
     <br>
@@ -81,7 +97,7 @@
     <br>
 	
 <br>
-	<button type="submit" name="id" value="${venue.id}">Submit</button>
+	<button type="submit" >Submit</button>
 			</form><br>
 			<br>			
   <br>

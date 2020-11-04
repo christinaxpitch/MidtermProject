@@ -46,10 +46,10 @@ public class GoatController {
 	}
 
 
-	@RequestMapping(path = "vendor.do")
-	public String vendorProfile(Model model, HttpSession session) {
-		model.addAttribute("user", dao.getTestUser());
-		return "user";
-	}
+//	@RequestMapping(path = "vendor.do")
+//	public String vendorProfile(Model model, HttpSession session) {
+//		model.addAttribute("user", dao.getTestUser());
+//		return "user";
+//	}
 
 }

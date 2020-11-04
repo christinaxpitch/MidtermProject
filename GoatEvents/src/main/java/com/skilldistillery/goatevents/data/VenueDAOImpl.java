@@ -68,7 +68,7 @@ public class VenueDAOImpl implements VenueDAO{
 	public Address createVenueAddress(Address newAddress) {
 		em.persist(newAddress);
 		em.flush();
-		return null;
+		return newAddress;
 	}
 
 
