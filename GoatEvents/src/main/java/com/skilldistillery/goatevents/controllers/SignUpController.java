@@ -68,6 +68,7 @@ public class SignUpController {
 			System.out.println(user);
 			return "vendorProfilePage";
 		}
+		model.addAttribute("venueFavoritesList", user.getVenues());
 		return "userProfilePage";
 	}
 

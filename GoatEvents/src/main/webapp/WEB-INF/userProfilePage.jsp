@@ -92,7 +92,7 @@
 		</thead>
 		<tbody>
 			<c:if test="${! empty  venueFavoritesList}">
-				<c:forEach items="${venueFavoritesList}" var="event">
+				<c:forEach items="${venueFavoritesList}" var="venue">
 					<tr>
 
 						<td><a>${venue.name}</a></td>
