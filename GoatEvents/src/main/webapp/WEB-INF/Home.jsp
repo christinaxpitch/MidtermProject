@@ -98,7 +98,7 @@
 				<div id="textSlide" id="slides" class="carousel-inner">
 					<c:forEach items="${eventList}" var="event" varStatus="i">
 						<div class="carousel-item ${i.index == 0?'active':''}">
-							<img src="resources/images/RockingOut3.jpg" class="d-block w-100"
+							<img id="eventImg" src="https://betterbegrilled.com/wp-content/uploads/2017/02/Grilled_BeerCandiedBacon_9834-520x520.jpg" class="d-block w-100"
 								alt="...">
 							<div class="carousel-caption d-md-block d-md-block">
 								<h5>${event.venue.name}</h5>

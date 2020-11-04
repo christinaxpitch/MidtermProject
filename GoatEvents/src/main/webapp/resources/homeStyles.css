@@ -187,6 +187,9 @@ a {
 	box-shadow: 0 1px 1px #ccc inset;
 }
 
+#eventImg{
+	max-height: 534px;
+}
 #inputs input:focus {
 	background-color: #fff;
 	border-color: #e8c291;

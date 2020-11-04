@@ -87,8 +87,8 @@ public class SearchController {
 		Venue favVenue = dao.findVenuebyId(id);
 		System.out.println(favVenue);
 		User updated = dao.addFavVenue(user, favVenue);
-		model.addAttribute("eventFavoritesList", user.getEvents());
-		model.addAttribute("venueFavoritesList", user.getVenues());
+		model.addAttribute("eventFavoritesList", updated.getEvents());
+		model.addAttribute("venueFavoritesList", updated.getVenues());
 		session.setAttribute("loginUser", updated);
 		return "userProfilePage";
 	}
