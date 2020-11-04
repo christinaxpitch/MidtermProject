@@ -3,6 +3,7 @@ package com.skilldistillery.goatevents.entities;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -59,14 +60,14 @@ public class Event {
 	@JoinColumn(name = "venue_id")
 	private Venue venue;
 
-	@OneToMany(mappedBy = "event")
+	@OneToMany(mappedBy = "event",cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Comment> comments;
 
-	@ManyToMany
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name = "artist_event", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "artist_id"))
 	private List<Artist> artists;
 
-	@ManyToMany
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name = "event_type_has_event", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "event_type_id"))
 	private List<EventType> eventTypes;
 
@@ -150,7 +151,7 @@ public class Event {
 		return eventDate;
 	}
 
-	public void setEventDate(LocalDate eventdate) {
+	public void setEventDate(LocalDate eventDate) {
 		this.eventDate = eventDate;
 	}
 
@@ -193,6 +194,45 @@ public class Event {
 	public void setVenue(Venue venue) {
 		this.venue = venue;
 	}
+	public void addComment(Comment comment) {
+		if(comments == null) { comments = new ArrayList<Comment>();}
+		if(!comments.contains(comment)) {
+			comments.add(comment);}
+		}
+	
+		
+	public void removeComment(Comment comment) {
+		if(comments != null && comments.contains(comment)) {
+			comments.remove(comment);
+			}
+		}
+	
+	public void addArtist(Artist ar) {
+		if(artists == null) { artists = new ArrayList<Artist>();}
+		if(!artists.contains(ar)) {
+			artists.add(ar);
+				ar.addEvent(this);
+				}
+		}
+		
+	public void removeArtist(Artist ar) {
+		if(artists != null && artists.contains(ar)) {
+			artists.remove(ar);
+			ar.removeEvent(this);}
+		}
+	public void addEventType(EventType et) {
+		if(eventTypes == null) { eventTypes = new ArrayList<EventType>();}
+		if(!eventTypes.contains(et)) {
+			eventTypes.add(et);
+				et.addEvent(this);
+				}
+		}
+		
+	public void removeEventType(EventType et) {
+		if(eventTypes != null && eventTypes.contains(et)) {
+			eventTypes.remove(et);
+			et.removeEvent(this);}
+		}
 
 	@Override
 	public int hashCode() {

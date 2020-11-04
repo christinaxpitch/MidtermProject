@@ -1,7 +1,9 @@
 package com.skilldistillery.goatevents.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +21,7 @@ public class Amenity {
 	
 	private String description;
 	
-	@OneToMany(mappedBy = "amenity")
+	@OneToMany(mappedBy = "amenity", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<VenueAmenity> venueAmenities;
 
 
@@ -71,6 +73,19 @@ public class Amenity {
 		return true;
 	}
 
+	public void addVenueAmenity(VenueAmenity ve) {
+		if(venueAmenities == null) { venueAmenities = new ArrayList<VenueAmenity>();}
+		if(!venueAmenities.contains(ve)) {
+			venueAmenities.add(ve);
+				}
+		}
+		
+	public void removeVenueAmenity(VenueAmenity ve) {
+		if(venueAmenities != null && venueAmenities.contains(ve)) {
+			venueAmenities.remove(ve);
+			}
+		}
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

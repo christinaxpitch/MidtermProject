@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -55,13 +56,13 @@ public class User {
 	@JoinColumn(name = "address_id")
 	private Address address;
 	
-	@ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)
+	@ManyToMany(mappedBy = "users", fetch = FetchType.EAGER,cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Venue> venues;
 	
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Venue> managerVenues;
 	
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Comment> userComments;
 
 	public String getPassword() {
@@ -185,6 +186,31 @@ public class User {
 			venue.removeUser(this);}
 		}
 
+	public void addManagerVenue(Venue v) {
+		if(managerVenues == null) { managerVenues = new ArrayList<Venue>();}
+		if(!managerVenues.contains(v)) {
+			managerVenues.add(v);
+				
+				}
+		}
+		
+	public void removeManagerVenue(Venue v) {
+		if(managerVenues != null && managerVenues.contains(v)) {
+			managerVenues.remove(v);
+			}
+		}
+	public void addComment(Comment c) {
+		if(userComments == null) { userComments = new ArrayList<Comment>();}
+		if(!userComments.contains(c)) {
+			userComments.add(c);
+			}
+		}
+		
+	public void removeActor(Comment c) {
+		if(userComments != null && userComments.contains(c)) {
+			userComments.remove(c);
+			}
+		}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -1,5 +1,6 @@
 package com.skilldistillery.goatevents.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -79,6 +80,20 @@ public String getArtistName() {
 public void setArtistName(String artistName) {
 	this.artistName = artistName;
 }
+
+public void addEvent(Event e) {
+	if(events == null) { events = new ArrayList<Event>();}
+	if(!events.contains(e)) {
+		events.add(e);
+			e.addArtist(this);
+			}
+	}
+	
+public void removeEvent(Event e) {
+	if(events != null && events.contains(e)) {
+		events.remove(e);
+		e.removeArtist(this);}
+	}
 
 @Override
 public String toString() {

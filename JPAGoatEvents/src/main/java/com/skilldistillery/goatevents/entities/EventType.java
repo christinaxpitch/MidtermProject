@@ -1,5 +1,6 @@
 package com.skilldistillery.goatevents.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -58,6 +59,19 @@ public class EventType {
 		this.category = category;
 	}
 
+	public void addEvent(Event e) {
+		if(events == null) { events = new ArrayList<Event>();}
+		if(!events.contains(e)) {
+			events.add(e);
+				e.addEventType(this);
+				}
+		}
+		
+	public void removeEvent(Event e) {
+		if(events != null && events.contains(e)) {
+			events.remove(e);
+			e.removeEventType(this);}
+		}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
