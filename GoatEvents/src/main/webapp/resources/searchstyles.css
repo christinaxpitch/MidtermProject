@@ -35,25 +35,36 @@
 		"Liberation Mono", "Courier New", monospace;
 }
 #searchForm {
- width: 550px;
- margin-top: none;
- position: relative;
+ width: 350px;
  opacity: 0.5;
+ float: left;
 }
 .search-container{
-	margin-top: none;
+
 }
 #searchText {
 margin-top: none;	
  height: 24px;
- width: 375px;
+ width: 250px;
 }
 #searchSubmit {	
- margin-top: none;
- height: 24px;
- opacity: 0.9;
+	position: relative;
+background-color: Black;
+ color: white;
+ text-align: center;
+ text-justify: center;	
+ height: 27px;
+ vertical-align: middle;
+ line-height: 4px;
+ border: 1px 1px 1px 1px white;
+ 
 	
 }
+#searchSubmit:hover{
+  background-color: white; 
+  color: black;
+}
+
 *, *::before, *::after {
 	box-sizing: border-box;
 }
@@ -193,7 +204,7 @@ td{
 	list-style: none;
 	border: 1px solid #000;
 	background-color: #dc3545;
-	padding: 0 0 32px 0;
+	padding: 0 0 35px 0;
 	margin: 0;
 }
 
