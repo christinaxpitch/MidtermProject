@@ -74,8 +74,8 @@
 					<li>Venue Name: ${venue.name}</li>
 					<li>Description: ${venue.description}</li>
 					<li>Capacity: ${venue.capacity}</li>
-					<li> </li>
-
+					<li>Address: ${venue.address.street}  ${venue.address.city},  ${venue.address.state}  ${venue.address.zip}</li>
+				    <li>Created At: ${venue.createdAt})</li> 
 				</ul>
 			</c:when>
 			<c:otherwise>
@@ -83,9 +83,7 @@
 			</c:otherwise>
 		</c:choose>
 		<h3>Thank you!</h3>
-		<form action="home.do" method="GET">
-		<input type="submit" class="button" value="Home Page" />
-	</form>
+
 	</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

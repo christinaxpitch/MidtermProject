@@ -101,15 +101,17 @@ public class VenueController {
 			System.err.println("*********************************" + newAddress);
 			Address userAddress = venueDAO.createVenueAddress(newAddress);
 			user.setAddress(userAddress);
+			model.addAttribute("newAddress", userAddress);
 
 			if (newVenue != null) {
 				System.err.println("*********************************" + newVenue);
 				newVenue.setAddress(userAddress);
 				Venue venue = venueDAO.addVenue(newVenue);
+				venue.setUser(user);
+				model.addAttribute("newVenue", newVenue);
+				user = venueDAO.saveUser(user, newVenue);
 			}
 		}
-		model.addAttribute("newVenue", newVenue);
-		model.addAttribute("newAddress", newAddress);
 		model.addAttribute("user", user);
 		
 		return "venue/addedVenueConfirmed";

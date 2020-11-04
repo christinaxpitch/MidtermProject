@@ -15,4 +15,5 @@ public interface VenueDAO {
 	public List<Venue> findAllVenues();
 	public Venue findVenueByManagerID(User user);
 	public Address createVenueAddress(Address newAddress);
+	public User saveUser(User user, Venue newVenue);
 }
