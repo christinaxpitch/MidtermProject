@@ -472,6 +472,14 @@ INSERT INTO `user_venue` (`user_id`, `venue_id`) VALUES (8, 8);
 
 COMMIT;
 
+-- -----------------------------------------------------
+-- Data for table `user_event`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `goatdb`;
+INSERT INTO `user_event` (`user_id`, `event_id`) VALUES (1, 1);
+
+COMMIT;
 
 -- -----------------------------------------------------
 -- Data for table `event_type_has_event`
