@@ -10,6 +10,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
+<link rel="stylesheet" href="resources/HomeStyles.css">
 <link rel="stylesheet" href="resources/searchstyles.css">
 <meta charset="UTF-8">
 <title>Search Results</title>
@@ -20,7 +21,7 @@
 <c:when test="${empty sessionScope.loginUser}">
 
 <ul id="menu">
-  <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
+  <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=35px></a></li>
        <li>   <div class="search-container">
     <form id="searchForm" action="search.do">
       <input id="searchText" type="text" placeholder="Search.." name="search">
