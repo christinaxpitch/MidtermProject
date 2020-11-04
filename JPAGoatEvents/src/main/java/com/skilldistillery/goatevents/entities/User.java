@@ -66,7 +66,7 @@ public class User {
 	@OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Comment> userComments;
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinTable(name = "venue", joinColumns = @JoinColumn(name = "manager_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
+	@JoinTable(name = "user_event", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
 	private List<Event> events;
 
 	public List<Event> getEvents() {
