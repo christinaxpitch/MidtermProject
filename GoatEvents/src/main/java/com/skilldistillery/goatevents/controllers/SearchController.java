@@ -53,8 +53,13 @@ public class SearchController {
 	
 	@RequestMapping(path="buyTicket.do")
 	public String buyTicket(Model model, Integer id , HttpSession session) {
+		User loggedIn =(User)session.getAttribute("loginUser");
+		if (loggedIn == null) {
+			return "signUpInput";
+		}
 		Event e = daoEvent.findById(id);
-		dao.buyTicket(e);
+		if(e.getNumOfTickets() > 0) {
+		dao.buyTicket(e);}
 		String search = (String)session.getAttribute("search");
 		List<Event> eventList =  dao.findEventFromSearch(search);
 		int count = 0;
