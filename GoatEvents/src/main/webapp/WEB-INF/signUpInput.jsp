@@ -22,6 +22,7 @@
 	<form action="signUp.do" method="POST">
 		<h4><a> First Name: </h4> <input type="text" name="firstName" /><br>
 			<h4>Last Name: </h4><input type="text" name="lastName" /> <br>
+			<h4>Email: </h4><input type="email" name="email" /> <br>
 			<h4>User Name: </h4><input type="text" name="username" /> <br>
 			<h4>Password: </h4><input type="text" name="password" /> <br>
 			<input type="hidden" name="enabled" value="1" /> <br> 
