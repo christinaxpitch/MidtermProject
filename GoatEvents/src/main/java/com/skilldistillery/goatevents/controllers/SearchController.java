@@ -78,7 +78,7 @@ public class SearchController {
 	}
 	
 	@RequestMapping(path="addFavVenue.do")
-	public String addFavEvent(Model model, Integer id, HttpSession session) {
+	public String addFavVenue(Model model, Integer id, HttpSession session) {
 		User user = (User)session.getAttribute("loginUser");
 		if(user == null) {
 			return "signUpInput";
@@ -87,9 +87,24 @@ public class SearchController {
 		Venue favVenue = dao.findVenuebyId(id);
 		System.out.println(favVenue);
 		User updated = dao.addFavVenue(user, favVenue);
+		model.addAttribute("eventFavoritesList", user.getEvents());
 		model.addAttribute("venueFavoritesList", user.getVenues());
 		session.setAttribute("loginUser", updated);
 		return "userProfilePage";
 	}
+	@RequestMapping(path="addFavVenue.do")
+	public String addFavEvent(Model model, Integer id, HttpSession session) {
+		User user = (User)session.getAttribute("loginUser");
+		if(user == null) {
+			return "signUpInput";
+		}
+		Event favEvent = daoEvent.findById(id);
+		User updated = dao.addFavEvent(user, favEvent);
+		model.addAttribute("eventFavoritesList", user.getEvents());
+		model.addAttribute("venueFavoritesList", user.getVenues());
+		session.setAttribute("loginUser", updated);
+		return "userProfilePage";
+	}
+	
 
 }
