@@ -57,6 +57,13 @@
 					<li id="signup"><a href="user.do"><img
 							src="${sessionScope.loginUser.image}" height=45px width=45px></a>
 					<li>
+
+						<li id="logout"><form action="logout.do">
+
+							<button id="searchSubmit" type="submit">Logout</button>
+						</form>
+					</li>
+
 						<div class="search-container">
 							<form id="searchForm" action="search.do">
 								<input id="searchText" type="text" placeholder="Search.."
@@ -64,15 +71,11 @@
 								<button id="searchSubmit" type="submit">Search</button>
 							</form>
 						</div>
-					</li>
 				</ul>
 			</c:otherwise>
 		</c:choose>
 	</header>
-<form id="searchForm" action="logout.do">
-							
-								<button id="searchSubmit" type="submit">Logout</button>
-							</form>
+
 
 	<h1>Welcome ${sessionScope.loginUser.username}!</h1>
 

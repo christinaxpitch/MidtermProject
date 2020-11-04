@@ -34,35 +34,38 @@
 	-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
 		"Liberation Mono", "Courier New", monospace;
 }
-#searchForm {
- width: 350px;
- opacity: 0.5;
- float: left;
-}
-.search-container{
 
+#searchForm {
+	width: 350px;
+	opacity: 0.5;
+	float: left;
 }
-#searchText {
-margin-top: none;	
- height: 24px;
- width: 250px;
-}
-#searchSubmit {	
-	position: relative;
-background-color: Black;
- color: white;
- text-align: center;
- text-justify: center;	
- height: 27px;
- vertical-align: middle;
- line-height: 4px;
- border: 1px 1px 1px 1px white;
- 
+
+.search-container {
 	
 }
-#searchSubmit:hover{
-  background-color: white; 
-  color: black;
+
+#searchText {
+	margin-top: none;
+	height: 24px;
+	width: 250px;
+}
+
+#searchSubmit {
+	position: relative;
+	background-color: Black;
+	color: white;
+	text-align: center;
+	text-justify: center;
+	height: 27px;
+	vertical-align: middle;
+	line-height: 4px;
+	border: 1px 1px 1px 1px white;
+}
+
+#searchSubmit:hover {
+	background-color: white;
+	color: black;
 }
 
 *, *::before, *::after {
@@ -185,17 +188,19 @@ a {
 	text-decoration: none;
 	background-color: transparent;
 }
-.table{
 
-	background: rgba(255,255,255,0.5);
-	text-justify:left;
+.table {
+	background: rgba(255, 255, 255, 0.5);
+	text-justify: left;
 	text-align: left;
 }
+
 table tr td {
 	opacity: 1.0;
 }
-td{
-	text-justify:left;
+
+td {
+	text-justify: left;
 	text-align: left;
 }
 
@@ -243,23 +248,34 @@ td{
 }
 
 #menu #search input[type=text] {
-  float: right;
-  padding: 6px;
-  border: none;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
+	float: right;
+	padding: 6px;
+	border: none;
+	margin-top: 8px;
+	margin-right: 16px;
+	font-size: 17px;
 }
+
 #menu #signup {
 	border-radius: 0 3px 3px 0;
 	float: right;
 	text-shadow: 0 1px 0 #fff
 }
+
+#menu #logout {
+	border-radius: 0 3px 3px 0;
+	float: right;
+	text-shadow: 0 1px 0 #fff;
+	opacity: 0.5;
+	
+}
+
 #menu #drop {
 	border-radius: 0 3px 3px 0;
 	float: right;
 	text-shadow: 0 1px 0 #fff
 }
+
 #menu #profile {
 	border-radius: 0 3px 3px 0;
 	float: right;
@@ -346,8 +362,8 @@ td{
 	min-width: 160px;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 1;
-		 right: 0;
-  left: auto;
+	right: 0;
+	left: auto;
 }
 
 .dropdown-content a {
@@ -355,7 +371,6 @@ td{
 	padding: 12px 16px;
 	text-decoration: none;
 	display: block;
-
 }
 
 .dropdown-content a:hover {
