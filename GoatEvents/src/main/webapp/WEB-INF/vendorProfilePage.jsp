@@ -75,11 +75,8 @@
 	</header>
 	<br>
 	<br>
-	<h2> Hi, ${sessionScope.loginUser.firstName} </h2>
-	<h4>Thank you for being a vendor!</h4>
-	<br>
-	<p> Vendor Actions: </p>
-	<br>
+	<h3> Hi, ${sessionScope.loginUser.firstName} </h3>
+	<p>Thank you for being a vendor!</p>
 	<a href="addVenueHomepage.do">Add</a> a new Venue
 	<br>
 	<br>
