@@ -80,6 +80,13 @@ class UserTest {
 		assertEquals("Dude the beer and bacon were of GOD!!", user.getUserComments().get(0).getContent());
 	}
 	@Test
+	@DisplayName("test user mapping to event")
+	void test6() {
+		assertNotNull(user);
+		assertNotNull(user.getEvents());
+		assertTrue(user.getEvents().size() > 0);
+	}
+	@Test
 	@DisplayName("test add Venue to favs")
 	void test5() {
 		assertNotNull(user);

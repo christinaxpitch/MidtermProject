@@ -92,7 +92,7 @@ public class SearchController {
 		session.setAttribute("loginUser", updated);
 		return "userProfilePage";
 	}
-	@RequestMapping(path="addFavVenue.do")
+	@RequestMapping(path="addFavEvent.do")
 	public String addFavEvent(Model model, Integer id, HttpSession session) {
 		User user = (User)session.getAttribute("loginUser");
 		if(user == null) {
