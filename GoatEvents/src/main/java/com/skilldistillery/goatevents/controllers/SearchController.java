@@ -39,7 +39,9 @@ public class SearchController {
 				venue.setLogo("https://thumbs.dreamstime.com/b/no-image-available-icon-vector-illustration-flat-design-140633878.jpg");
 			}
 		}
-			
+		String sessionSearch = (String)session.getAttribute("search");
+		if((sessionSearch != search)) {
+		session.setAttribute("search", search);}
 		model.addAttribute("count", count);
 		model.addAttribute("keyword", search);
 		model.addAttribute("events", eventList);
