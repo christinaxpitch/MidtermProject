@@ -92,6 +92,22 @@ public class SearchController {
 		session.setAttribute("loginUser", updated);
 		return "userProfilePage";
 	}
+	
+	
+	@RequestMapping(path="removeFavVenue.do")
+	public String removeFavVenue(Model model, Integer id, HttpSession session) {
+		User user = (User)session.getAttribute("loginUser");
+		System.out.println(user);
+		Venue favVenue = dao.findVenuebyId(id);
+		System.out.println(favVenue);
+		User updated = dao.removeFavVenue(user, favVenue);
+		model.addAttribute("eventFavoritesList", updated.getEvents());
+		model.addAttribute("venueFavoritesList", updated.getVenues());
+		session.setAttribute("loginUser", updated);
+		return "userProfilePage";
+	}
+	
+	
 	@RequestMapping(path="addFavEvent.do")
 	public String addFavEvent(Model model, Integer id, HttpSession session) {
 		User user = (User)session.getAttribute("loginUser");
@@ -100,6 +116,18 @@ public class SearchController {
 		}
 		Event favEvent = daoEvent.findById(id);
 		User updated = dao.addFavEvent(user, favEvent);
+		model.addAttribute("eventFavoritesList", updated.getEvents());
+		model.addAttribute("venueFavoritesList", updated.getVenues());
+		session.setAttribute("loginUser", updated);
+		return "userProfilePage";
+	}
+	
+	
+	@RequestMapping(path="removeFavEvent.do")
+	public String removeFavEvent(Model model, Integer id, HttpSession session) {
+		User user = (User)session.getAttribute("loginUser");
+		Event favEvent = daoEvent.findById(id);
+		User updated = dao.removeFavEvent(user, favEvent);
 		model.addAttribute("eventFavoritesList", updated.getEvents());
 		model.addAttribute("venueFavoritesList", updated.getVenues());
 		session.setAttribute("loginUser", updated);
