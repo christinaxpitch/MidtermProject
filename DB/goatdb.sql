@@ -70,13 +70,13 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` VARCHAR(200) NOT NULL,
   `enabled` TINYINT(4) NOT NULL DEFAULT '1',
   `role` VARCHAR(45) NULL DEFAULT NULL,
-  `address_id` INT NULL,
+  `address_id` INT NOT NULL,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `profile_pic` VARCHAR(5000) NULL,
   `email` VARCHAR(150) NULL,
   `created_at` DATETIME NULL,
-  `last_update` DATETIME NULL,
+  `last_update` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
   INDEX `fk_user_address1_idx` (`address_id` ASC),
@@ -96,9 +96,9 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `venue` ;
 
 CREATE TABLE IF NOT EXISTS `venue` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `id` INT(11) NOT NULL,
   `name` VARCHAR(150) NOT NULL,
-  `address_id` INT NULL,
+  `address_id` INT NOT NULL,
   `capacity` INT NULL,
   `description` TEXT NULL,
   `logo` VARCHAR(5000) NULL,
@@ -220,7 +220,7 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `venue_amenity` ;
 
 CREATE TABLE IF NOT EXISTS `venue_amenity` (
-  `amenity_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `amenity_id` INT(11) NOT NULL,
   `venue_id` INT(11) NOT NULL,
   `description` TEXT NULL,
   PRIMARY KEY (`amenity_id`, `venue_id`),
@@ -285,6 +285,31 @@ CREATE TABLE IF NOT EXISTS `artist_event` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_artist_has_event_event1`
+    FOREIGN KEY (`event_id`)
+    REFERENCES `event` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `user_event`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `user_event` ;
+
+CREATE TABLE IF NOT EXISTS `user_event` (
+  `user_id` INT(11) NOT NULL,
+  `event_id` INT(11) NOT NULL,
+  PRIMARY KEY (`user_id`, `event_id`),
+  INDEX `fk_user_has_event_event1_idx` (`event_id` ASC),
+  INDEX `fk_user_has_event_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_user_has_event_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_has_event_event1`
     FOREIGN KEY (`event_id`)
     REFERENCES `event` (`id`)
     ON DELETE NO ACTION
@@ -542,4 +567,3 @@ INSERT INTO `artist_event` (`artist_id`, `event_id`) VALUES (7, 9);
 INSERT INTO `artist_event` (`artist_id`, `event_id`) VALUES (4, 10);
 
 COMMIT;
-
