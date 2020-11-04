@@ -1,11 +1,11 @@
 package com.skilldistillery.goatevents.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -150,6 +150,20 @@ public class Venue {
 	public void setVenueAmenities(List<VenueAmenity> venueAmenities) {
 		this.venueAmenities = venueAmenities;
 	}
+	
+	public void addUser(User user) {
+		if(users == null) { users = new ArrayList<User>();}
+		if(!users.contains(user)) {
+			users.add(user);
+				user.addVenue(this);
+				}
+		}
+		
+	public void removeUser(User user) {
+		if(users != null && users.contains(user)) {
+			users.remove(user);
+			user.removeVenue(this);}
+		}
 
 	// Hashcode AND Equals =============================
 	@Override

@@ -1,6 +1,7 @@
 package com.skilldistillery.goatevents.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -170,6 +171,19 @@ public class User {
 	public User() {
 		super();
 	}
+	public void addVenue(Venue venue) {
+		if(venues == null) { venues = new ArrayList<Venue>();}
+		if(!venues.contains(venue)) {
+			venues.add(venue);
+				venue.addUser(this);
+				}
+		}
+		
+	public void removeVenue(Venue venue) {
+		if(venues != null && venues.contains(venue)) {
+			venues.remove(venue);
+			venue.removeUser(this);}
+		}
 
 	@Override
 	public int hashCode() {
