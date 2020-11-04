@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="resources/signUpStyles.css">
 <link rel="stylesheet" href="resources/searchstyles.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Add a Venue</title>
 </head>
 <body>
 
@@ -66,33 +66,33 @@
 
 
 <div>
-		<h3>Add a Venue to Our Collection!</h3>
+<h3>Add a Venue to Our Collection:</h3>
   <form action="addVenue.do" method="POST">
   
-    Venue Street Address:
+    Venue Street Address:<br>
     <input type="text" name="street"/> 
     <br>
-    Venue City:
+    Venue City:<br>
     <input type="text" name="city"/> 
     <br>
-    Venue State
+    Venue State:<br>
     <input type="text" name="state"/> 
     <br>
-	Venue Zip Code:
+	Venue Zip Code:<br>
     <input type="text" name="zip"/> 
     <br>
-	Venue Phone Number:
+	Venue Phone Number:<br>
     <input type="text" name="zip"/> 
     <br>
    
-    Name of Venue:
+    Name of Venue:<br>
     <input type="text" name="name"/> 
     <br>
-    Description:
+    Description:<br>
     <input type="text" name="description"/> 
     <br>
 
-	Capacity:
+	Capacity:<br>
     <input type="number" name="capacity" value="0"/> 
     <br>
 	
