@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -64,6 +65,17 @@ public class User {
 	
 	@OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Comment> userComments;
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@JoinTable(name = "venue", joinColumns = @JoinColumn(name = "manager_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
+	private List<Event> events;
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
 
 	public String getPassword() {
 		return password;
@@ -173,7 +185,6 @@ public class User {
 		super();
 	}
 	public void addVenue(Venue venue) {
-		System.out.println(venue);
 		if(venues == null) { venues = new ArrayList<Venue>();}
 		if(!venues.contains(venue)) {
 			venues.add(venue);
@@ -186,6 +197,19 @@ public class User {
 			venues.remove(venue);
 			venue.removeUser(this);}
 		}
+	public void addEvent(Event event) {
+		if(events == null) { events = new ArrayList<Event>();}
+		if(!events.contains(event)) {
+			events.add(event);
+			event.addUser(this);
+		}
+	}
+	
+	public void removeEvent(Event event) {
+		if(events != null && events.contains(event)) {
+			events.remove(event);
+			event.removeUser(this);}
+	}
 
 	public void addManagerVenue(Venue v) {
 		if(managerVenues == null) { managerVenues = new ArrayList<Venue>();}
@@ -207,7 +231,7 @@ public class User {
 			}
 		}
 		
-	public void removeActor(Comment c) {
+	public void removeComment(Comment c) {
 		if(userComments != null && userComments.contains(c)) {
 			userComments.remove(c);
 			}

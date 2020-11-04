@@ -55,6 +55,11 @@
 							src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
 					<li id="signup"><a href="user.do"><img
 							src="${sessionScope.loginUser.image}" height=45px width=45px></a>
+								<li id="logout"><form action="logout.do">
+
+							<button id="searchSubmit" type="submit">Logout</button>
+						</form>
+					</li>
 					<li>
 						<div class="search-container">
 							<form id="searchForm" action="search.do">

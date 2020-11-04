@@ -71,6 +71,17 @@ public class Event {
 	@JoinTable(name = "event_type_has_event", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "event_type_id"))
 	private List<EventType> eventTypes;
 
+	@ManyToMany(mappedBy= "events")
+	private List<User> users;
+	
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
 	public Event() {
 		super();
 	}
@@ -220,6 +231,19 @@ public class Event {
 			artists.remove(ar);
 			ar.removeEvent(this);}
 		}
+	public void addUser(User u) {
+		if(users == null) { users = new ArrayList<User>();}
+		if(!users.contains(u)) {
+			users.add(u);
+			u.addEvent(this);
+		}
+	}
+	
+	public void removeUser(User u) {
+		if(users != null && users.contains(u)) {
+			users.remove(u);
+			u.removeEvent(this);}
+	}
 	public void addEventType(EventType et) {
 		if(eventTypes == null) { eventTypes = new ArrayList<EventType>();}
 		if(!eventTypes.contains(et)) {
