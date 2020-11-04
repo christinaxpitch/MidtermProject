@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.goatevents.entities.Address;
 import com.skilldistillery.goatevents.entities.Comment;
+import com.skilldistillery.goatevents.entities.User;
 import com.skilldistillery.goatevents.entities.Venue;
 
 @Service
@@ -53,6 +54,14 @@ public class VenueDAOImpl implements VenueDAO{
 	public List<Venue> findAllVenues() {
 			String jpql = "SELECT v FROM Venue v";
 			return em.createQuery(jpql, Venue.class).getResultList();
+	}
+
+	@Override
+	public Venue findVenueByManagerID(User user) {
+		int id = user.getId();
+		String jpql = "SELECT v FROM Venue v WHERE v.user.id = :id";
+
+		return em.createQuery(jpql, Venue.class).setParameter("id", id).getSingleResult();
 	}
 
 

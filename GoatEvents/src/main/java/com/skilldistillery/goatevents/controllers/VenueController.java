@@ -1,6 +1,8 @@
 package com.skilldistillery.goatevents.controllers;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skilldistillery.goatevents.data.EventDAO;
 import com.skilldistillery.goatevents.data.GoatDAO;
 import com.skilldistillery.goatevents.data.VenueDAO;
+import com.skilldistillery.goatevents.entities.User;
 import com.skilldistillery.goatevents.entities.Venue;
 
 @Controller
@@ -32,29 +35,20 @@ public class VenueController {
 	}
 //	this method is the href on the vendor profile page that brings the vendor to updateVenue page
 	@RequestMapping (path = "updateVenueHomepage.do")
-	public String updateVenueHomepage() {
+	public String updateVenueHomepage(HttpSession session, Model model) {
+		User loggedInUser = (User) session.getAttribute("loginUser");
+		Venue userVenue = venueDAO.findVenueByManagerID(loggedInUser);
+		model.addAttribute("venue", userVenue);
+
 		return "venue/updateVenue";
 	}
-	
-	
-//	@RequestMapping(path = "vendor.do")
-//	public String vendorProfile(Model model) {
-//		model.addAttribute("user", dao.getTestUser());
-//		return "user";
-//	}
-//	@RequestMapping (path = 
-//			"venue.do")
-//	public String venuePage(Model model) {
-//		List<Venue> venueList = venueDAO.findAllVenues();
-//		model.addAttribute("venues", venueList);
-//		return "venue/";
-//	}
+//	find the venue for that manager and add that attribute 
 	
 	@RequestMapping(path = "addVenue.do", method = RequestMethod.GET)
 	public ModelAndView addVenue(Venue venue) {
 		venueDAO.addVenue(venue);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("venue/addVenue");
+		mv.setViewName("venue/addVenueConfirmed");
 		return mv;
 }
 	
@@ -74,12 +68,6 @@ public class VenueController {
 		return mv;
 }
 	
-	@RequestMapping(path = "confirmAddedVenue1.do", method = RequestMethod.GET)
-	public ModelAndView updatedVenueConfirmed(Venue venue) {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("venue/updatedVenueConfirmed");
-		return mv;
-}
 	
 	@RequestMapping(path= "findVenueHomepage.do")
 	public String dch() {

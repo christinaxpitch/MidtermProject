@@ -40,9 +40,6 @@
 			
   </form>
   <br>
-  <form action="home.do" method="GET">
-		<input type="submit" class="button" value="Back" />
-	</form>
 	
 </body>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
