@@ -74,6 +74,10 @@
 					<td>${event.description}</td>
 				</tr>
 				<tr>
+					<td>Venue : </td>
+					<td>${venue.name}</td>
+				</tr>
+				<tr>
 					<td>Start Time</td>
 					<td>${event.startTime}</td>
 				</tr>
