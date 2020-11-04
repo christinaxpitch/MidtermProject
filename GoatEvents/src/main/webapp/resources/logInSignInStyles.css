@@ -25,9 +25,10 @@
 }
 
 form {
-	float: center;
 	left: 25%;
 	top: 10%;
 	margin-left: 15%;
 	position: absolute;
+	float: center;
+	text-align: center;
 }
