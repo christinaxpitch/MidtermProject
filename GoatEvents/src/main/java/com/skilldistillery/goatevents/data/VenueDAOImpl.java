@@ -21,10 +21,10 @@ public class VenueDAOImpl implements VenueDAO{
 	private EntityManager em;
 	
 	@Override
-	public Venue addVenue(Venue venue) {
-		em.persist(venue);
+	public Venue addVenue(Venue newVenue) {
+		em.persist(newVenue);
 		em.flush();
-		return venue;
+		return newVenue;
 	}
 
 	@Override
@@ -63,6 +63,15 @@ public class VenueDAOImpl implements VenueDAO{
 
 		return em.createQuery(jpql, Venue.class).setParameter("id", id).getSingleResult();
 	}
+
+	@Override
+	public Address createVenueAddress(Address newAddress) {
+		em.persist(newAddress);
+		em.flush();
+		return null;
+	}
+
+
 
 
 

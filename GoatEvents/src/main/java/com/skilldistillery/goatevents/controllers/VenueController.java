@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skilldistillery.goatevents.data.EventDAO;
 import com.skilldistillery.goatevents.data.GoatDAO;
 import com.skilldistillery.goatevents.data.VenueDAO;
+import com.skilldistillery.goatevents.entities.Address;
 import com.skilldistillery.goatevents.entities.User;
 import com.skilldistillery.goatevents.entities.Venue;
 
@@ -44,9 +45,12 @@ public class VenueController {
 	}
 //	find the venue for that manager and add that attribute 
 	
-	@RequestMapping(path = "addVenue.do", method = RequestMethod.GET)
-	public ModelAndView addVenue(Venue venue) {
-		venueDAO.addVenue(venue);
+	@RequestMapping(path = "addVenue.do", method = RequestMethod.POST)
+	public ModelAndView addVenue(Venue newVenue, String venueName, int venueCapacity, String venueDescription) {
+		newVenue.setName(venueName);
+		newVenue.setCapacity(venueCapacity);
+		newVenue.setDescription(venueDescription);
+		venueDAO.addVenue(newVenue);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("venue/addVenueConfirmed");
 		return mv;
@@ -85,4 +89,28 @@ public class VenueController {
 		}
 		return "venue/updateVenue";
 	}
+	
+//	find a user instead of createUser
+	
+	@RequestMapping(path = "signUp.do")
+	public String addVenue(Address newAddress, Venue newVenue, Model model) {
+		User user = userDao.addUser(newUser);
+		if (newAddress != null && !newAddress.getStreet().equals("")) {
+			System.err.println("*********************************" + newAddress);
+			Address userAddress = venueDAO.createVenueAddress(newAddress);
+			user.setAddress(userAddress);
+
+			if (venue != null) {
+				System.err.println("*********************************" + newVenue);
+				newVenue.setAddress(userAddress);
+				Venue venueAddress = venueDAO.addVenue(newVenue);
+			}
+		}
+		model.addAttribute("eventList", userDao.findAllEvents());
+		model.addAttribute("user", user);
+
+		return "Home";
+	}
+	
+	
 }

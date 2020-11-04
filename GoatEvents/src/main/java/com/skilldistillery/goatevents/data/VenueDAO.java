@@ -14,5 +14,5 @@ public interface VenueDAO {
 	public boolean deleteVenue(int id);
 	public List<Venue> findAllVenues();
 	public Venue findVenueByManagerID(User user);
-	
+	public Address createVenueAddress(Address newAddress);
 }
