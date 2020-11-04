@@ -49,7 +49,7 @@ public class EventDAOImpl implements EventDAO {
 		updatedEvent.setNumOfTickets(event.getNumOfTickets());
 		
 		em.flush();
-		return null;
+		return updatedEvent;
 	}
 
 	@Override

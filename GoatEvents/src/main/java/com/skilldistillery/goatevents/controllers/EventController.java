@@ -21,64 +21,77 @@ import com.skilldistillery.goatevents.entities.Venue;
 public class EventController {
 	@Autowired
 	private EventDAO dao;
-	
+
+	ModelAndView mv = new ModelAndView();
+
 	@RequestMapping(path = "createEvent.do", method = RequestMethod.GET)
 	public ModelAndView create() {
 		int id = 1;
-		ModelAndView mv = new ModelAndView();
 		mv.addObject("venue", dao.findVenueById(id));
 		mv.setViewName("event/createEvent");
 		return mv;
 	}
-	
-	@RequestMapping(path = "event.do" , method = RequestMethod.POST)
-	public ModelAndView addEvent(Event event, String sTime, String eTime, String eDate, int vid, RedirectAttributes ra) throws ParseException {
+	@RequestMapping(path = "updateEventHome.do", method = RequestMethod.GET)
+	public ModelAndView updateHome() {
+		int id = 1;
+		mv.addObject("venue", dao.findVenueById(id));
+		mv.setViewName("event/update");
+		return mv;
+	}
+
+	@RequestMapping(path = "event.do", method = RequestMethod.POST)
+	public ModelAndView addEvent(Event event, String sTime, String eTime, String eDate, int vid, RedirectAttributes ra)
+			throws ParseException {
 		LocalTime startTime = LocalTime.parse(sTime);
 		event.setStartTime(startTime);
 		LocalTime endTime = LocalTime.parse(eTime);
 		event.setEndTime(endTime);
-		
+
 		LocalDate date = LocalDate.parse(eDate);
 		event.setEventDate(date);
 		Venue venue = dao.findVenueById(vid);
 		Event newEvent = dao.addEvent(event);
 		newEvent.setVenue(venue);
-		List<Venue> venues = dao.findAll();
-		ra.addFlashAttribute("venues", venues);
-		
-		ra.addFlashAttribute("venue",venue);
+
+		ra.addFlashAttribute("venue", venue);
 		ra.addFlashAttribute("event", newEvent);
-		
-		ModelAndView mv = new ModelAndView();
+
 		mv.setViewName("redirect:eventAdded.do");
 		return mv;
-		
+
 	}
+
 	@RequestMapping(path = "eventAdded.do", method = RequestMethod.GET)
 	public ModelAndView created() {
-	ModelAndView mv = new ModelAndView();
-	mv.setViewName("event/showEvent");
-	return mv;
+		mv.setViewName("event/showEvent");
+		return mv;
 	}
-	
-	@RequestMapping(path= "deleteEventHomepage.do")
+
+	@RequestMapping(path = "updateEvent.do", method = RequestMethod.POST)
+	public ModelAndView updateEvent(Event event, int eid){
+		Event updatedEvent = dao.updateEvent(eid, event);
+		
+		mv.setViewName("event/showEvent");
+		return mv;
+	}
+
+	@RequestMapping(path = "deleteEventHomepage.do")
 	public String dch() {
 		return "event/deleteEvent";
 	}
-	
+
 	@RequestMapping(path = "deleteEventForm.do", method = RequestMethod.GET)
 	public ModelAndView deleteEvent(Integer eid) {
 		dao.deleteEvent(eid);
-		ModelAndView mv = new ModelAndView();
 		mv.setViewName("event/deleted");
 		return mv;
 	}
-	
+
 	@RequestMapping(path = "getVenue.do", params = "venid")
 	public String showVenue(Integer venid, Model model) {
 		Venue venue = dao.findVenueById(venid);
 		model.addAttribute("venue", venue);
 		return "venue/showVenue";
 	}
-	
+
 }
