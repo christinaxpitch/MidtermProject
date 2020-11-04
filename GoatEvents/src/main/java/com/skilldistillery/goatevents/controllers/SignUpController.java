@@ -59,7 +59,8 @@ public class SignUpController {
 		}
 		boolean isVendor = userDao.isVendor(user);
 		if (isVendor == true) {
-
+			model.addAttribute("events", user.getEvents());
+			model.addAttribute("venues", user.getVenues());
 			System.out.println(user);
 			return "vendorProfilePage";
 		}

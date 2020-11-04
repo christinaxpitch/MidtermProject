@@ -31,11 +31,10 @@ public class GoatController {
 	@RequestMapping(path = "user.do")
 	public String userProfile(Model model, HttpSession session) {
 		User user = (User) session.getAttribute("loginUser");
-		if (user.getVenues().size() > 0) {
-			List<Venue> userVenues = user.getVenues();
-
-			model.addAttribute("venueFavoritesList", userVenues);
-		}
+			model.addAttribute("events", user.getEvents());
+			model.addAttribute("venues", user.getVenues());
+			model.addAttribute("venueFavoritesList", user.getVenues());
+			model.addAttribute("eventFavoritesList", user.getEvents());
 		boolean isVendor = userDao.isVendor(user);
 		if(isVendor == true) {
 			
