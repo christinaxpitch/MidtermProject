@@ -10,7 +10,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" href="resources/signUpStyles.css">
 <link rel="stylesheet" href="resources/searchstyles.css">
-<link rel="stylesheet" href="resources/textBox.css">
+<link rel="stylesheet" href="resources/logInSignInStyles.css">
 <meta charset="UTF-8">
 <title>Sign Up Its FREE</title>
 </head>
@@ -72,9 +72,9 @@
 
 	<br>
 	<div id="whySignUp">
-		<p>Why not sign up ITS FREE<br>
-			You can buy tickets, <br> save your favorite
-			venues.<br>AND MORE!
+		<p>
+			Why not sign up ITS FREE<br> You can buy tickets, <br> save
+			your favorite venues.<br>AND MORE!
 		</p>
 	</div>
 	<form action="signUp.do" method="POST">
