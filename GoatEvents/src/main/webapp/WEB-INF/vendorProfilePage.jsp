@@ -73,16 +73,21 @@
 			</c:otherwise>
 		</c:choose>
 	</header>
-	<h2>Thank you for being a vendor!</h2>
-	<br>
-	<a href="addVenueHomepage.do">Add a new Venue</a>
 	<br>
 	<br>
-	<a href="updateVenueHomepage.do">Update a Current Venue</a>
+	<h2> Hi, ${sessionScope.loginUser.firstName} </h2>
+	<h4>Thank you for being a vendor!</h4>
+	<br>
+	<p> Vendor Actions: </p>
+	<br>
+	<a href="addVenueHomepage.do">Add</a> a new Venue
+	<br>
+	<br>
+	<a href="updateVenueHomepage.do">Update</a> a Current Venue
 	<br>
 	<br>
 
-	<h2>List of Your Events:</h2>
+	<h4>List of Your Events:</h4>
 
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -96,6 +101,17 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
 		integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
 		crossorigin="anonymous"></script>
+		
 
 </body>
 </html>
+
+<style type="text/css">
+	a {
+	text-decoration: none;
+	font-style: italic;
+	}
+	a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
