@@ -10,7 +10,7 @@ public interface EventDAO {
 	
 	public boolean  deleteEvent(int id);
 	
-	public Event updateEvent(int id, Event event);
+	public Event updateEvent(Event event);
 
 	Event findById(int id);
 	

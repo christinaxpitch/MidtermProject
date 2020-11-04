@@ -35,8 +35,8 @@ public class EventDAOImpl implements EventDAO {
 	}
 
 	@Override
-	public Event updateEvent(int id, Event event) {
-		Event updatedEvent = em.find(Event.class, id);
+	public Event updateEvent(Event event) {
+		Event updatedEvent = em.find(Event.class, event.getId());
 		updatedEvent.setTitle(event.getTitle());
 		updatedEvent.setDescription(event.getDescription());
 		updatedEvent.setStartTime(event.getStartTime());
@@ -47,7 +47,7 @@ public class EventDAOImpl implements EventDAO {
 //		Stretch Goal
 //		updatedEvent.setVenue(event.getVenue());
 		updatedEvent.setNumOfTickets(event.getNumOfTickets());
-		
+		em.persist(updatedEvent);
 		em.flush();
 		return updatedEvent;
 	}

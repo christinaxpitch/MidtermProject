@@ -95,7 +95,7 @@
 			for="eDate">Event Date:</label> <input type="date" name="eDate"
 			value=""> <br>
 
-		<button type="submit" name="vid" value="${venue.id}">Submit</button>
+		<button type="submit" name="event" value="${event}">Submit</button>
 	</form>
 
 </body>
