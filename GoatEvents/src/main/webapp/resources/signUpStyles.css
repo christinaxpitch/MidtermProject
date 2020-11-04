@@ -255,4 +255,5 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
 form {
 	padding: 5px 8px;
 	text-align: center;
+	position: relative;
 }
