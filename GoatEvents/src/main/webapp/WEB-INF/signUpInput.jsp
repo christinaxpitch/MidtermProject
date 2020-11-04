@@ -78,11 +78,18 @@
 		</p>
 	</div>
 	<form action="signUp.do" method="POST">
+	
+	<div class="slashed">
+  <div class="top" title="Slashed"></div>
+  <div class="bot" title="Slashed">
+		<h1>
+			<a> SIGN UP </a>
+		</h1>
+		</div>
+</div>
+		<br> <br>
 		<h4>
-			<a> SIGN UP 
-		</h4>
-		<h4>
-			<a> First Name: 
+			<a> First Name: </a>
 		</h4>
 		<input type="text" name="firstName" /><br>
 		<h4>Last Name:</h4>
@@ -107,7 +114,7 @@
 			Phone Number: <br> <input type="text" name="phone" /><br>
 			Venue Description: <br> <input type="text" name="description" /><br>
 		</div>
-		<input type="submit" class="button" value="Add" /> <br> <br>
+		<input type="submit" class="button" value="Sign Up" /> <br> <br>
 		<br> <br> <br> </a>
 	</form>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
