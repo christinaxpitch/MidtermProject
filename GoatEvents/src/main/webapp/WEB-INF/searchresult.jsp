@@ -54,7 +54,7 @@
 <c:otherwise>
 
 <ul id="menu">
-  <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
+  <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=35px></a></li>
         <li id="signup">
         <a href="user.do"><img src="${sessionScope.loginUser.image}" height=45px width=45px></a>
         					<li id="logout"><form action="logout.do">

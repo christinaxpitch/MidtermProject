@@ -19,7 +19,7 @@
 <c:choose>
 <c:when test="${empty sessionScope.loginUser}">
 <ul id="menu">
-  <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
+  <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=35px></a></li>
        <li>   <div class="search-container">
     <form id="searchForm" action="search.do">
       <input id="searchText" type="text" placeholder="Search.." name="search">
@@ -49,7 +49,7 @@
 </c:when>
 <c:otherwise>
 <ul id="menu">
-  <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=25px></a></li>
+  <li><a href="home.do"><img src="https://svgsilh.com/svg/44670.svg" height=35px></a></li>
  <li>   <div class="search-container">
     <form id="searchForm" action="search.do">
       <input id="searchText" type="text" placeholder="Search.." name="search">
