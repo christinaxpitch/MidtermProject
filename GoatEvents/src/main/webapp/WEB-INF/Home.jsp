@@ -40,7 +40,7 @@
 						<div class="dropdown-content">
 							<form action="login.do" method="GET">
 								<fieldset id="inputs">
-									<input id="email" type="email" name="email"
+									<input id="email" type="text" name="email"
 										placeholder="Your email address" required> <input
 										id="password" type="password" name="password"
 										placeholder="Password" required>

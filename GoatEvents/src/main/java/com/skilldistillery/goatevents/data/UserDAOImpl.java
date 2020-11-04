@@ -107,8 +107,8 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User login(String email, String password) {
-		String sql = "Select u from User u where u.email = :email and u.password = :password";
-		User login = em.createQuery(sql, User.class).setParameter("email", email).setParameter("password", password)
+		String sql = "Select u from User u where u.email like :email or u.username like :username and u.password = :password";
+		User login = em.createQuery(sql, User.class).setParameter("email", "%" + email + "%").setParameter("username", "%" + email + "%").setParameter("password", password)
 				.getSingleResult();
 //		System.out.println(login);
 		return login;
