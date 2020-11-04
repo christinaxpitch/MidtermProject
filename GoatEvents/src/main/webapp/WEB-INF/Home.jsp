@@ -10,8 +10,8 @@
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="resources/styles.css">
-<link rel="stylesheet" href="resources/signUpStyles.css">
 <link rel="stylesheet" href="resources/homeStyles.css">
+<link rel="stylesheet" href="resources/signUpStyles.css">
 <link rel="stylesheet" href="resources/searchstyles.css">
 <meta charset="UTF-8">
 <title>Home Page</title>

@@ -1,10 +1,5 @@
 package com.skilldistillery.goatevents.controllers;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +63,7 @@ public class SignUpController {
 			System.out.println(user);
 			return "vendorProfilePage";
 		}
+		model.addAttribute("eventFavoritesList", user.getEvents());
 		model.addAttribute("venueFavoritesList", user.getVenues());
 		return "userProfilePage";
 	}

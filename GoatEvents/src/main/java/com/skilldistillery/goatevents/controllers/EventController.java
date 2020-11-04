@@ -3,9 +3,11 @@ package com.skilldistillery.goatevents.controllers;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,10 +43,13 @@ public class EventController {
 		Venue venue = dao.findVenueById(vid);
 		Event newEvent = dao.addEvent(event);
 		newEvent.setVenue(venue);
+		List<Venue> venues = dao.findAll();
+		ra.addFlashAttribute("venues", venues);
 		
+		ra.addFlashAttribute("venue",venue);
+		ra.addFlashAttribute("event", newEvent);
 		
 		ModelAndView mv = new ModelAndView();
-		ra.addFlashAttribute("event", newEvent);
 		mv.setViewName("redirect:eventAdded.do");
 		return mv;
 		
@@ -67,6 +72,13 @@ public class EventController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("event/deleted");
 		return mv;
+	}
+	
+	@RequestMapping(path = "getVenue.do", params = "venid")
+	public String showVenue(Integer venid, Model model) {
+		Venue venue = dao.findVenueById(venid);
+		model.addAttribute("venue", venue);
+		return "venue/showVenue";
 	}
 	
 }

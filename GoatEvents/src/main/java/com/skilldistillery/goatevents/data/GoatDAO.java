@@ -22,4 +22,6 @@ public interface GoatDAO {
 
 	User addFavVenue(User user, Venue favVenue);
 
+	User addFavEvent(User user, Event favEvent);
+
 }
