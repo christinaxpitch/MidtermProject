@@ -212,8 +212,8 @@ a {
 	width: 100px;
 	cursor: pointer;
 	font: bold 14px Arial, Helvetica;
-	color: #fff;
-}
+/* 	color: #fff;
+ */}
 
 #login #submit:active {
 	outline: none;
@@ -239,9 +239,9 @@ a {
 	display: block;
 }
 
-.dropcheck:checked+.dropbtn {
+/* .dropcheck:checked+.dropbtn {
 	background-color: white;
-}
+} */
 /*THIS IS HOW TO MAKE THINGS APPER WHEN CHECKED*/
 .reveal-if-active {
 	opacity: 0;

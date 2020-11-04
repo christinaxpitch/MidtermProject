@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	right: 155px;
+	left: auto;
+	top: 40px;
+}
+
+#whySignUp {
+	float: right;
+	top: 20%;
+	margin-right: 5%;
+	margin-top: 35%;
+}
+
+form {
+	float: center;
+	left: 25%;
+	top: 10%;
+	margin-left: 15%;
+	position: absolute;
+}
