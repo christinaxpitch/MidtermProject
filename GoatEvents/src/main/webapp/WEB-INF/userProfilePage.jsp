@@ -15,7 +15,7 @@
 <meta charset="UTF-8">
 <title>User Page (Login)</title>
 </head>
-<body>
+<body><div>
 	<header>
 		<c:choose>
 			<c:when test="${empty sessionScope.loginUser}">
@@ -75,7 +75,7 @@
 			</c:otherwise>
 		</c:choose>
 	</header>
-
+</div>
 
 	<h1>Welcome ${sessionScope.loginUser.username}!</h1>
 
