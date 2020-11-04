@@ -72,11 +72,13 @@ public class GoatDAOJPAImpl implements GoatDAO {
 	@Override
 	public User addFavVenue(User user, Venue favVenue) {
 		Venue venueToAdd = em.find(Venue.class, favVenue.getId());
+		User userToUpdate = em.find(User.class, user.getId());
 		System.out.println(venueToAdd);
-		user.getUserComments();
-		user.addVenue(venueToAdd);
-		em.persist(user);
-		return user;
+		userToUpdate.getUserComments();
+		userToUpdate.addVenue(venueToAdd);
+		System.out.println(userToUpdate);
+		em.persist(userToUpdate);
+		return userToUpdate;
 	}
 
 }

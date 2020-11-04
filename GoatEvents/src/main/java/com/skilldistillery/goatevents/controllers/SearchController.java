@@ -80,6 +80,10 @@ public class SearchController {
 	@RequestMapping(path="addFavVenue.do")
 	public String addFavEvent(Model model, Integer id, HttpSession session) {
 		User user = (User)session.getAttribute("loginUser");
+		if(user == null) {
+			return "signUpInput";
+		}
+		System.out.println(user);
 		Venue favVenue = dao.findVenuebyId(id);
 		System.out.println(favVenue);
 		User updated = dao.addFavVenue(user, favVenue);
