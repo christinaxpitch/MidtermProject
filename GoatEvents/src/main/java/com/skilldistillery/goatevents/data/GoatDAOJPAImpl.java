@@ -86,6 +86,24 @@ public class GoatDAOJPAImpl implements GoatDAO {
 		em.persist(userToUpdate);
 		return userToUpdate;
 	}
+
+	@Override
+	public User removeFavVenue(User user, Venue favVenue) {
+		Venue venueToRemove = em.find(Venue.class, favVenue.getId());
+		User userToUpdate = em.find(User.class, user.getId());
+		userToUpdate.removeVenue(venueToRemove);
+		em.persist(userToUpdate);
+		return userToUpdate;
+	}
+
+	@Override
+	public User removeFavEvent(User user, Event favEvent) {
+		Event eventToRemove = em.find(Event.class, favEvent.getId());
+		User userToUpdate = em.find(User.class, user.getId());
+		userToUpdate.removeEvent(eventToRemove);
+		em.persist(userToUpdate);
+		return userToUpdate;
+	}
 	
 	
 

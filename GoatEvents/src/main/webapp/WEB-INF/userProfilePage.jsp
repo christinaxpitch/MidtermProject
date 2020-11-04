@@ -116,6 +116,7 @@
 				<th>Venue</th>
 				<th>Event</th>
 				<th>Start Time</th>
+				<th> </th>
 				
 			</tr>
 		</thead>
