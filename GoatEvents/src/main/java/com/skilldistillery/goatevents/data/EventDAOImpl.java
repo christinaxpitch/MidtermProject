@@ -55,6 +55,7 @@ public class EventDAOImpl implements EventDAO {
 	@Override
 	public Event findById(int id) {
 		Event event = em.find(Event.class, id);
+		System.out.println(event);
 		em.flush();
 		return event;
 		

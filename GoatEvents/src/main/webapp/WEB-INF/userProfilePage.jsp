@@ -83,29 +83,55 @@
 
 	<br>
 
-	<h1>List of Your Favorite Events:</h1>
+	<div><h1>List of Your Favorite Venues:</h1>
 
-	<br>
+	<br><form action="search.do"><button type="submit" name= "search" value=" ">Add Events/Venues to Favorites</button></form>
 	<table class="table table-striped table-hover, table-dark">
 		<thead class="thead thead-dark">
 			<tr>
 				<th>Venue</th>
-				<th>Event</th>
+				<th>Address</th>
+				<th> </th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:if test="${! empty  venueFavoritesList}">
-				<c:forEach items="${venueFavoritesList}" var="venue">
+				<c:forEach items="${venueFavoritesList}" var="v">
 					<tr>
 
-						<td><a>${venue.name}</a></td>
-						<td><p>
-								<%-- 							<a href="user.do?id=${event.id}" class="text-danger">${event.title}</a>
- --%>
-							</p></td>
+						<td><a>${v.name}</a></td>
+						<td>${v.address.street} ${v.address.city}, ${v.address.state} ${v.address.zip}
+						</td><td><form action="removeFavVenue.do"><button name="id" type="submit" value="${v.id}">Remove Venue from Favorites</button></form></td>
 					</tr>
 				</c:forEach>
-			</c:if>
+			</c:if></tbody></table></div>
+	<br>
+
+	<br>
+	<h1>List of Your Favorite Events:</h1>
+	<table class="table table-striped table-hover, table-dark">
+		<thead class="thead thead-dark">
+			<tr>
+				<th>Date</th>
+				<th>Venue</th>
+				<th>Event</th>
+				<th>Start Time</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<c:if test="${! empty  eventFavoritesList}">
+				<c:forEach items="${eventFavoritesList}" var="e">
+					<tr>
+
+						<td><a>${e.eventDate}</a></td>
+						<td>${e.venue.name}</td>
+						<td>${e.title}</td>
+						<td>${e.startTime}</td>
+						<td><form action="removeFavEvent.do"><button name="id" type="submit" value="${e.id}">Remove Event from Favorites</button></form></td>
+					</tr>
+				</c:forEach>
+			</c:if></tbody></table>
 
 
 			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

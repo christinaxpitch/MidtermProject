@@ -10,7 +10,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="resources/HomeStyles.css">
+<link rel="stylesheet" href="resources/homeStyles.css">
 <link rel="stylesheet" href="resources/searchstyles.css">
 <meta charset="UTF-8">
 <title>Search Results</title>
@@ -95,7 +95,7 @@
 <tr><td>Event Capacity:</td><td>${e.maxCapacity }</td></tr>
 <tr><td>Description:</td><td>${e.description }</td></tr>
 <tr><td><form action="buyTicket.do"><button name="id" type="submit" value="${e.id}">Buy Ticket</button></form>
-</td><td><form action="addFav.do"><button id="id" type="submit" value="${ e.id}">Add Event to my Favorites</button></form></td></tr>
+</td><td><form action="addFavEvent.do"><button name="id" type="submit" value="${e.id}">Add Event to my Favorites</button></form></td></tr>
 </table>
 
 </div>
