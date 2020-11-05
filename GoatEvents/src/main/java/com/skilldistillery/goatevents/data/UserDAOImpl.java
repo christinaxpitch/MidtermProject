@@ -80,7 +80,6 @@ public class UserDAOImpl implements UserDAO {
 		String jpql = "SELECT v from Venue v";
 		List<Venue> emps = em.createQuery(jpql, Venue.class).getResultList();
 		return emps;
-		
 	}
 
 	/*

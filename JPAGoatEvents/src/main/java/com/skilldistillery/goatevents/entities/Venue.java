@@ -45,7 +45,7 @@ public class Venue {
 	@ManyToOne
 	@JoinColumn(name = "manager_id")
 	private User user;
-	@OneToMany(mappedBy = "venue", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@OneToMany(mappedBy = "venue")
 	private List<Event> events;
 	@OneToMany(mappedBy="venue")
 	private List<VenueAmenity> venueAmenities;

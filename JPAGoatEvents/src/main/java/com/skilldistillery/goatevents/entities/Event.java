@@ -60,7 +60,7 @@ public class Event {
 	@JoinColumn(name = "venue_id")
 	private Venue venue;
 
-	@OneToMany(mappedBy = "event", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToMany(mappedBy = "event")
 	private List<Comment> comments;
 
 	@ManyToMany

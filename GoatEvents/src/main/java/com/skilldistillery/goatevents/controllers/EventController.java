@@ -44,7 +44,7 @@ public class EventController {
 	}
 
 	@RequestMapping(path = "event.do", method = RequestMethod.POST)
-	public ModelAndView addEvent(Event event, String sTime, String eTime, String eDate, int vid, RedirectAttributes ra)
+	public ModelAndView addEvent(Event event, String sTime, String eTime, String eDate, Integer vid, RedirectAttributes ra)
 			throws ParseException {
 		LocalTime startTime = LocalTime.parse(sTime);
 		event.setStartTime(startTime);
@@ -56,7 +56,7 @@ public class EventController {
 		event.setVenue(venue);
 		Event newEvent = dao.addEvent(event);
 //		newEvent.setVenue(venue);
-		ra.addFlashAttribute("venue", newEvent.getVenue());
+//		ra.addFlashAttribute("venue", newEvent.getVenue());
 		ra.addFlashAttribute("event", newEvent);
 		mv.setViewName("redirect:eventAdded.do");
 		return mv;
