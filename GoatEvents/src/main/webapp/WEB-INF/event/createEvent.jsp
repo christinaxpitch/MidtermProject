@@ -78,8 +78,9 @@
 			type="text" name="numOfTickets" value="50000"> <br> <label
 			for="eDate">Event Date:</label> <input type="date" name="eDate"
 			value=""> <br>
+			<input type="hidden" name="vid" value="venue.id">
 
-		<button type="submit" name="vid" value="${venue.id}">Submit</button>
+		<button type="submit">Submit</button>
 	</form>
 
 

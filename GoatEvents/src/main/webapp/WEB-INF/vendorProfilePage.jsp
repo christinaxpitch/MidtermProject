@@ -95,6 +95,7 @@
 				<th >Venue</th>
 				<th>Address</th>
 				<th> </th>
+				<th> </th>
 			</tr>
 		</thead>
 		<tbody>
