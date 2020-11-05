@@ -10,8 +10,8 @@
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="resources/styles.css">
-<link rel="stylesheet" href="resources/homeStyles.css">
 <link rel="stylesheet" href="resources/signUpStyles.css">
+<link rel="stylesheet" href="resources/homeStyles.css">
 <link rel="stylesheet" href="resources/searchstyles.css">
 <link rel="stylesheet" href="resources/teststyles.css">
 <meta charset="UTF-8">
@@ -82,51 +82,56 @@
 	</header>
 	<br>
 	<div class="title">
- <h1>THE<br/>G.O.A.T Events
- </h1>
-</div>
+		<h1>
+			THE<br />G.O.A.T Events
+		</h1>
+	</div>
 
 	<br>
 
 	<br>
 	<h3>Upcoming Events</h3>
-	<div id="textSlide" class="container-sm">
-		<div id="carouselExampleCaptions" class="carousel slide"
-			data-ride="carousel">
-			<div id="slides">
-				<ol class="carousel-indicators">
-					<li data-target="#carouselExampleCaptions" data-slide-to="0"
-						class="active"></li>
-					<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-					<li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-				</ol>
-				<div id="textSlide" id="slides" class="carousel-inner">
-					<c:forEach items="${eventList}" var="event" varStatus="i">
-						<div class="carousel-item ${i.index == 0?'active':''}">
-							<img id="eventImg" src="${event.image}" class="d-block w-100"
-								alt="...">
-							<div class="carousel-caption d-md-block d-md-block">
-								<h5>${event.venue.name}</h5>
-								<br>
-								<h5>${event.title}</h5>
-								<p>${event.description}</p>
-							</div>
-						</div>
-					</c:forEach>
-				</div>
-			</div>
+	
+		<div id="textSlide" class="container-sm">
+			<div id="carouselExampleCaptions" class="carousel slide"
+				data-ride="carousel">
+				<div id="slides">
+					<ol class="carousel-indicators">
+						<li data-target="#carouselExampleCaptions" data-slide-to="0"
+							class="active"></li>
+						<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+						<li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+					</ol>
+					<div id="textSlide" class="carousel-inner">
+						<c:forEach items="${eventList}" var="event" varStatus="i">
+							<div class="carousel-item ${i.index == 0?'active':''}">
+								<img id="eventImg${i.index}" src="${event.image}" class="d-block w-100"
+									alt="...">
+								<div class="carousel-caption d-md-block d-md-block">
+									<h5>Hosted BY:</h5>
+									<h5>${event.venue.name}</h5>
+									<br>
 
-			<a class="carousel-control-prev" href="#carouselExampleCaptions"
-				role="button" data-slide="prev"> <span
-				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-				class="sr-only">Previous</span>
-			</a> <a class="carousel-control-next" href="#carouselExampleCaptions"
-				role="button" data-slide="next"> <span
-				class="carousel-control-next-icon" aria-hidden="true"></span> <span
-				class="sr-only">Next</span>
-			</a>
+									<h5>Event:</h5>
+									<h5>${event.title}</h5>
+									<p>${event.description}</p>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+				</div>
+
+				<a class="carousel-control-prev" href="#carouselExampleCaptions"
+					role="button" data-slide="prev"> <span
+					class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+					class="sr-only">Previous</span>
+				</a> <a class="carousel-control-next" href="#carouselExampleCaptions"
+					role="button" data-slide="next"> <span
+					class="carousel-control-next-icon" aria-hidden="true"></span> <span
+					class="sr-only">Next</span>
+				</a>
+			</div>
 		</div>
-	</div>
 	<br>
 	<br>
 	<br>
