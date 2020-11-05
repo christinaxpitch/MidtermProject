@@ -8,7 +8,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.goatevents.entities.Artist;
+import com.skilldistillery.goatevents.entities.Comment;
 import com.skilldistillery.goatevents.entities.Event;
+import com.skilldistillery.goatevents.entities.EventType;
 import com.skilldistillery.goatevents.entities.Venue;
 
 @Transactional
@@ -27,9 +30,9 @@ public class EventDAOImpl implements EventDAO {
 
 	@Override
 	public boolean deleteEvent(int id) {
-		Event deletedEvent = em.find(Event.class, id);
-		em.remove(deletedEvent);
-		boolean eventWasDeleted = !em.contains(deletedEvent);
+		Event deleteEvent = em.find(Event.class, id);
+		em.remove(deleteEvent);	
+		boolean eventWasDeleted = !em.contains(deleteEvent);
 		em.flush();
 		return eventWasDeleted;
 	}
@@ -45,14 +48,19 @@ public class EventDAOImpl implements EventDAO {
 		updatedEvent.setImage(event.getImage());
 		updatedEvent.setMaxCapacity(event.getMaxCapacity());
 		updatedEvent.setNumOfTickets(event.getNumOfTickets());
+		
 		em.persist(updatedEvent);
 		em.flush();
+		
 		return updatedEvent;
 	}
 
 	@Override
 	public Event findById(int id) {
 		Event event = em.find(Event.class, id);
+		List<Comment> comments = event.getComments();
+		List<EventType> et = event.getEventTypes();
+		List<Artist> a = event.getArtists();
 		System.out.println(event);
 		em.flush();
 		return event;

@@ -56,7 +56,7 @@ public class Event {
 	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
 
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name = "venue_id")
 	private Venue venue;
 
@@ -71,7 +71,7 @@ public class Event {
 	@JoinTable(name = "event_type_has_event", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "event_type_id"))
 	private List<EventType> eventTypes;
 
-	@ManyToMany(mappedBy= "events")
+	@ManyToMany(mappedBy= "events", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<User> users;
 	
 	public List<User> getUsers() {
