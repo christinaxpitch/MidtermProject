@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `end_time` TIME NULL DEFAULT NULL,
   `max_capacity` INT NULL DEFAULT NULL,
   `number_of_tickets` INT(11) NULL DEFAULT NULL,
-  `venue_id` INT(11) NOT NULL,
+  `venue_id` INT(11) NULL,
   `title` VARCHAR(300) NULL,
   `image` VARCHAR(5000) NULL,
   `event_date` DATE NULL,
