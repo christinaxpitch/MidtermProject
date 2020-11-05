@@ -68,32 +68,28 @@
 	<h4>Update Event</h4>
 	<form action="updateEvent.do" method="POST">
 		<label for="title">Title</label> <input type="text" name="title"
-			value="The SD 27 grand finale"> 
+			value="${event.title }"> 
 			<br> 
 			<label
 			for="description">Description:</label> <input type="text"
-			name="description" value="Graduation Event"> 
+			name="description" value="${event.description }"> 
 			<br> 
 			<label
 			for="sTime">Start Time:</label> <input type="time" name="sTime"
-			value=""> 
+			value="${event.startTime }"> 
 			<br> 
 			<label for="eTime">End Time:</label> <input
-			type="time" name="eTime" value="">
-			 <br>
-			<label
-			for="venue.id">Venue ID:</label> <input type="text" name="venue.id"
-			value="${venue.id}"> 
-			<br> 
+			type="time" name="eTime" value="${event.endTime }">
+			<br>
 			<label for="maxCapacity">Max
-			Capacity:</label> <input type="text" name="maxCapacity" value="50000">
+			Capacity:</label> <input type="text" name="maxCapacity" value="${event.maxCapacity }">
 			<br> 
 			<label for="numOfTickets">Number Of Tickets:</label> <input
-			type="text" name="numOfTickets" value="50000">
+			type="text" name="numOfTickets" value="${event.numOfTickets }">
 			<br> 
 			<label
 			for="eDate">Event Date:</label> <input type="date" name="eDate"
-			value=""> <br>
+			value="${event.eventDate }"> <br>
 
 		<button type="submit" name="event" value="${event}">Submit</button>
 	</form>

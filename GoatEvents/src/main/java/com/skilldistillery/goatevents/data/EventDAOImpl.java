@@ -44,8 +44,6 @@ public class EventDAOImpl implements EventDAO {
 		updatedEvent.setEventDate(event.getEventDate());
 		updatedEvent.setImage(event.getImage());
 		updatedEvent.setMaxCapacity(event.getMaxCapacity());
-//		Stretch Goal
-//		updatedEvent.setVenue(event.getVenue());
 		updatedEvent.setNumOfTickets(event.getNumOfTickets());
 		em.persist(updatedEvent);
 		em.flush();

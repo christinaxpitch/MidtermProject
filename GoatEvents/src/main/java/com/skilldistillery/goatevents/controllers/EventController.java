@@ -32,9 +32,8 @@ public class EventController {
 		return mv;
 	}
 	@RequestMapping(path = "updateEventHome.do", method = RequestMethod.GET)
-	public ModelAndView updateHome() {
-		int id = 1;
-		mv.addObject("venue", dao.findVenueById(id));
+	public ModelAndView updateHome(int id) {
+		mv.addObject("event", dao.findById(id));
 		mv.setViewName("event/update");
 		return mv;
 	}
