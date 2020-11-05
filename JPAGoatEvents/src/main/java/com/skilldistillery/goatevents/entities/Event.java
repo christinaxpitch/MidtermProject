@@ -71,7 +71,7 @@ public class Event {
 	@JoinTable(name = "event_type_has_event", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "event_type_id"))
 	private List<EventType> eventTypes;
 
-	@ManyToMany(mappedBy= "events", cascade = {CascadeType.PERSIST})
+	@ManyToMany(mappedBy= "events", cascade = CascadeType.PERSIST)
 	private List<User> users;
 	
 	public List<User> getUsers() {

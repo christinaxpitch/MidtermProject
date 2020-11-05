@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,6 +25,7 @@ public class Venue {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String name;
 	private String description;
 	private int capacity;
@@ -39,14 +39,18 @@ public class Venue {
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
+	
 	@ManyToMany
 	@JoinTable(name = "user_venue", joinColumns = @JoinColumn(name = "venue_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<User> users;
+	
 	@ManyToOne
 	@JoinColumn(name = "manager_id")
 	private User user;
+	
 	@OneToMany(mappedBy = "venue")
 	private List<Event> events;
+	
 	@OneToMany(mappedBy="venue")
 	private List<VenueAmenity> venueAmenities;
 

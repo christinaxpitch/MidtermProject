@@ -27,10 +27,10 @@ public class EventController {
 	@Autowired
 	private GoatDAO gdao;
 
-	ModelAndView mv = new ModelAndView();
 
 	@RequestMapping(path = "createEvent.do", method = RequestMethod.GET)
 	public ModelAndView create(int id) {
+		ModelAndView mv = new ModelAndView();
 		mv.addObject("venue", dao.findVenueById(id));
 		mv.setViewName("event/createEvent");
 		return mv;
@@ -38,6 +38,7 @@ public class EventController {
 
 	@RequestMapping(path = "updateEventHome.do", method = RequestMethod.GET)
 	public ModelAndView updateHome(int id) {
+		ModelAndView mv = new ModelAndView();
 		mv.addObject("event", dao.findById(id));
 		mv.setViewName("event/update");
 		return mv;
@@ -45,8 +46,9 @@ public class EventController {
 
 	@RequestMapping(path = "event.do", method = RequestMethod.POST)
 
-	public ModelAndView addEvent(Event event, String sTime, String eTime, String eDate, Venue venue, RedirectAttributes ra)
+	public ModelAndView addEvent(Event event, String sTime, String eTime, String eDate, Integer venueId, RedirectAttributes ra)
 			throws ParseException {
+		ModelAndView mv = new ModelAndView();
 		LocalTime startTime = LocalTime.parse(sTime);
 		event.setStartTime(startTime);
 		LocalTime endTime = LocalTime.parse(eTime);
@@ -54,10 +56,10 @@ public class EventController {
 		LocalDate date = LocalDate.parse(eDate);
 		event.setEventDate(date);
 		
-		event.setVenue(venue);
-		Event newEvent = dao.addEvent(event);
+//		event.setVenue(venue);
+		Event newEvent = dao.addEvent(event, venueId);
 //		newEvent.setVenue(venue);
-		ra.addFlashAttribute("venue", newEvent.getVenue());
+//		ra.addFlashAttribute("venue", newEvent.getVenue());
 		ra.addFlashAttribute("event", newEvent);
 		mv.setViewName("redirect:eventAdded.do");
 		return mv;
@@ -66,12 +68,14 @@ public class EventController {
 
 	@RequestMapping(path = "eventAdded.do", method = RequestMethod.GET)
 	public ModelAndView created() {
+		ModelAndView mv = new ModelAndView();
 		mv.setViewName("event/showEvent");
 		return mv;
 	}
 
 	@RequestMapping(path = "updateEvent.do", method = RequestMethod.POST)
 	public ModelAndView updateEvent(Event event, String sTime, String eTime, String eDate, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
 		User user = (User) session.getAttribute("loginUser");
 		System.out.println(event);
 		LocalTime startTime = LocalTime.parse(sTime);
@@ -92,11 +96,13 @@ public class EventController {
 
 	@RequestMapping(path = "deleteEventHomepage.do")
 	public String dch(Integer id) {
+		
 		return "event/deleteEvent";
 	}
 
 	@RequestMapping(path = "deleteEventForm.do", method = RequestMethod.GET)
 	public ModelAndView deleteEvent(Integer id, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
 		User user = (User) session.getAttribute("loginUser");
 		Event eventToDelete = dao.findById(id);
 		eventToDelete.setVenue(null);

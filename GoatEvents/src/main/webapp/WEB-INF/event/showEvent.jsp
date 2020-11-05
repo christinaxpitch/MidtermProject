@@ -75,7 +75,7 @@
 				</tr>
 				<tr>
 					<td>Venue : </td>
-					<td>${venue.name}</td>
+					<td>${event.venue.name}</td>
 				</tr>
 				<tr>
 					<td>Start Time</td>

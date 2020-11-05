@@ -128,8 +128,10 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:if test="${! empty  events}">
-				<c:forEach items="${events}" var="e">
+		<c:forEach items = "${venues }" var = "venue">
+			<c:if test="${! empty  venue.events}">
+			
+				<c:forEach items="${venue.events}" var="e">
 					<tr>
 
 						<td><a>${e.eventDate}</a></td>
@@ -140,7 +142,9 @@
 						<td><form action="deleteEventForm.do"><button name="id" type="submit" value="${e.id}">Delete this Event</button></form></td>
 					</tr>
 				</c:forEach>
-			</c:if></tbody></table>
+			</c:if>
+			</c:forEach>
+			</tbody></table>
 
 
 </div>

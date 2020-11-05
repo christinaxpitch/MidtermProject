@@ -22,17 +22,30 @@ public class EventDAOImpl implements EventDAO {
 	private EntityManager em;
 	
 	@Override
-	public Event addEvent(Event newEvent) {
-		Event event = em.find(Event.class, newEvent.getId());
-	
-		em.persist(event);
+	public Event addEvent(Event newEvent, int venueId) {
+		System.out.println(newEvent);
+		System.out.println(newEvent.getVenue());
+		
+		Venue venue = em.find(Venue.class, venueId);
+		newEvent.setVenue(venue);
+		
+		System.out.println(newEvent);
+		System.out.println(newEvent.getVenue());
+		em.persist(newEvent);
 		em.flush();
-		return event;
+		return newEvent;
 	}
 
 	@Override
 	public boolean deleteEvent(int id) {
 		Event deleteEvent = em.find(Event.class, id);
+		for (Comment comment : deleteEvent.getComments()) {
+			em.remove(comment);
+		}
+		while(deleteEvent.getUsers().size() > 0) {
+			deleteEvent.removeUser(deleteEvent.getUsers().get(0));
+		}
+		
 		em.remove(deleteEvent);	
 		boolean eventWasDeleted = !em.contains(deleteEvent);
 		em.flush();
