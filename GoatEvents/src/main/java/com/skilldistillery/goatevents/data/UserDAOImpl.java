@@ -70,7 +70,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 	@Override
 	public List<User> findAllUsers() {
-		String jpql = "SELECT u FROM User u";
+		String jpql = "SELECT u FROM User u where u.enabled = 1";
 		List<User> emps = em.createQuery(jpql, User.class).getResultList();
 		return emps;
 		

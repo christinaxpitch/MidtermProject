@@ -72,7 +72,21 @@ public class GoatController {
 
 	@RequestMapping(path = "deactivateUser.do")
 	public String deactivateUser(Model model, HttpSession session, int id) {
-		return "user";
+		userDao.deactivateUser(id);
+		List<User> all = userDao.findAllUsers();
+		int index = 0;
+		for (User userfind : all) {
+			String username = userfind.getUsername();
+			if(username.equals("1")){
+				break;
+			}
+			index++;
+		}
+		all.remove(index);
+		model.addAttribute("events", dao.findAllEvents());
+		model.addAttribute("venues", userDao.findAllVenues());
+		model.addAttribute("users", all);
+		return "admin";
 	}
 
 }
