@@ -232,7 +232,7 @@
     <td><input type="text" placeholder="The Spooky Theater" name="name"/> </td>
   </tr>
   <tr>
-    <td>Description::</td>
+    <td>Description:</td>
     <td><input type="text" placeholder="A purposely run down place intended to creep everyone out."name="description"/></td>
     
      <tr>

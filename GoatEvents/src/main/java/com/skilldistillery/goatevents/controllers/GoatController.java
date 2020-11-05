@@ -34,7 +34,7 @@ public class GoatController {
 		List<Event> events = dao.findAllEvents();
 		for (Event event : events) {
 			if(event.getImage() == null) {
-				event.setImage("webapp/resources/images/RockingOut3.jpg");
+				event.setImage("/resources/images/RockingOut3.jpg");
 			}
 		}
 		model.addAttribute("eventList", events);

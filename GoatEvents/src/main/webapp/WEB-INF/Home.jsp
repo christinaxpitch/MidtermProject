@@ -91,47 +91,46 @@
 
 	<br>
 	<h3>Upcoming Events</h3>
-	
-		<div id="textSlide" class="container-sm">
-			<div id="carouselExampleCaptions" class="carousel slide"
-				data-ride="carousel">
-				<div id="slides">
-					<ol class="carousel-indicators">
-						<li data-target="#carouselExampleCaptions" data-slide-to="0"
-							class="active"></li>
-						<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-						<li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-					</ol>
-					<div id="textSlide" class="carousel-inner">
-						<c:forEach items="${eventList}" var="event" varStatus="i">
-							<div class="carousel-item ${i.index == 0?'active':''}">
-								<img id="eventImg${i.index}" src="${event.image}" class="d-block w-100"
-									alt="...">
-								<div class="carousel-caption d-md-block d-md-block">
-									<h5>Hosted BY:</h5>
-									<h5>${event.venue.name}</h5>
-									<br>
 
-									<h5>Event:</h5>
-									<h5>${event.title}</h5>
-									<p>${event.description}</p>
-								</div>
+	<div id="textSlide" class="container-sm">
+		<div id="carouselExampleCaptions" class="carousel slide"
+			data-ride="carousel">
+			<div id="slides">
+				<ol class="carousel-indicators">
+					<li data-target="#carouselExampleCaptions" data-slide-to="0"
+						class="active"></li>
+					<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+					<li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+				</ol>
+				<div id="textSlide" class="carousel-inner">
+					<c:forEach items="${eventList}" var="event" varStatus="i">
+						<div class="carousel-item ${i.index == 0?'active':''}">
+							<img id="eventImg${i.index}" src="${event.image}"
+								class="d-block w-100" alt="...">
+							<div class="carousel-caption d-md-block d-md-block">
+								<h5>Hosted BY:</h5>
+								<h5>${event.venue.name}</h5>
+								<br>
+								<h5>Event:</h5>
+								<h5>${event.title}</h5>
+								<p>${event.description}</p>
 							</div>
-						</c:forEach>
-					</div>
+						</div>
+					</c:forEach>
 				</div>
-
-				<a class="carousel-control-prev" href="#carouselExampleCaptions"
-					role="button" data-slide="prev"> <span
-					class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-					class="sr-only">Previous</span>
-				</a> <a class="carousel-control-next" href="#carouselExampleCaptions"
-					role="button" data-slide="next"> <span
-					class="carousel-control-next-icon" aria-hidden="true"></span> <span
-					class="sr-only">Next</span>
-				</a>
 			</div>
+
+			<a class="carousel-control-prev" href="#carouselExampleCaptions"
+				role="button" data-slide="prev"> <span
+				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#carouselExampleCaptions"
+				role="button" data-slide="next"> <span
+				class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="sr-only">Next</span>
+			</a>
 		</div>
+	</div>
 	<br>
 	<br>
 	<br>

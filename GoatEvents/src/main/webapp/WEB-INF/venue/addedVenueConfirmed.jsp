@@ -75,8 +75,8 @@
 					<li>Description: ${venue.description}</li>
 					<li>Capacity: ${venue.capacity}</li>
 					<li>Address: ${venue.address.street}  ${venue.address.city},  ${venue.address.state}  ${venue.address.zip}</li>
-				    <li>Created At: ${venue.createdAt})</li> 
-				</ul>
+<%-- 				    <li>Created At: ${venue.createdAt}</li> 
+ --%>				</ul>
 			</c:when>
 			<c:otherwise>
 				<p>Adding venue failed.</p>

@@ -11,6 +11,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" href="resources/signUpStyles.css">
 <link rel="stylesheet" href="resources/searchstyles.css">
+<link rel="stylesheet" href="resources/logInSignInStyles.css">
 <meta charset="UTF-8">
 <title>Venue Title Page </title>
 </head>
@@ -63,6 +64,7 @@
 </c:choose>
 </header>
 <!-- 	<h2>Venue Information: </h2> -->
+<div>
  <c:choose>
 		<c:when test="${! empty venue }">
 <%-- 			Venue you are editing: - ${venue.name}
@@ -92,30 +94,34 @@
   <table class="table table-striped table-hover, table-dark">
    		<thead class="thead thead-dark">
     <th colspan = 3 style="text-align:center" > Update This Venue - ${venue.name}</th></thead>
-    <tr>
-    <td>Capacity:</td>
-    <td><input type="text" name="capacity"
+    
+    			<tr>
+    			<td>Capacity:</td>
+    			<td><input type="text" name="capacity"
 					value="${venue.capacity}" /> <input type="hidden" name="capacity"
-					value="${venue.id}" /> </td>
-  </tr>
-  <tr>
-    <td>Venue Name:</td>
-    <td><input type="text" name="name"
+					value="${venue.id}" /> 
+					</td>
+  					</tr>
+  
+  				<tr>
+    			<td>Venue Name:</td>
+    			<td><input type="text" name="name"
 					value="${venue.name}" /> <input type="hidden" name="vid"
 					value="${venue.id}" /> </td>
-  </tr>
-  <tr>
-    <td>Description:</td>
-    <td><input type="text" name="description"
+  				</tr>
+  
+  				<tr>
+    			<td>Description:</td>
+    			<td><input type="text" name="description"
 					value="${venue.description}" /> <input type="hidden" name="vid"
 					value="${venue.id}" /> 
-            </td>
-            </tr>
+           		 </td>
+            	</tr>
 
-    <tr>
-    <td colspan = 3 style="text-align:center" > 
-<input type="submit" class="button" value="Submit" />
-<input type = "hidden" value ="${venue.id }" name ="vid" />
+    			<tr>
+    			<td colspan = 3 style="text-align:center" > 
+			<input type="submit" class="button" value="Submit" />
+			<input type = "hidden" value ="${venue.id }" name ="vid" />
             </td>
             </tr>
      </table>   
