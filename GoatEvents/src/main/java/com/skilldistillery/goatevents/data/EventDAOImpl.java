@@ -23,9 +23,11 @@ public class EventDAOImpl implements EventDAO {
 	
 	@Override
 	public Event addEvent(Event newEvent) {
-		em.persist(newEvent);
+		Event event = em.find(Event.class, newEvent.getId());
+	
+		em.persist(event);
 		em.flush();
-		return newEvent;
+		return event;
 	}
 
 	@Override

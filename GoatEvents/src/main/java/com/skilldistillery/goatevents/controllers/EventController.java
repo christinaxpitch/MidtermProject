@@ -57,7 +57,7 @@ public class EventController {
 		event.setVenue(venue);
 		Event newEvent = dao.addEvent(event);
 //		newEvent.setVenue(venue);
-//		ra.addFlashAttribute("venue", newEvent.getVenue());
+		ra.addFlashAttribute("venue", newEvent.getVenue());
 		ra.addFlashAttribute("event", newEvent);
 		mv.setViewName("redirect:eventAdded.do");
 		return mv;
