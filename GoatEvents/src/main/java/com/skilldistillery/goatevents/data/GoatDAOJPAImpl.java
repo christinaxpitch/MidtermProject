@@ -25,6 +25,13 @@ public class GoatDAOJPAImpl implements GoatDAO {
 		User user = em.find(User.class, id);
 		System.out.println(user.getEvents());
 		System.out.println(user.getVenues());
+		List<Venue> venues = user.getVenues();
+		for (Venue venue : venues) {
+			System.out.println(venue.getEvents());
+			
+		}
+			
+		
 	
 		return user;
 	}
