@@ -110,6 +110,7 @@
 <tr><td>Address:</td><td>${v.address.street} ${v.address.city} ${v.address.state} ${v.address.zip}</td></tr>
 <tr><td>Max Capacity:</td><td>${v.capacity }</td></tr>
 <tr><td>Description:</td><td>${v.description }</td></tr>
+<tr><td>Amenities:</td><td><c:forEach items="${v.amenities}" var="a"> ${a.name }<br> ${a.description }</c:forEach><c:forEach items="${v.venueAmenities}" var="va"> <br>${va.description}</c:forEach></td></tr>
 <tr><td><form action="addFavVenue.do"><button name="id" type="submit" value="${v.id}">Add Venue to my Favorites</button></form></td></tr>
 </table>
 </div>

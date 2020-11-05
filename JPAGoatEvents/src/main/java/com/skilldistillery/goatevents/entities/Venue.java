@@ -54,6 +54,17 @@ public class Venue {
 	@OneToMany(mappedBy="venue")
 	private List<VenueAmenity> venueAmenities;
 
+	@ManyToMany
+	@JoinTable(name = "venue_amenity", joinColumns = @JoinColumn(name = "venue_id"), inverseJoinColumns = @JoinColumn(name = "amenity_id"))
+	private List<Amenity> amenities;
+	public List<Amenity> getAmenities() {
+		return amenities;
+	}
+
+	public void setAmenities(List<Amenity> amenities) {
+		this.amenities = amenities;
+	}
+
 	public User getUser() {
 		return user;
 	}
