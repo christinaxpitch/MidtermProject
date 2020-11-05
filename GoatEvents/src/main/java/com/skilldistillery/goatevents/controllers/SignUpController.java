@@ -51,7 +51,9 @@ public class SignUpController {
 
 	@RequestMapping(path = "login.do", method = RequestMethod.GET)
 	public String loginUser(Model model, String email, String password, HttpSession session) {
-		User user = userDao.login(email, password);
+		User user;
+		try {
+			user = userDao.login(email, password);
 		List<User> all = userDao.findAllUsers();
 		int index = 0;
 		for (User userfind : all) {
@@ -88,6 +90,10 @@ public class SignUpController {
 		model.addAttribute("eventFavoritesList", user.getEvents());
 		model.addAttribute("venueFavoritesList", user.getVenues());
 		return "userProfilePage";
+		} catch (Exception e) {
+			// TODO
+			return "errorPage";
+		}
 	}
 
 	@RequestMapping(path = "logout.do", method = RequestMethod.GET)
