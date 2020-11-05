@@ -395,7 +395,7 @@ INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (6, 'RobbyRoundHouse', '847602', 1, 'User', 6, 'Rob', 'Rose', NULL, 'RickyRobby@SD.com');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (7, 'eagleEyeJ', '1209844', 1, 'User', 7, 'Jeremy', 'Acuity', NULL, 'EyeSeeYew@SD.com');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (8, 'AntMan', '75839', 1, 'User', 8, 'Anthony ', 'Soprano', NULL, 'slimJenkins@SD.com');
-
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `profile_pic`, `email`) VALUES (9, '1', '1', 1, 'Administrator', 8, 'Scooby ', 'DotDo', NULL, 'DotDo@SD.com');
 COMMIT;
 
 
