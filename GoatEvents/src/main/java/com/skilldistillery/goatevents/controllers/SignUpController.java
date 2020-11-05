@@ -49,7 +49,7 @@ public class SignUpController {
 		return "Home";
 	}
 
-	@RequestMapping(path = "login.do", method = RequestMethod.GET)
+	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String loginUser(Model model, String email, String password, HttpSession session) {
 		User user;
 		try {
