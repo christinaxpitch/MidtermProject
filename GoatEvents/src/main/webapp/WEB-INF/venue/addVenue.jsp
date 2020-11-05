@@ -11,6 +11,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" href="resources/signUpStyles.css">
 <link rel="stylesheet" href="resources/searchstyles.css">
+<link rel="stylesheet" href="resources/logInSignInStyles.css">
 <meta charset="UTF-8">
 <title>Add a Venue</title>
 </head>
@@ -75,14 +76,14 @@
     Venue City:<br>
     <input type="text" name="city"/> 
     <br>
-    Venue State:<br>
+    Venue State (Abbr):<br>
     <input type="text" name="state"/> 
     <br>
 	Venue Zip Code:<br>
     <input type="text" name="zip"/> 
     <br>
 	Venue Phone Number:<br>
-    <input type="text" name="zip"/> 
+    <input type="text" name="phone"/> 
     <br>
    
     Name of Venue:<br>

@@ -39,9 +39,9 @@ public class VenueController {
 	}
 //	this method is the href on the vendor profile page that brings the vendor to updateVenue page
 	@RequestMapping (path = "updateVenueHomepage.do")
-	public String updateVenueHomepage(HttpSession session, Model model) {
+	public String updateVenueHomepage(HttpSession session, Model model, int id) {
 		User loggedInUser = (User) session.getAttribute("loginUser");
-		Venue userVenue = venueDAO.findVenueByManagerID(loggedInUser);
+		Venue userVenue = dao.findVenuebyId(id);
 		model.addAttribute("venue", userVenue);
 
 		return "venue/updateVenue";
@@ -67,10 +67,13 @@ public class VenueController {
 }
 	
 	@RequestMapping(path = "updateVenue.do", method = RequestMethod.POST)
-	public ModelAndView updateVenue(Integer vid, Venue venue) {
+	public ModelAndView updateVenue(Integer vid, Venue venue, HttpSession session) {
+		User user = (User) session.getAttribute("loginUser");
 		Venue v = venueDAO.updateVenue(vid, venue);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject(v);
+		User updatedUser = dao.getUserByID(user.getId());
+		session.setAttribute("loginUser", updatedUser);
 		mv.setViewName("venue/updatedVenueConfirmed");
 		return mv;
 }
@@ -101,15 +104,15 @@ public class VenueController {
 			System.err.println("*********************************" + newAddress);
 			Address userAddress = venueDAO.createVenueAddress(newAddress);
 			user.setAddress(userAddress);
-			model.addAttribute("newAddress", userAddress);
+			newVenue.setAddress(userAddress);
 
 			if (newVenue != null) {
 				System.err.println("*********************************" + newVenue);
 				newVenue.setAddress(userAddress);
 				Venue venue = venueDAO.addVenue(newVenue);
 				venue.setUser(user);
-				model.addAttribute("newVenue", newVenue);
-				user = venueDAO.saveUser(user, newVenue);
+				model.addAttribute("venue", venue);
+				user = venueDAO.saveUser(user, venue);
 			}
 		}
 		model.addAttribute("user", user);

@@ -68,8 +68,10 @@ public class EventController {
 
 	@RequestMapping(path = "updateEvent.do", method = RequestMethod.POST)
 	public ModelAndView updateEvent(Event event){
+		System.out.println(event);
 		Event updatedEvent = dao.updateEvent(event);
 		
+		System.out.println(updatedEvent);
 		mv.setViewName("event/showEvent");
 		return mv;
 	}

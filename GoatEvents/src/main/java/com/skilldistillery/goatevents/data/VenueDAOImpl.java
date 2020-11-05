@@ -9,7 +9,6 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.goatevents.entities.Address;
-import com.skilldistillery.goatevents.entities.Comment;
 import com.skilldistillery.goatevents.entities.User;
 import com.skilldistillery.goatevents.entities.Venue;
 
@@ -37,6 +36,7 @@ public class VenueDAOImpl implements VenueDAO{
 //		newVenue.setLogo(venue.getLogo());
 //		newVenue.setCreatedAt(venue.getCreatedAt());
 		newVenue.setLastUpdate(venue.getLastUpdate());
+		em.persist(newVenue);
 		em.flush();
 		return newVenue;
 	}
@@ -57,11 +57,11 @@ public class VenueDAOImpl implements VenueDAO{
 	}
 
 	@Override
-	public Venue findVenueByManagerID(User user) {
+	public List<Venue> findVenueByManagerID(User user) {
 		int id = user.getId();
 		String jpql = "SELECT v FROM Venue v WHERE v.user.id = :id";
 
-		return em.createQuery(jpql, Venue.class).setParameter("id", id).getSingleResult();
+		return em.createQuery(jpql, Venue.class).setParameter("id", id).getResultList();
 	}
 
 	@Override

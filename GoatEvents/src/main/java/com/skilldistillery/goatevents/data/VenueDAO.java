@@ -13,7 +13,7 @@ public interface VenueDAO {
 	public Venue updateVenue(int id, Venue Venue);
 	public boolean deleteVenue(int id);
 	public List<Venue> findAllVenues();
-	public Venue findVenueByManagerID(User user);
+	public List<Venue>findVenueByManagerID(User user);
 	public Address createVenueAddress(Address newAddress);
 	public User saveUser(User user, Venue newVenue);
 }

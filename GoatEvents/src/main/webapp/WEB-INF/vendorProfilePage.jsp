@@ -78,14 +78,82 @@
 	<br>
 	<h3> Hi, ${sessionScope.loginUser.firstName} </h3>
 	<p>Thank you for being a vendor!</p>
-	<a href="addVenueHomepage.do">Add</a> a new Venue
+	<a href="addVenueHomepage.do">Add</a> a New Venue
 	<br>
 	<br>
-	<a href="updateVenueHomepage.do">Update</a> a Current Venue
+	<a href="createEvent.do">Create</a> a New Event
 	<br>
 	<br>
 
-	<h4>List of Your Events:</h4>
+
+
+<div><h1>List of Your Current Venues:</h1>
+
+	<table class="table table-striped table-hover, table-dark">
+		<thead class="thead thead-dark">
+			<tr>
+				<th>Venue</th>
+				<th>Address</th>
+				<th> </th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:if test="${! empty  venues}">
+				<c:forEach items="${venues}" var="v">
+					<tr>
+
+						<td><a>${v.name}</a></td>
+						<td>${v.address.street} ${v.address.city}, ${v.address.state} ${v.address.zip}
+						</td><td><form action="updateVenueHomepage.do"><button name="id" type="submit" value="${v.id}">Update this Venue</button></form></td>
+					</tr>
+				</c:forEach>
+			</c:if></tbody></table></div>
+	<br>
+
+	<br>
+	<h1>List of Your Current Events:</h1>
+	<table class="table table-striped table-hover, table-dark">
+		<thead class="thead thead-dark">
+			<tr>
+				<th>Date</th>
+				<th>Venue</th>
+				<th>Event</th>
+				<th>Start Time</th>
+				<th> </th>
+				
+				<th> </th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<c:if test="${! empty  events}">
+				<c:forEach items="${events}" var="e">
+					<tr>
+
+						<td><a>${e.eventDate}</a></td>
+						<td>${e.venue.name}</td>
+						<td>${e.title}</td>
+						<td>${e.startTime}</td>
+						<td><form action="updateEventHome.do"><button name="id" type="submit" value="${e.id}">Update this Event</button></form></td>
+						<td><form action="deleteEventHomepage.do"><button name="id" type="submit" value="${e.id}">Delete this Event</button></form></td>
+					</tr>
+				</c:forEach>
+			</c:if></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
