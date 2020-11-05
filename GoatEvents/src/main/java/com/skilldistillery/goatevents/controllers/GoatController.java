@@ -135,7 +135,7 @@ public class GoatController {
 		User updatedUser = dao.getUserByID(user.getId());
 		session.setAttribute("loginUser", updatedUser);
 		
-		return "event/deleted";
+		return "admin";
 	}
 
 }
