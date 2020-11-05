@@ -220,10 +220,10 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `venue_amenity` ;
 
 CREATE TABLE IF NOT EXISTS `venue_amenity` (
-  `amenity_id` INT(11)  NULL UNIQUE,
-  `venue_id` INT(11)   NULL UNIQUE,
+  `amenity_id` INT(11)  NULL ,
+  `venue_id` INT(11)   NULL ,
   `description` TEXT NULL,
-  PRIMARY KEY (`amenity_id`, `venue_id`),
+  PRIMARY KEY (`amenity_id`),
   INDEX `fk_amenity_has_venue_venue1_idx` (`venue_id` ASC),
   INDEX `fk_amenity_has_venue_amenity1_idx` (`amenity_id` ASC),
   CONSTRAINT `fk_amenity_has_venue_amenity1`
