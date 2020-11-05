@@ -135,7 +135,7 @@
 						<td>${e.title}</td>
 						<td>${e.startTime}</td>
 						<td><form action="updateEventHome.do"><button name="id" type="submit" value="${e.id}">Update this Event</button></form></td>
-						<td><form action="deleteEventHomepage.do"><button name="id" type="submit" value="${e.id}">Delete this Event</button></form></td>
+						<td><form action="deleteEventForm.do"><button name="id" type="submit" value="${e.id}">Delete this Event</button></form></td>
 					</tr>
 				</c:forEach>
 			</c:if></tbody></table>
