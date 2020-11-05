@@ -34,7 +34,11 @@ public class VenueController {
 	
 //	this method is the href on the vendor profile page that brings the vendor to addVenue page
 	@RequestMapping (path = "addVenueHomepage.do")
-	public String addVenueHomepage() {
+	public String addVenueHomepage(HttpSession session) {
+		User loggedInUser = (User) session.getAttribute("loginUser");
+		User updatedUser = dao.getUserByID(loggedInUser.getId());
+		session.setAttribute("loginUser", updatedUser);
+		
 		return "venue/addVenue";
 	}
 //	this method is the href on the vendor profile page that brings the vendor to updateVenue page
@@ -44,6 +48,8 @@ public class VenueController {
 		Venue userVenue = dao.findVenuebyId(id);
 		model.addAttribute("venue", userVenue);
 
+		User updatedUser = dao.getUserByID(loggedInUser.getId());
+		session.setAttribute("loginUser", updatedUser);
 		return "venue/updateVenue";
 	}
 //	find the venue for that manager and add that attribute 
@@ -113,13 +119,13 @@ public class VenueController {
 				System.err.println("*********************************" + newVenue);
 				newVenue.setAddress(userAddress);
 				Venue venue = venueDAO.addVenue(newVenue);
+				User updatedUser = dao.getUserByID(user.getId());
+				session.setAttribute("loginUser", updatedUser);
 				venue.setUser(user);
 				model.addAttribute("venue", venue);
 				user = venueDAO.saveUser(user, venue);
 			}
 		}
-		User updatedUser = dao.getUserByID(user.getId());
-		session.setAttribute("loginUser", updatedUser);
 		model.addAttribute("user", user);
 		
 		return "venue/addedVenueConfirmed";
