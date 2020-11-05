@@ -96,7 +96,7 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `venue` ;
 
 CREATE TABLE IF NOT EXISTS `venue` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(150) NOT NULL,
   `address_id` INT NULL,
   `capacity` INT NULL,
