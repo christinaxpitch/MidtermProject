@@ -37,7 +37,7 @@
 
 
 			<div class="dropdown-content">
-				<form action="login.do" method="GET">
+				<form action="login.do" method="POST">
 					<fieldset id="inputs">
 						<input id="email" type="text" name="email"
 							placeholder="Your email address" required> <input

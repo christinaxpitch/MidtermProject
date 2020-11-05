@@ -39,7 +39,7 @@
 						class="dropcheck" type="checkbox"> <label for="dropcheck"
 						class="dropbtn">Log in ▼</label>
 						<div class="dropdown-content">
-							<form action="login.do" method="GET">
+							<form action="login.do" method="POST">
 								<fieldset id="inputs">
 									<input id="email" type="text" name="email"
 										placeholder="Your email or username" required> <input
