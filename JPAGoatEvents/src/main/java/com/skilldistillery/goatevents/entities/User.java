@@ -56,16 +56,16 @@ public class User {
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
-	
-	@ManyToMany(mappedBy = "users", fetch = FetchType.EAGER,cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+
+	@ManyToMany(mappedBy = "users")
 	private List<Venue> venues;
-	
-	@OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+
+	@OneToMany(mappedBy = "user")
 	private List<Venue> managerVenues;
-	
-	@OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+
+	@OneToMany(mappedBy = "user")
 	private List<Comment> userComments;
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@ManyToMany
 	@JoinTable(name = "user_event", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
 	private List<Event> events;
 
@@ -184,58 +184,72 @@ public class User {
 	public User() {
 		super();
 	}
+
 	public void addVenue(Venue venue) {
-		if(venues == null) { venues = new ArrayList<Venue>();}
-		if(!venues.contains(venue)) {
+		if (venues == null) {
+			venues = new ArrayList<Venue>();
+		}
+		if (!venues.contains(venue)) {
 			venues.add(venue);
-				venue.addUser(this);
-				}
+			venue.addUser(this);
 		}
-		
+	}
+
 	public void removeVenue(Venue venue) {
-		if(venues != null && venues.contains(venue)) {
+		if (venues != null && venues.contains(venue)) {
 			venues.remove(venue);
-			venue.removeUser(this);}
+			venue.removeUser(this);
 		}
+	}
+
 	public void addEvent(Event event) {
-		if(events == null) { events = new ArrayList<Event>();}
-		if(!events.contains(event)) {
+		if (events == null) {
+			events = new ArrayList<Event>();
+		}
+		if (!events.contains(event)) {
 			events.add(event);
 			event.addUser(this);
 		}
 	}
-	
+
 	public void removeEvent(Event event) {
-		if(events != null && events.contains(event)) {
+		if (events != null && events.contains(event)) {
 			events.remove(event);
-			event.removeUser(this);}
+			event.removeUser(this);
+		}
 	}
 
 	public void addManagerVenue(Venue v) {
-		if(managerVenues == null) { managerVenues = new ArrayList<Venue>();}
-		if(!managerVenues.contains(v)) {
+		if (managerVenues == null) {
+			managerVenues = new ArrayList<Venue>();
+		}
+		if (!managerVenues.contains(v)) {
 			managerVenues.add(v);
-				
-				}
+
 		}
-		
+	}
+
 	public void removeManagerVenue(Venue v) {
-		if(managerVenues != null && managerVenues.contains(v)) {
+		if (managerVenues != null && managerVenues.contains(v)) {
 			managerVenues.remove(v);
-			}
 		}
+	}
+
 	public void addComment(Comment c) {
-		if(userComments == null) { userComments = new ArrayList<Comment>();}
-		if(!userComments.contains(c)) {
+		if (userComments == null) {
+			userComments = new ArrayList<Comment>();
+		}
+		if (!userComments.contains(c)) {
 			userComments.add(c);
-			}
 		}
-		
+	}
+
 	public void removeComment(Comment c) {
-		if(userComments != null && userComments.contains(c)) {
+		if (userComments != null && userComments.contains(c)) {
 			userComments.remove(c);
-			}
 		}
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

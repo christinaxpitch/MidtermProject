@@ -56,22 +56,22 @@ public class Event {
 	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
 
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@ManyToOne
 	@JoinColumn(name = "venue_id")
 	private Venue venue;
 
-	@OneToMany(mappedBy = "event",cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToMany(mappedBy = "event", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Comment> comments;
 
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@ManyToMany
 	@JoinTable(name = "artist_event", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "artist_id"))
 	private List<Artist> artists;
 
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@ManyToMany
 	@JoinTable(name = "event_type_has_event", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "event_type_id"))
 	private List<EventType> eventTypes;
 
-	@ManyToMany(mappedBy= "events", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@ManyToMany(mappedBy= "events", cascade = {CascadeType.PERSIST})
 	private List<User> users;
 	
 	public List<User> getUsers() {

@@ -23,7 +23,7 @@ private String artistType;
 @Column(name="artist_name")
 private String artistName;
 
-@ManyToMany (mappedBy = "artists",cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+@ManyToMany (mappedBy = "artists")
 private List<Event> events;
 
 @Override

@@ -2,6 +2,7 @@ package com.skilldistillery.goatevents.entities;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,7 +32,8 @@ public class Comment {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-	@ManyToOne 
+	@ManyToOne
+	@JoinColumn(name = "event_id")
 	private Event event;
 
 	public Comment() {

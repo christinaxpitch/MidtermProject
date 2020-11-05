@@ -21,7 +21,7 @@ public class Amenity {
 	
 	private String description;
 	
-	@OneToMany(mappedBy = "amenity", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToMany(mappedBy = "amenity")
 	private List<VenueAmenity> venueAmenities;
 
 

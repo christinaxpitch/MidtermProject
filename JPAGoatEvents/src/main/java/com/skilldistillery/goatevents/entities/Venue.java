@@ -39,15 +39,15 @@ public class Venue {
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@ManyToMany
 	@JoinTable(name = "user_venue", joinColumns = @JoinColumn(name = "venue_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<User> users;
 	@ManyToOne
 	@JoinColumn(name = "manager_id")
 	private User user;
-	@OneToMany(mappedBy = "venue",cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToMany(mappedBy = "venue", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	private List<Event> events;
-	@OneToMany(mappedBy = "venue",cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToMany
 	private List<VenueAmenity> venueAmenities;
 
 	public User getUser() {
@@ -151,46 +151,53 @@ public class Venue {
 	public void setVenueAmenities(List<VenueAmenity> venueAmenities) {
 		this.venueAmenities = venueAmenities;
 	}
-	
+
 	public void addVenueAmenity(VenueAmenity va) {
-		if(venueAmenities == null) { venueAmenities = new ArrayList<VenueAmenity>();}
-		if(!venueAmenities.contains(va)) {
+		if (venueAmenities == null) {
+			venueAmenities = new ArrayList<VenueAmenity>();
+		}
+		if (!venueAmenities.contains(va)) {
 			venueAmenities.add(va);
-					}
 		}
-		
+	}
+
 	public void removeActor(VenueAmenity ve) {
-		if(venueAmenities != null && venueAmenities.contains(ve)) {
+		if (venueAmenities != null && venueAmenities.contains(ve)) {
 			venueAmenities.remove(ve);
-			}
 		}
-	
-	
+	}
+
 	public void addUser(User user) {
-		if(users == null) { users = new ArrayList<User>();}
-		if(!users.contains(user)) {
+		if (users == null) {
+			users = new ArrayList<User>();
+		}
+		if (!users.contains(user)) {
 			users.add(user);
-				user.addVenue(this);
-				}
+			user.addVenue(this);
 		}
-		
+	}
+
 	public void removeUser(User user) {
-		if(users != null && users.contains(user)) {
+		if (users != null && users.contains(user)) {
 			users.remove(user);
-			user.removeVenue(this);}
+			user.removeVenue(this);
 		}
+	}
+
 	public void addEvent(Event e) {
-		if(events == null) { events = new ArrayList<Event>();}
-		if(!events.contains(e)) {
+		if (events == null) {
+			events = new ArrayList<Event>();
+		}
+		if (!events.contains(e)) {
 			events.add(e);
 		}
-		}
-		
+	}
+
 	public void removeEvent(Event e) {
-		if(events != null && events.contains(e)) {
+		if (events != null && events.contains(e)) {
 			events.remove(e);
-			}
 		}
+	}
 
 	// Hashcode AND Equals =============================
 	@Override
