@@ -62,11 +62,11 @@
 </c:otherwise>
 </c:choose>
 </header>
-	<h2>Venue Information: </h2>
+<!-- 	<h2>Venue Information: </h2> -->
  <c:choose>
 		<c:when test="${! empty venue }">
-			Venue you are editing: - ${venue.name}
-			<form action="updateVenue.do" method="POST">
+<%-- 			Venue you are editing: - ${venue.name}
+ --%><%-- 			<form action="updateVenue.do" method="POST">
 			<br>
 			<br>
 				<label for="name">Venue Name:</label> <input type="text" name="name"
@@ -86,8 +86,40 @@
 			
 		<input type="submit" class="button" value="Submit" />
 		<input type = "hidden" value ="${venue.id }" name = "vid" />
-		</form>
+		</form> --%>
 
+<form action="updateVenue.do" method="POST">
+  <table class="table table-striped table-hover, table-dark">
+   		<thead class="thead thead-dark">
+    <th colspan = 4 style="text-align:center" > Update This Venue - ${venue.name}</th></thead>
+    <tr>
+    <td>Capacity:</td>
+    <td><label for="capacity"></label> <input type="text" name="capacity"
+					value="${venue.capacity}" /> <input type="hidden" name="capacity"
+					value="${venue.id}" /> </td>
+  </tr>
+  <tr>
+    <td>Venue Name:</td>
+    <td><label for="name"></label> <input type="text" name="name"
+					value="${venue.name}" /> <input type="hidden" name="vid"
+					value="${venue.id}" /> </td>
+  </tr>
+  <tr>
+    <td>Description:</td>
+    <td><label for="description"></label> <input type="text" name="description"
+					value="${venue.description}" /> <input type="hidden" name="vid"
+					value="${venue.id}" /> 
+            </td>
+            </tr>
+
+    <tr>
+    <td colspan = 5 style="text-align:center" > 
+<input type="submit" class="button" value="Submit" />
+<input type = "hidden" value ="${venue.id }" name ="vid" />
+            </td>
+            </tr>
+     </table>   
+     </form>
 
 		</c:when>
 		<c:otherwise>

@@ -67,16 +67,15 @@
 
 
 <div>
-<h3>Add a Venue to Our Collection:</h3>
+<!-- <h3>Add a Venue to Our Collection:</h3>
   <form action="addVenue.do" method="POST">
   
   <br>
-  <br>
-    Venue Street Address:<br>
-    <input type="text" name="street"/> 
-    <br>
+    Street Address: 
+    <input type="text" placeholder=Street" name="street"/>
+\    <br>
     Venue City:<br>
-    <input type="text" name="city"/> 
+    <input type="text" placeholder="City" name="city"/> 
     <br>
     Venue State:<br>   
   			<select	name= "state" > 
@@ -130,10 +129,10 @@
         </select> 
 	 <br>
 	Venue Zip Code:<br>
-    <input type="text" name="zip"/> 
+    <input type="text" maxlength="5" name="zip"/> 
     <br>
 	Venue Phone Number:<br>
-    <input type="text" name="phone"/> 
+    <input type="text" placeholder="123-45-678" name="phone"/> 
     <br>
    
     Name of Venue:<br>
@@ -151,7 +150,100 @@
 	<button type="submit" >Submit</button>
 			</form><br>
 			<br>			
-  <br>
+  <br> -->
+  
+  
+  <form action="addVenue.do" method="POST">
+  <table class="table table-striped table-hover, table-dark">
+   		<thead class="thead thead-dark">
+    <th colspan = 4 style="text-align:center" > Add a Venue</th></thead>
+     <tr>
+    <td>Street Address:</td>
+    <td><input type="text" placeholder="Street"name="street"/></td>
+  </tr>
+  
+   <tr>
+    <td>Venue City:</td>
+    <td><input type="text" placeholder="City"name="city"/></td>
+  </tr>
+  
+  <tr>
+    <td>State:</td>
+    <td><select	name= "state" > 
+            <option value="AL">AL</option> 
+            <option value="AK">AK</option> 
+            <option value="AZ">AZ</option> 
+            <option value="CA">CA</option> 
+            <option value="CO">CO</option>
+            <option value="CT">CT</option> 
+            <option value="DE">DE</option> 
+            <option value="FL">FL</option> 
+            <option value="GA">GA</option> 
+            <option value="HI">HI</option> 
+            <option value="ID">ID</option> 
+            <option value="IL">IL</option> 
+            <option value="IN">IN</option> 
+            <option value="IA">IA</option> 
+            <option value="KS">KS</option>
+            <option value="KY">KY</option> 
+            <option value="ME">ME</option> 
+            <option value="MD">MD</option> 
+            <option value="MA">MA</option> 
+            <option value="MI">MI</option>
+            <option value="MN">MN</option> 
+            <option value="MS">MS</option> 
+            <option value="MO">MO</option> 
+            <option value="MT">MT</option> 
+            <option value="NE">NE</option>
+            <option value="NV">NV</option> 
+            <option value="NH">NH</option> 
+            <option value="NJ">NJ</option> 
+            <option value="NM">NM</option> 
+            <option value="NY">NY</option> 
+            <option value="NC">NC</option> 
+            <option value="ND">ND</option> 
+            <option value="OH">OH</option> 
+            <option value="OK">OK</option> 
+            <option value="OR">OR</option>
+            <option value="PA">PA</option> 
+            <option value="RI">RI</option> 
+            <option value="SC">SC</option> 
+            <option value="SD">SD</option> 
+            <option value="TX">TX</option> 
+            <option value="UT">UT</option> 
+            <option value="VT">VT</option> 
+            <option value="VA">VA</option> 
+            <option value="WA">WA</option> 
+            <option value="WV">WV</option> 
+            <option value="WI">WI</option> 
+            <option value="WY">WY</option>     
+        </select> </td>
+  </tr>
+   <tr>
+    <td>Zip Code:</td>
+    <td><input type="text" placeholder="01234" maxlength="5" name="zip"/> </td>
+  </tr>
+    <tr>
+    <td>Phone:</td>
+    <td><input type="text" placeholder="012-345-6789" name="phone"/> </td>
+  </tr>
+  <tr>
+    <td>Venue Name:</td>
+    <td><input type="text" placeholder="The Spooky Theater" name="name"/> </td>
+  </tr>
+  <tr>
+    <td>Description::</td>
+    <td><input type="text" placeholder="A purposely run down place intended to creep everyone out."name="description"/></td>
+    
+     <tr>
+    <td>Capacity:</td>
+    <td> <input type="number" name="capacity" value="0"/>  </td>
+  </tr>
+    <tr><td colspan = 5 style="text-align:center" > <button type="submit" >Submit</button>
+			<br> </td></tr>
+     </table> 
+     
+     </form>
 	
 </body>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

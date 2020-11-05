@@ -81,7 +81,7 @@
 			<th style="text-align:center" colspan="10">Hi, ${sessionScope.loginUser.firstName}! - Thank you for being a vendor.</th>
 			<tr>
 				<td colspan="6" >Create New Venue</td>
-    		<td><form action="addVenueHomepage.do"><button name="id" type="submit" >New Venue</button></form></td>
+    		<td><form style="text-align:right" action="addVenueHomepage.do"><button name="id" type="submit" >New Venue</button></form></td>
 			</tr>
 			 <tr>
     		
@@ -106,7 +106,7 @@
 						<td><a>${v.name}</a></td>
 						<td>${v.address.street} ${v.address.city}, ${v.address.state} ${v.address.zip}
 						</td><td><form action="updateVenueHomepage.do"><button name="id" type="submit" value="${v.id}">Update this Venue</button></form></td>
-						<td><form action="createEvent.do"><button name="id" type="submit" value="${v.id}" >New Event</button></form></td>
+						<td><form action="createEvent.do" style="text-align:right" ><button name="id" type="submit" value="${v.id}" >New Event</button></form></td>
  			 </tr>
 					</tr>
 				</c:forEach>
@@ -139,7 +139,7 @@
 						<td>${e.title}</td>
 						<td>${e.startTime}</td>
 						<td><form action="updateEventHome.do"><button name="id" type="submit" value="${e.id}">Update this Event</button></form></td>
-						<td><form action="deleteEventForm.do"><button name="id" type="submit" value="${e.id}">Delete this Event</button></form></td>
+						<td><form action="deleteEventForm.do" style="text-align:right" ><button name="id" type="submit" value="${e.id}">Delete this Event</button></form></td>
 					</tr>
 				</c:forEach>
 			</c:if>

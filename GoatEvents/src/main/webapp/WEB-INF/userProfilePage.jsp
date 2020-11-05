@@ -84,7 +84,7 @@
 			<th style="text-align:center" colspan="10">Hi, ${sessionScope.loginUser.username}! - Welcome to Your User Page!</th>
 			<tr>
 				<td colspan="6" >Add Events/Venue to Favorites List</td>
-    		<td><form action="search.do"><button type="submit" name= "search" value=" ">List of all Events</button></form></td>
+    		<td><form action="search.do" style="text-align:right" ><button type="submit" name= "search" value=" ">List of all Events</button></form></td>
 			</tr>
 		</thead>
 		<tbody>
@@ -106,7 +106,7 @@
 
 						<td><a>${v.name}</a></td>
 						<td>${v.address.street} ${v.address.city}, ${v.address.state} ${v.address.zip}
-						</td><td><form action="removeFavVenue.do"><button name="id" type="submit" value="${v.id}">Remove Venue from Favorites</button></form></td>
+						</td><td><form action="removeFavVenue.do" style="text-align:right"><button name="id" type="submit" value="${v.id}">Remove Venue from Favorites</button></form></td>
 					</tr>
 				</c:forEach>
 			</c:if></tbody></table></div>
