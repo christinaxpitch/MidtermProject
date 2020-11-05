@@ -67,8 +67,15 @@ public class EventController {
 	}
 
 	@RequestMapping(path = "updateEvent.do", method = RequestMethod.POST)
-	public ModelAndView updateEvent(Event event){
+	public ModelAndView updateEvent(Event event,String sTime, String eTime, String eDate){
 		System.out.println(event);
+		LocalTime startTime = LocalTime.parse(sTime);
+		event.setStartTime(startTime);
+		LocalTime endTime = LocalTime.parse(eTime);
+		event.setEndTime(endTime);
+
+		LocalDate date = LocalDate.parse(eDate);
+		event.setEventDate(date);
 		Event updatedEvent = dao.updateEvent(event);
 		
 		System.out.println(updatedEvent);

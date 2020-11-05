@@ -8,7 +8,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.goatevents.entities.Artist;
+import com.skilldistillery.goatevents.entities.Comment;
 import com.skilldistillery.goatevents.entities.Event;
+import com.skilldistillery.goatevents.entities.EventType;
 import com.skilldistillery.goatevents.entities.Venue;
 
 @Transactional
@@ -45,8 +48,13 @@ public class EventDAOImpl implements EventDAO {
 		updatedEvent.setImage(event.getImage());
 		updatedEvent.setMaxCapacity(event.getMaxCapacity());
 		updatedEvent.setNumOfTickets(event.getNumOfTickets());
+		
 		em.persist(updatedEvent);
 		em.flush();
+		
+		List<Comment> comments = updatedEvent.getComments();
+		List<EventType> et = updatedEvent.getEventTypes();
+		List<Artist> a = updatedEvent.getArtists();
 		return updatedEvent;
 	}
 
