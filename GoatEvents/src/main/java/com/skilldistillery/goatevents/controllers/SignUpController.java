@@ -40,6 +40,7 @@ public class SignUpController {
 			if (venue != null) {
 				System.err.println("*********************************" + venue);
 				venue.setAddress(userAddress);
+				venue.setUser(user);
 				Venue venueAddress = userDao.addVenue(venue);
 			}
 		}
