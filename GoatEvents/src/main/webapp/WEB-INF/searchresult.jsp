@@ -83,19 +83,25 @@
 			<h6>Your Search contained ${count} results</h6>
 <c:forEach var="e" items="${events}">
 <div>
-<table class="table table-striped table-hover, table-light">
-<thead class=“thead thead-dark”>
-<tr><td><img src="${e.image }" height= 70px width= 70px></td></tr>
+<table id="searchTable" class="table table-striped table-hover, table-light">
+<thead class="thead thead-dark">
+<tr>
+<th><img src="${e.image }" height= 70px width= 70px>
+<th>${e.title } ( <c:forEach var="et" items="${e.eventTypes }"> ${et.category } </c:forEach> ) </th>
+</th>
+</tr>
+</thead>
+<tbody>
 <tr><td>Date:</td><td>${e.eventDate.month } ${e.eventDate.dayOfMonth }, ${e.eventDate.year }</td></tr>
 <tr><td>Time:</td><td>${e.startTime}</td></tr>
 <tr><td>Acts:</td><td><c:forEach var="a" items="${e.artists }"> ${a.artistName } ( ${a.artistType} )<br> </c:forEach></td></tr>
-<tr><td>Event:</td><td>${e.title } ( <c:forEach var="et" items="${e.eventTypes }"> ${et.category } </c:forEach> )</td></tr>
 <tr><td>Venue:</td><td>${e.venue.name }</td></tr>
 <tr><td>Tickets Available:</td><td>${e.numOfTickets }</td></tr>
 <tr><td>Event Capacity:</td><td>${e.maxCapacity }</td></tr>
-<tr><td>Description:</td><td>${e.description }</td></tr>
+<tr><td style="width:10%">Description:</td><td>${e.description }</td></tr>
 <tr><td><form action="buyTicket.do"><button name="id" type="submit" value="${e.id}">Buy Ticket</button></form>
 </td><td><form action="addFavEvent.do"><button name="id" type="submit" value="${e.id}">Add Event to my Favorites</button></form></td></tr>
+</tbody>
 </table>
 
 </div>
@@ -104,14 +110,20 @@
 <c:forEach var="v" items="${venues}">
 <div>
 <table class="table table-striped table-hover, table-light">
-<thead class=“thead thead-dark”>
-<tr><td><img src="${v.logo }" height= 70px width= 70px></td></tr>
-<tr><td>Venue:</td><td>${v.name }</td></tr>
-<tr><td>Address:</td><td>${v.address.street} ${v.address.city} ${v.address.state} ${v.address.zip}</td></tr>
+<thead class= "thead thead-dark">
+<tr>
+<th><img src="${v.logo }" height= 70px width= 70px></th>
+<th>${v.name }</th>
+</tr>
+
+</thead>
+<tbody>
+<tr><td style= "text-align:left">Address:</td><td>${v.address.street} ${v.address.city} ${v.address.state} ${v.address.zip}</td></tr>
 <tr><td>Max Capacity:</td><td>${v.capacity }</td></tr>
-<tr><td>Description:</td><td>${v.description }</td></tr>
+<tr><td style="width:10%">Description:</td><td>${v.description }</td></tr>
 <tr><td>Amenities:</td><td><c:forEach items="${v.amenities}" var="a"> ${a.name }<br> ${a.description }</c:forEach><c:forEach items="${v.venueAmenities}" var="va"> <br>${va.description}</c:forEach></td></tr>
-<tr><td><form action="addFavVenue.do"><button name="id" type="submit" value="${v.id}">Add Venue to my Favorites</button></form></td></tr>
+<tr><td> </td><td><form action="addFavVenue.do"><button name="id" type="submit" value="${v.id}">Add Venue to my Favorites</button></form></td></tr>
+</tbody>
 </table>
 </div>
 

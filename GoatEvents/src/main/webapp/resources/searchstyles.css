@@ -41,10 +41,6 @@
 	float: left;
 }
 
-.search-container {
-	
-}
-
 #searchText {
 	margin-top: none;
 	height: 24px;
@@ -197,8 +193,14 @@ a {
 
 table tr td {
 	opacity: 1.0;
+	
 }
-
+#searchTable tr td{
+	padding: none;
+	text-justify: left;
+	text-align: left;
+	
+}
 td {
 	text-justify: left;
 	text-align: left;
