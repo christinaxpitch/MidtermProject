@@ -30,8 +30,7 @@ public class EventController {
 	ModelAndView mv = new ModelAndView();
 
 	@RequestMapping(path = "createEvent.do", method = RequestMethod.GET)
-	public ModelAndView create() {
-		int id = 1;
+	public ModelAndView create(int id) {
 		mv.addObject("venue", dao.findVenueById(id));
 		mv.setViewName("event/createEvent");
 		return mv;

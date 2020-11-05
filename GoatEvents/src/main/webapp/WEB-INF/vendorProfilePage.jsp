@@ -84,9 +84,7 @@
     		<td><form action="addVenueHomepage.do"><button name="id" type="submit" >New Venue</button></form></td>
 			</tr>
 			 <tr>
-   			 <td colspan="6" >Create New Event</td>
-    		<td><form action="createEvent.do"><button name="id" type="submit" >New Event</button></form></td>
- 			 </tr>
+    		
 		</thead>
 		<tbody>
 
@@ -107,6 +105,8 @@
 						<td><a>${v.name}</a></td>
 						<td>${v.address.street} ${v.address.city}, ${v.address.state} ${v.address.zip}
 						</td><td><form action="updateVenueHomepage.do"><button name="id" type="submit" value="${v.id}">Update this Venue</button></form></td>
+						<td><form action="createEvent.do"><button name="id" type="submit" value="${v.id}" >New Event</button></form></td>
+ 			 </tr>
 					</tr>
 				</c:forEach>
 			</c:if></tbody></table></div>
