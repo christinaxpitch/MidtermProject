@@ -30,9 +30,9 @@ public class EventDAOImpl implements EventDAO {
 
 	@Override
 	public boolean deleteEvent(int id) {
-		Event deletedEvent = em.find(Event.class, id);
-		em.remove(deletedEvent);
-		boolean eventWasDeleted = !em.contains(deletedEvent);
+		Event deleteEvent = em.find(Event.class, id);
+		em.remove(deleteEvent);	
+		boolean eventWasDeleted = !em.contains(deleteEvent);
 		em.flush();
 		return eventWasDeleted;
 	}
