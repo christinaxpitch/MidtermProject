@@ -53,13 +53,15 @@ public class SignUpController {
 	public String loginUser(Model model, String email, String password, HttpSession session) {
 		User user = userDao.login(email, password);
 		List<User> all = userDao.findAllUsers();
+		int index = 0;
 		for (User userfind : all) {
-			int index = 0;
-			if(userfind.getUsername().equals("1")){
-				all.remove(index);
+			String username = userfind.getUsername();
+			if(username.equals("1")){
+				break;
 			}
 			index++;
 		}
+		all.remove(index);
 		if (user != null) {
 			if (user.getImage() == null) {
 				user.setImage(

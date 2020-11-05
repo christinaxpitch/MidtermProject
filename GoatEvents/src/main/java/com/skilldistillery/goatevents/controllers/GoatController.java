@@ -38,13 +38,15 @@ public class GoatController {
 	public String userProfile(Model model, HttpSession session) {
 		User user = (User) session.getAttribute("loginUser");
 		List<User> all = userDao.findAllUsers();
+		int index = 0;
 		for (User userfind : all) {
-			int index = 0;
-			if(userfind.getUsername().equals("1")){
-				all.remove(index);
+			String username = userfind.getUsername();
+			if(username.equals("1")){
+				break;
 			}
 			index++;
 		}
+		all.remove(index);
 			model.addAttribute("events", user.getEvents());
 			model.addAttribute("venues", user.getVenues());
 			model.addAttribute("venueFavoritesList", user.getVenues());
