@@ -20,7 +20,7 @@ import com.skilldistillery.goatevents.entities.Venue;
 public class SignUpController {
 
 	@Autowired
-	GoatDAO dao;
+	private GoatDAO dao;
 	@Autowired
 	private UserDAO userDao;
 
