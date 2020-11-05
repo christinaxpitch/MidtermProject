@@ -54,6 +54,8 @@ public class SignUpController {
 		User user;
 		try {
 			user = userDao.login(email, password);
+			boolean isVendor = userDao.isVendor(user);
+			boolean isAdmin = userDao.isAdmin(user);		
 		List<User> all = userDao.findAllUsers();
 		int index = 0;
 		for (User userfind : all) {
@@ -71,8 +73,6 @@ public class SignUpController {
 			}
 			session.setAttribute("loginUser", user);
 		}
-		boolean isVendor = userDao.isVendor(user);
-		boolean isAdmin = userDao.isAdmin(user);		
 		
 		if (isAdmin == true) {
 			model.addAttribute("events", dao.findAllEvents());
@@ -91,7 +91,6 @@ public class SignUpController {
 		model.addAttribute("venueFavoritesList", user.getVenues());
 		return "userProfilePage";
 		} catch (Exception e) {
-			// TODO
 			return "errorPage";
 		}
 	}

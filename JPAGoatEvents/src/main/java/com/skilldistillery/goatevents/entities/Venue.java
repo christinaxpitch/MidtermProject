@@ -47,7 +47,7 @@ public class Venue {
 	private User user;
 	@OneToMany(mappedBy = "venue", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	private List<Event> events;
-	@OneToMany
+	@OneToMany(mappedBy="venue")
 	private List<VenueAmenity> venueAmenities;
 
 	public User getUser() {

@@ -147,9 +147,12 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public boolean isAdmin(User admin) {
 		boolean isAdmin = false;
-		String sql = "Select u from User u where u.role like :userrole";
-		List<User> login = em.createQuery(sql, User.class).setParameter("userrole", "%admin%").getResultList();
+		int adminId = admin.getId();
+		String sql = "Select u from User u where u.id = :adminId and u.role like :userrole";
+		List<User> login = em.createQuery(sql, User.class).setParameter("adminId", adminId)
+				.setParameter("userrole", "%admin%").getResultList();
 		if (login.size() > 0) {
+		
 			isAdmin = true;
 		}
 		return isAdmin;

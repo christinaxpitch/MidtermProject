@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.goatevents.data.GoatDAO;
 import com.skilldistillery.goatevents.data.UserDAO;
+import com.skilldistillery.goatevents.data.VenueDAO;
 import com.skilldistillery.goatevents.entities.Event;
 import com.skilldistillery.goatevents.entities.User;
 
@@ -21,6 +22,8 @@ public class GoatController {
 	private GoatDAO dao;
 	@Autowired
 	private UserDAO userDao;
+	@Autowired
+	private VenueDAO venueDao;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model, HttpSession session) {
@@ -73,6 +76,24 @@ public class GoatController {
 	@RequestMapping(path = "deactivateUser.do")
 	public String deactivateUser(Model model, HttpSession session, int id) {
 		userDao.deactivateUser(id);
+		List<User> all = userDao.findAllUsers();
+		int index = 0;
+		for (User userfind : all) {
+			String username = userfind.getUsername();
+			if(username.equals("1")){
+				break;
+			}
+			index++;
+		}
+		all.remove(index);
+		model.addAttribute("events", dao.findAllEvents());
+		model.addAttribute("venues", userDao.findAllVenues());
+		model.addAttribute("users", all);
+		return "admin";
+	}
+	@RequestMapping(path = "removeVenue.do")
+	public String removeVenue(Model model, HttpSession session, int id) {
+		venueDao.deleteVenue(id);
 		List<User> all = userDao.findAllUsers();
 		int index = 0;
 		for (User userfind : all) {
