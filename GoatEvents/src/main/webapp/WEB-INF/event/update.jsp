@@ -75,11 +75,11 @@
 			name="description" value="${event.description }"> 
 			<br> 
 			<label
-			for="startTime">Start Time:</label> <input type="time" name="startTime"
+			for="startTime">Start Time:</label> <input type="time" name="sTime"
 			value="${event.startTime }"> 
 			<br> 
 			<label for="endTime">End Time:</label> <input
-			type="time" name="endTime" value="${event.endTime }">
+			type="time" name="eTime" value="${event.endTime }">
 			<br>
 			<label for="maxCapacity">Max
 			Capacity:</label> <input type="text" name="maxCapacity" value="${event.maxCapacity }">
@@ -88,7 +88,7 @@
 			type="text" name="numOfTickets" value="${event.numOfTickets }">
 			<br> 
 			<label
-			for="eventDate">Event Date:</label> <input type="date" name="eventDate"
+			for="eventDate">Event Date:</label> <input type="date" name="eDate"
 			value="${event.eventDate }"> <br>
 
 		<input type = "hidden" value ="${event.id }" name = "id" />
