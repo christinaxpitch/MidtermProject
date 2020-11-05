@@ -29,9 +29,9 @@ public interface UserDAO {
 
 	List<Venue> venueFavoritesList(User user);
 
-	List<Event> findAllUsers();
+	List<User> findAllUsers();
 
-	List<Event> findAllVenues();
+	List<Venue> findAllVenues();
 
 	boolean isAdmin(User admin);
 

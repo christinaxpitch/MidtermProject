@@ -41,7 +41,7 @@ public class GoatController {
 			model.addAttribute("venues", user.getVenues());
 			model.addAttribute("venueFavoritesList", user.getVenues());
 			model.addAttribute("eventFavoritesList", user.getEvents());
-			boolean isVendor = userDao.isVendor(user);
+			boolean isAdmin = userDao.isAdmin(user);		
 
 			if (isAdmin == true) {
 				model.addAttribute("events", dao.findAllEvents());
@@ -60,10 +60,9 @@ public class GoatController {
 	}
 
 
-//	@RequestMapping(path = "vendor.do")
-//	public String vendorProfile(Model model, HttpSession session) {
-//		model.addAttribute("user", dao.getTestUser());
-//		return "user";
-//	}
+	@RequestMapping(path = "deactivateUser.do")
+	public String deactivateUser(Model model, HttpSession session, int id) {
+		return "user";
+	}
 
 }

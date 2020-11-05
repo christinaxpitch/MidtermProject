@@ -2,9 +2,11 @@ package com.skilldistillery.goatevents.data;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.goatevents.entities.Address;
@@ -67,16 +69,16 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 	@Override
-	public List<Event> findAllUsers() {
+	public List<User> findAllUsers() {
 		String jpql = "SELECT u FROM User u";
-		List<Event> emps = em.createQuery(jpql, Event.class).getResultList();
+		List<User> emps = em.createQuery(jpql, User.class).getResultList();
 		return emps;
 		
 	}
 	@Override
-	public List<Event> findAllVenues() {
+	public List<Venue> findAllVenues() {
 		String jpql = "SELECT v from Venue v";
-		List<Event> emps = em.createQuery(jpql, Event.class).getResultList();
+		List<Venue> emps = em.createQuery(jpql, Venue.class).getResultList();
 		return emps;
 		
 	}
