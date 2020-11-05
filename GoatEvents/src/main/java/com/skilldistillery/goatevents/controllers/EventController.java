@@ -54,10 +54,11 @@ public class EventController {
 		LocalDate date = LocalDate.parse(eDate);
 		event.setEventDate(date);
 		Venue venue = dao.findVenueById(vid);
+		event.setVenue(venue);
 		Event newEvent = dao.addEvent(event);
-		newEvent.setVenue(venue);
+//		newEvent.setVenue(venue);
 
-		ra.addFlashAttribute("venue", venue);
+		ra.addFlashAttribute("venue", newEvent.getVenue());
 		ra.addFlashAttribute("event", newEvent);
 
 		mv.setViewName("redirect:eventAdded.do");

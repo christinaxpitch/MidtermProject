@@ -71,9 +71,8 @@
 			name="description" value="top 2 not 2"> <br> <label
 			for="sTime">Start Time:</label> <input type="time" name="sTime"
 			value=""> <br> <label for="eTime">End Time:</label> <input
-			type="time" name="eTime" value=""> <br> <label
-			for="venue.id">Venue ID:</label> <input type="text" name="venue.id"
-			value="${venue.id}"> <br> <label for="maxCapacity">Max
+			type="time" name="eTime" value=""> <br> 
+		<label for="maxCapacity">Max
 			Capacity:</label> <input type="text" name="maxCapacity" value="50000">
 		<br> <label for="numOfTickets">Number Of Tickets:</label> <input
 			type="text" name="numOfTickets" value="50000"> <br> <label
