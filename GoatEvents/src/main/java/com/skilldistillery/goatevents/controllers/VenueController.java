@@ -60,8 +60,11 @@ public class VenueController {
 //}
 	
 	@RequestMapping(path = "confirmAddedVenue.do", method = RequestMethod.GET)
-	public ModelAndView confirmAddedVenue(Venue venue) {
+	public ModelAndView confirmAddedVenue(Venue venue, HttpSession session) {
+		User user = (User) session.getAttribute("loginUser");
 		ModelAndView mv = new ModelAndView();
+		User updatedUser = dao.getUserByID(user.getId());
+		session.setAttribute("loginUser", updatedUser);
 		mv.setViewName("venue/addedVenueConfirmed");
 		return mv;
 }
