@@ -45,8 +45,17 @@ public class SignUpController {
 		}
 		model.addAttribute("eventList", userDao.findAllEvents());
 		model.addAttribute("user", user);
+		boolean isVendor = userDao.isVendor(user);
+		if(isVendor == true) {
+		model.addAttribute("venues", user.getVenues());
 
-		return "Home";
+		System.out.println(user);
+		return "vendorProfilePage";
+		}
+		model.addAttribute("eventFavoritesList", user.getEvents());
+		model.addAttribute("venueFavoritesList", user.getVenues());
+		return "userProfilePage";
+		
 	}
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
