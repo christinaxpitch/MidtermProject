@@ -60,7 +60,7 @@ public class EventDAOImpl implements EventDAO {
 		updatedEvent.setStartTime(event.getStartTime());
 		updatedEvent.setEndTime(event.getEndTime());
 		updatedEvent.setEventDate(event.getEventDate());
-		updatedEvent.setImage(event.getImage());
+//		updatedEvent.setImage(event.getImage());
 		updatedEvent.setMaxCapacity(event.getMaxCapacity());
 		updatedEvent.setNumOfTickets(event.getNumOfTickets());
 		
