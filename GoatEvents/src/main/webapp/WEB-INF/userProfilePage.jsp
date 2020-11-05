@@ -115,7 +115,7 @@
 	<br>
 	<table class="table table-striped table-hover, table-dark">
 		<thead class="thead thead-dark">
-			<th colspan="6">Your Favorite Eventss:</th>
+			<th colspan="6">Your Favorite Events:</th>
 			<tr>
 				<th>Date</th>
 				<th>Venue</th>
