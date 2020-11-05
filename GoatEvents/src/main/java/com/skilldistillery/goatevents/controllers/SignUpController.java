@@ -30,12 +30,17 @@ public class SignUpController {
 	}
 
 	@RequestMapping(path = "signUp.do")
-	public String signUp(User newUser, Address address, Venue venue, Model model) {
+	public String signUp(User newUser, Address address, Venue venue, Model model, HttpSession session) {
 		User user = userDao.addUser(newUser);
+		session.setAttribute("loginUser", user);
+
 		if (address != null && !address.getStreet().equals("")) {
 			System.err.println("*********************************" + address);
 			Address userAddress = userDao.addAddress(address);
 			user.setAddress(userAddress);
+			User updatedUser = dao.getUserByID(user.getId());
+			session.setAttribute("loginUser", updatedUser);
+
 
 			if (venue != null) {
 				System.err.println("*********************************" + venue);
@@ -44,8 +49,6 @@ public class SignUpController {
 				Venue venueAddress = userDao.addVenue(venue);
 			}
 		}
-		model.addAttribute("eventList", userDao.findAllEvents());
-		model.addAttribute("user", user);
 		boolean isVendor = userDao.isVendor(user);
 		if(isVendor == true) {
 		model.addAttribute("venues", user.getVenues());
