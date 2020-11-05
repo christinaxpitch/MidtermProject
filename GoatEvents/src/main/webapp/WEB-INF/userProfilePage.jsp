@@ -77,17 +77,22 @@
 	</header>
 </div>
 
-	<h1>Welcome ${sessionScope.loginUser.username}!</h1>
+	<%-- <h1>Welcome ${sessionScope.loginUser.username}!</h1> --%>
 
-	<br>
 
-	<br>
+<table class="table table-striped table-hover, table-dark">
+			<th style="text-align:center" colspan="10">Hi, ${sessionScope.loginUser.username}! - Welcome to Your User Page!</th>
+			<tr>
+				<td colspan="6" >Add Events/Venue to Favorites List</td>
+    		<td><form action="search.do"><button type="submit" name= "search" value=" ">List of all Events</button></form></td>
+			</tr>
+		</thead>
+		<tbody>
+		
 
-	<div><h1>List of Your Favorite Venues:</h1>
-
-	<br><form action="search.do"><button type="submit" name= "search" value=" ">Add Events/Venues to Favorites</button></form>
 	<table class="table table-striped table-hover, table-dark">
 		<thead class="thead thead-dark">
+			<th colspan="6">Your Favorite Venues:</th>
 			<tr>
 				<th>Venue</th>
 				<th>Address</th>
@@ -108,9 +113,9 @@
 	<br>
 
 	<br>
-	<h1>List of Your Favorite Events:</h1>
 	<table class="table table-striped table-hover, table-dark">
 		<thead class="thead thead-dark">
+			<th colspan="6">Your Favorite Eventss:</th>
 			<tr>
 				<th>Date</th>
 				<th>Venue</th>

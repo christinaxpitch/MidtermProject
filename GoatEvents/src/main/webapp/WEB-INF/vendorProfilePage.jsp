@@ -78,7 +78,7 @@
 
 
 <table class="table table-striped table-hover, table-dark">
-			<th colspan="6">Hi, ${sessionScope.loginUser.firstName}! - Thank you for being a vendor.</th>
+			<th style="text-align:center" colspan="10">Hi, ${sessionScope.loginUser.firstName}! - Thank you for being a vendor.</th>
 			<tr>
 				<td colspan="6" >Create New Venue</td>
     		<td><form action="addVenueHomepage.do"><button name="id" type="submit" >New Venue</button></form></td>
