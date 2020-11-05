@@ -41,6 +41,15 @@ public class GoatController {
 			model.addAttribute("venues", user.getVenues());
 			model.addAttribute("venueFavoritesList", user.getVenues());
 			model.addAttribute("eventFavoritesList", user.getEvents());
+			boolean isVendor = userDao.isVendor(user);
+
+			if (isAdmin == true) {
+				model.addAttribute("events", dao.findAllEvents());
+				model.addAttribute("venues", userDao.findAllVenues());
+				model.addAttribute("users", userDao.findAllUsers());
+				System.out.println(user);
+				return "admin";
+			}
 		boolean isVendor = userDao.isVendor(user);
 		if(isVendor == true) {
 			

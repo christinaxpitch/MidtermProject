@@ -58,6 +58,15 @@ public class SignUpController {
 			session.setAttribute("loginUser", user);
 		}
 		boolean isVendor = userDao.isVendor(user);
+		boolean isAdmin = userDao.isAdmin(user);		
+		
+		if (isAdmin == true) {
+			model.addAttribute("events", dao.findAllEvents());
+			model.addAttribute("venues", userDao.findAllVenues());
+			model.addAttribute("users", userDao.findAllUsers());
+			System.out.println(user);
+			return "admin";
+		}
 		if (isVendor == true) {
 			model.addAttribute("events", user.getEvents());
 			model.addAttribute("venues", user.getVenues());

@@ -29,4 +29,10 @@ public interface UserDAO {
 
 	List<Venue> venueFavoritesList(User user);
 
+	List<Event> findAllUsers();
+
+	List<Event> findAllVenues();
+
+	boolean isAdmin(User admin);
+
 }

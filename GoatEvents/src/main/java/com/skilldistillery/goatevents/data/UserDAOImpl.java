@@ -66,6 +66,20 @@ public class UserDAOImpl implements UserDAO {
 		return emps;
 
 	}
+	@Override
+	public List<Event> findAllUsers() {
+		String jpql = "SELECT u FROM User u";
+		List<Event> emps = em.createQuery(jpql, Event.class).getResultList();
+		return emps;
+		
+	}
+	@Override
+	public List<Event> findAllVenues() {
+		String jpql = "SELECT v from Venue v";
+		List<Event> emps = em.createQuery(jpql, Event.class).getResultList();
+		return emps;
+		
+	}
 
 	/*
 	 * TODO This is to deactivate user. Needs to be checked, might just be deleting
@@ -127,4 +141,15 @@ public class UserDAOImpl implements UserDAO {
 		return isVendor;
 
 	}
+
+	@Override
+	public boolean isAdmin(User admin) {
+		boolean isAdmin = false;
+		String sql = "Select u from User u where u.role like :userrole";
+		List<User> login = em.createQuery(sql, User.class).setParameter("userrole", "%admin%").getResultList();
+		if (login.size() > 0) {
+			isAdmin = true;
+		}
+		return isAdmin;
+		}
 }
