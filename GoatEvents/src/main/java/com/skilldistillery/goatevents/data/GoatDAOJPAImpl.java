@@ -26,9 +26,10 @@ public class GoatDAOJPAImpl implements GoatDAO {
 		System.out.println(user.getEvents());
 		System.out.println(user.getVenues());
 		List<Venue> venues = user.getVenues();
+		if(venues != null) {
 		for (Venue venue : venues) {
 			System.out.println(venue.getEvents());
-			
+		}
 		}
 			
 		
