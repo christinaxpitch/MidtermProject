@@ -87,7 +87,10 @@
 				</tr>
 				<tr>
 					<td>Comments</td>
-					<td>${event.comments}</td>
+					<td><c:forEach var="c" items="${event.comments}">
+					Rated: ${c.rating}/5 <br>
+					${c.user.username} says -- ${c.content}
+					</c:forEach></td>
 				</tr>
 			</table>
 			

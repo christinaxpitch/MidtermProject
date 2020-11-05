@@ -14,7 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.goatevents.data.EventDAO;
+import com.skilldistillery.goatevents.entities.Artist;
+import com.skilldistillery.goatevents.entities.Comment;
 import com.skilldistillery.goatevents.entities.Event;
+import com.skilldistillery.goatevents.entities.EventType;
 import com.skilldistillery.goatevents.entities.Venue;
 
 @Controller
@@ -76,8 +79,10 @@ public class EventController {
 
 		LocalDate date = LocalDate.parse(eDate);
 		event.setEventDate(date);
+
 		Event updatedEvent = dao.updateEvent(event);
-		
+		mv.addObject("event", updatedEvent);
+		mv.addObject("venue", updatedEvent.getVenue());
 		System.out.println(updatedEvent);
 		mv.setViewName("event/showEvent");
 		return mv;

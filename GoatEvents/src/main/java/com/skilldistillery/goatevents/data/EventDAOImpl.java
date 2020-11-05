@@ -52,15 +52,15 @@ public class EventDAOImpl implements EventDAO {
 		em.persist(updatedEvent);
 		em.flush();
 		
-		List<Comment> comments = updatedEvent.getComments();
-		List<EventType> et = updatedEvent.getEventTypes();
-		List<Artist> a = updatedEvent.getArtists();
 		return updatedEvent;
 	}
 
 	@Override
 	public Event findById(int id) {
 		Event event = em.find(Event.class, id);
+		List<Comment> comments = event.getComments();
+		List<EventType> et = event.getEventTypes();
+		List<Artist> a = event.getArtists();
 		System.out.println(event);
 		em.flush();
 		return event;
