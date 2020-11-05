@@ -37,6 +37,14 @@ public class GoatController {
 	@RequestMapping(path = "user.do")
 	public String userProfile(Model model, HttpSession session) {
 		User user = (User) session.getAttribute("loginUser");
+		List<User> all = userDao.findAllUsers();
+		for (User userfind : all) {
+			int index = 0;
+			if(userfind.getUsername().equals("1")){
+				all.remove(index);
+			}
+			index++;
+		}
 			model.addAttribute("events", user.getEvents());
 			model.addAttribute("venues", user.getVenues());
 			model.addAttribute("venueFavoritesList", user.getVenues());
@@ -46,7 +54,7 @@ public class GoatController {
 			if (isAdmin == true) {
 				model.addAttribute("events", dao.findAllEvents());
 				model.addAttribute("venues", userDao.findAllVenues());
-				model.addAttribute("users", userDao.findAllUsers());
+				model.addAttribute("users", all);
 				System.out.println(user);
 				return "admin";
 			}
