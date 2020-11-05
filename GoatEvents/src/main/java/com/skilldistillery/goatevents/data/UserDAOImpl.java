@@ -122,8 +122,8 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User login(String email, String password) {
-		String sql = "Select u from User u where u.email like :email or u.username like :username and u.password = :password";
-		User login = em.createQuery(sql, User.class).setParameter("email", "%" + email + "%").setParameter("username", "%" + email + "%").setParameter("password", password)
+		String sql = "Select u from User u where u.email = :email or u.username = :username and u.password = :password";
+		User login = em.createQuery(sql, User.class).setParameter("email", email).setParameter("username", email).setParameter("password", password)
 				.getSingleResult();
 //		System.out.println(login);
 		return login;
@@ -156,4 +156,11 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return isAdmin;
 		}
+	@Override
+	public User saveUser(User user) {
+		User newUser = em.find(User.class, user.getId());
+		em.persist(newUser);
+		em.flush();
+		return newUser;
+	}
 }

@@ -35,4 +35,6 @@ public interface UserDAO {
 
 	boolean isAdmin(User admin);
 
+	User saveUser(User user);
+
 }

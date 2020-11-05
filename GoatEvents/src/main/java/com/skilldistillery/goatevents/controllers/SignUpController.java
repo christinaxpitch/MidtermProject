@@ -33,6 +33,14 @@ public class SignUpController {
 	public String signUp(User newUser, Address address, Venue venue, Model model, HttpSession session) {
 		User user = userDao.addUser(newUser);
 		session.setAttribute("loginUser", user);
+		if (user != null) {
+			if (user.getImage() == null) {
+				user.setImage(
+						"https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg");
+			userDao.saveUser(user);
+			}
+			session.setAttribute("loginUser", user);
+		}
 
 		if (address != null && !address.getStreet().equals("")) {
 			System.err.println("*********************************" + address);
@@ -83,6 +91,7 @@ public class SignUpController {
 			if (user.getImage() == null) {
 				user.setImage(
 						"https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg");
+			userDao.saveUser(user);
 			}
 			session.setAttribute("loginUser", user);
 		}
