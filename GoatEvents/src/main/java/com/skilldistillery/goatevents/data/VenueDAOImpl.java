@@ -9,8 +9,10 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.goatevents.entities.Address;
+import com.skilldistillery.goatevents.entities.Event;
 import com.skilldistillery.goatevents.entities.User;
 import com.skilldistillery.goatevents.entities.Venue;
+import com.skilldistillery.goatevents.entities.VenueAmenity;
 
 @Service
 @Transactional
@@ -44,6 +46,16 @@ public class VenueDAOImpl implements VenueDAO{
 	@Override
 	public boolean deleteVenue(int id) {
 		Venue deleteVenue = em.find(Venue.class, id);
+		for (Event event : deleteVenue.getEvents()) {
+			em.remove(event);
+		}
+		for (VenueAmenity va : deleteVenue.getVenueAmenities()) {
+			em.remove(va);
+		}
+		while(deleteVenue.getUsers().size() > 0) {
+			deleteVenue.removeUser(deleteVenue.getUsers().get(0));
+		}
+		
 		em.remove(deleteVenue);	
 		boolean VenueWasDeleted = !em.contains(deleteVenue);
 		em.flush();
