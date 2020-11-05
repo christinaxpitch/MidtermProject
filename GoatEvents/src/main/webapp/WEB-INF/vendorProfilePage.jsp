@@ -75,24 +75,26 @@
 		</c:choose>
 	</header>
 	<br>
-	<br>
-	<h3> Hi, ${sessionScope.loginUser.firstName} </h3>
-	<p>Thank you for being a vendor!</p>
-	<a href="addVenueHomepage.do">Add</a> a New Venue
-	<br>
-	<br>
-	<a href="createEvent.do">Create</a> a New Event
-	<br>
-	<br>
 
 
-
-<div><h1>List of Your Current Venues:</h1>
+<table class="table table-striped table-hover, table-dark">
+			<th colspan="6">Hi, ${sessionScope.loginUser.firstName}! - Thank you for being a vendor.</th>
+			<tr>
+				<td colspan="6" >Create New Venue</td>
+    		<td><form action="addVenueHomepage.do"><button name="id" type="submit" >New Venue</button></form></td>
+			</tr>
+			 <tr>
+   			 <td colspan="6" >Create New Event</td>
+    		<td><form action="createEvent.do"><button name="id" type="submit" >New Event</button></form></td>
+ 			 </tr>
+		</thead>
+		<tbody>
 
 	<table class="table table-striped table-hover, table-dark">
 		<thead class="thead thead-dark">
+			<th colspan="6">List of Your Current Venues:</th>
 			<tr>
-				<th>Venue</th>
+				<th >Venue</th>
 				<th>Address</th>
 				<th> </th>
 			</tr>
@@ -109,11 +111,10 @@
 				</c:forEach>
 			</c:if></tbody></table></div>
 	<br>
-
 	<br>
-	<h1>List of Your Current Events:</h1>
 	<table class="table table-striped table-hover, table-dark">
 		<thead class="thead thead-dark">
+			<th colspan="6">List of Your Current Events:</th>
 			<tr>
 				<th>Date</th>
 				<th>Venue</th>
@@ -139,20 +140,6 @@
 					</tr>
 				</c:forEach>
 			</c:if></tbody></table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </div>
