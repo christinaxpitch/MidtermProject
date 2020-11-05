@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.goatevents.data.GoatDAO;
 import com.skilldistillery.goatevents.data.UserDAO;
+import com.skilldistillery.goatevents.entities.Event;
 import com.skilldistillery.goatevents.entities.User;
-import com.skilldistillery.goatevents.entities.Venue;
 
 @Controller
 public class GoatController {
@@ -24,7 +24,13 @@ public class GoatController {
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model, HttpSession session) {
-		model.addAttribute("eventList", dao.findAllEvents());
+		List<Event> events = dao.findAllEvents();
+		for (Event event : events) {
+			if(event.getImage() == null) {
+				event.setImage("resources/images/RockingOut3.jpg");
+			}
+		}
+		model.addAttribute("eventList", events);
 		return "Home";
 	}
 
