@@ -118,6 +118,8 @@ public class VenueController {
 				user = venueDAO.saveUser(user, venue);
 			}
 		}
+		User updatedUser = dao.getUserByID(user.getId());
+		session.setAttribute("loginUser", updatedUser);
 		model.addAttribute("user", user);
 		
 		return "venue/addedVenueConfirmed";
