@@ -145,3 +145,17 @@
 		crossorigin="anonymous"></script>
 </body>
 </html>
+
+<style type="text/css">
+	
+	.button{
+	
+		background: none;
+		padding: 7px 15px;
+		color: white;
+		}
+		
+		.button:hover{
+		color: black;
+		}
+}

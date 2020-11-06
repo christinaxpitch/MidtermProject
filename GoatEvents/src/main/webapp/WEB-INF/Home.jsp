@@ -47,7 +47,7 @@
 										placeholder="Password" required>
 								</fieldset>
 								<fieldset id="actions">
-									<input type="submit" id="submit" value="Log in">
+									<input class = "button" type="submit" id="submit" value="Log in">
 								</fieldset>
 							</form>
 						</div></li>
@@ -108,7 +108,7 @@
 							<img id="eventImg${i.index}" src="${event.image}"
 								class="d-block w-100" alt="...">
 							<div class="carousel-caption d-md-block d-md-block">
-								<h5>Hosted BY:</h5>
+								<h5>Hosted@:</h5>
 								<h5>${event.venue.name}</h5>
 								<br>
 								<h5>Event:</h5>
@@ -135,6 +135,8 @@
 	<br>
 	<br>
 	<br>
+	
+	<p1> Midterm Project by: Aaron, Ryan, Christina, & Douglas  </p1>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
@@ -148,3 +150,27 @@
 		crossorigin="anonymous"></script>
 </body>
 </html>
+
+	<style type="text/css">	
+		body {
+		font: Verdana;
+		}
+		
+		.button {
+		padding: 10px 20px;
+		color: gray;
+		}
+		
+		.button:hover{
+		color: white;
+		}
+		
+		p{
+		font: Verdana;
+		border: 2px solid white;
+  		border-radius: 12px;
+		}
+		p1{
+		font: Verdana;
+		color: white;
+		}

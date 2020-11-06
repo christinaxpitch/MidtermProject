@@ -73,8 +73,7 @@
 	<br>
 	<div id="whySignUp">
 		<p>
-			Why not sign up ITS FREE<br> You can buy tickets, <br> save
-			your favorite venues.<br>AND MORE!
+			ITS FREE to sign up!<br> Buy tickets, <br> track events & venues,<br>& MORE!
 		</p>
 	</div>
 <!-- 	<form action="signUp.do" method="POST">
@@ -287,6 +286,29 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
 		integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
 		crossorigin="anonymous"></script>
+	
+	<style type="text/css">	
+		body {
+		color: white;
+		font: Verdana;
+		}
+		
+		.button {
+		background: none;
+		padding: 10px 20px;
+		color: white;
+		}
+		
+		.button:hover{
+		color: red;
+		}
+		
+		p{
+		font: Verdana;
+		border: 2px solid white;
+  		border-radius: 12px;
+		}
+		
 
 </body>
 </html>

@@ -99,8 +99,8 @@
 <tr><td>Tickets Available:</td><td>${e.numOfTickets }</td></tr>
 <tr><td>Event Capacity:</td><td>${e.maxCapacity }</td></tr>
 <tr><td style="width:10%">Description:</td><td>${e.description }</td></tr>
-<tr><td><form action="buyTicket.do"><button name="id" type="submit" value="${e.id}">Buy Ticket</button></form>
-</td><td><form action="addFavEvent.do"><button name="id" type="submit" value="${e.id}">Add Event to my Favorites</button></form></td></tr>
+<tr><td><form action="buyTicket.do"><button class = "button" name="id" type="submit" value="${e.id}">Buy Ticket</button></form>
+</td><td><form action="addFavEvent.do"><button class = "button" name="id" type="submit" value="${e.id}">Add Event to my Favorites</button></form></td></tr>
 </tbody>
 </table>
 
@@ -122,7 +122,7 @@
 <tr><td>Max Capacity:</td><td>${v.capacity }</td></tr>
 <tr><td style="width:10%">Description:</td><td>${v.description }</td></tr>
 <tr><td>Amenities:</td><td><c:forEach items="${v.amenities}" var="a"> ${a.name }<br> ${a.description }</c:forEach><c:forEach items="${v.venueAmenities}" var="va"> <br>${va.description}</c:forEach></td></tr>
-<tr><td> </td><td><form action="addFavVenue.do"><button name="id" type="submit" value="${v.id}">Add Venue to my Favorites</button></form></td></tr>
+<tr><td> </td><td><form action="addFavVenue.do"><button class = "button" name="id" type="submit" value="${v.id}">Add Venue to my Favorites</button></form></td></tr>
 </tbody>
 </table>
 </div>
@@ -172,3 +172,17 @@
 		crossorigin="anonymous"></script>
 </body>
 </html>
+
+<style type="text/css">
+	
+	.button{
+	
+		background: none;
+		padding: 7px 15px;
+		color: white;
+		}
+		
+		.button:hover{
+		color: black;
+		}
+}

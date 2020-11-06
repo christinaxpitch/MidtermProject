@@ -151,9 +151,9 @@
   
     <tr><td>
 		
-		<input colspan = 4 style="text-align:center" type = "hidden" value ="${event.id }" name = "id" />
+		<input  style="text-align:center" type = "hidden" value ="${event.id }" name = "id" />
 
-		<button type="submit" name="event" >Submit</button> </td></tr>
+		<button  class= "button" type="submit" name="event" >Submit</button> </td></tr>
 			
      </table> 
      </form>
@@ -169,9 +169,20 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
 		integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
 		crossorigin="anonymous"></script>
-	
-	
-	
 
 </body>
 </html>
+
+<style type="text/css">
+	
+	.button{
+	
+		background: none;
+		padding: 7px 15px;
+		color: white;
+		}
+		
+		.button:hover{
+		color: black;
+		}
+}

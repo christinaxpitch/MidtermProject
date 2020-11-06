@@ -143,7 +143,7 @@
   </tr>
   
     <tr><td> <input colspan = 4 style="text-align:center" type="hidden" name="venueId" value="${venue.id}">
-		<button type="submit">Submit</button> </td></tr>
+		<button class = "button" type="submit">Submit</button> </td></tr>
 			
      </table> 
      </form>
@@ -164,3 +164,17 @@
 
 </body>
 </html>
+
+<style type="text/css">
+	
+	.button{
+	
+		background: none;
+		padding: 7px 15px;
+		color: white;
+		}
+		
+		.button:hover{
+		color: black;
+		}
+}

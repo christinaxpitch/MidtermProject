@@ -81,10 +81,10 @@
 
 
 <table class="table table-striped table-hover, table-dark">
-			<th style="text-align:center" colspan="10">Hi, ${sessionScope.loginUser.username}! - Welcome to Your User Page!</th>
+			<th style="text-align:center" colspan="10">Hi, ${sessionScope.loginUser.username}! - Welcome to Your User Page</th>
 			<tr>
 				<td colspan="6" >Add Events/Venue to Favorites List</td>
-    		<td><form action="search.do" style="text-align:right" ><button type="submit" name= "search" value=" ">List of all Events</button></form></td>
+    		<td><form action="search.do" style="text-align:right" ><button class= "button" type="submit" name= "search" value=" ">List of all Events</button></form></td>
 			</tr>
 		</thead>
 		<tbody>
@@ -106,7 +106,7 @@
 
 						<td><a>${v.name}</a></td>
 						<td>${v.address.street} ${v.address.city}, ${v.address.state} ${v.address.zip}
-						</td><td><form action="removeFavVenue.do" style="text-align:right"><button name="id" type="submit" value="${v.id}">Remove Venue from Favorites</button></form></td>
+						</td><td><form action="removeFavVenue.do" style="text-align:right"><button class= "button" name="id" type="submit" value="${v.id}">Remove Venue from Favorites</button></form></td>
 					</tr>
 				</c:forEach>
 			</c:if></tbody></table></div>
@@ -134,7 +134,7 @@
 						<td>${e.venue.name}</td>
 						<td>${e.title}</td>
 						<td>${e.startTime}</td>
-						<td><form action="removeFavEvent.do"><button name="id" type="submit" value="${e.id}">Remove Event from Favorites</button></form></td>
+						<td><form action="removeFavEvent.do"><button class= "button" name="id" type="submit" value="${e.id}">Remove Event from Favorites</button></form></td>
 					</tr>
 				</c:forEach>
 			</c:if></tbody></table>
@@ -153,3 +153,17 @@
 				crossorigin="anonymous"></script>
 </body>
 </html>
+
+<style type="text/css">
+	
+	.button{
+	
+		background: none;
+		padding: 7px 15px;
+		color: white;
+		}
+		
+		.button:hover{
+		color: black;
+		}
+}
