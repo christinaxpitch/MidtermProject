@@ -1,6 +1,6 @@
 # MidtermProject
 <img align="left" src="http://skilldistillery.com/downloads/sd_logo.jpg" height="250">
-
+<br>
 
 ##### Douglas Sigmon (Developer, DBA) <br/> Ryan Miskoviak (Developer, Scrum Master)<br/> Aaron Cottrell (Developer, Repo Owner) <br/> Christina Pitch (Developer, Project Manager)
 
