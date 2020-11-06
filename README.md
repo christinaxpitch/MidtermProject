@@ -12,7 +12,13 @@ G.O.A.T Events will be a virtual food court of sorts for all things group gather
 ### Description
 
 #### Users
-Users will be able to browse events posted on the site by subscribing venue members. Guest users will be able to view the main homepage which will display a scroll of new and upcoming events available through G.O.A.T. Events exclusive venue pool. Guest users can also search for venues posting events on G.O.A.T. Events.<br><img align="middle" src="/Images/UserPro.png" width="825"> <br>Sign up is absolutely free for the user. G.O.A.T. Events will be powered by a small ticket transaction fee and venue subscription fees for the site. Enabling your free account allows for additional site usage. Primarily, the ability to purchase tickets for the event of your choosing. <br> <img align="middle" src="/Images/SearchButtons.png" width="825"><br>
+Users will be able to browse events posted on the site by subscribing venue members. Guest users will be able to view the main homepage which will display a scroll of new and upcoming events available through G.O.A.T. Events exclusive venue pool. Guest users can also search for venues posting events on G.O.A.T. Events.
+<br>
+<img align="middle" src="/Images/UserPro.png" width="825">
+<br>
+Sign up is absolutely free for the user. G.O.A.T. Events will be powered by a small ticket transaction fee and venue subscription fees for the site. Enabling your free account allows for additional site usage. Primarily, the ability to purchase tickets for the event of your choosing. 
+<br> <img align="middle" src="/Images/SearchButtons.png" width="825">
+<br>
 Other features include favorites lists for venues and events so a user has these at a click upon re-visiting G.O.A.T. Events.
 
 #### Venues
