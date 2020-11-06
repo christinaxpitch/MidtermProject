@@ -19,7 +19,7 @@ Once a Venue has subscribed to G.O.A.T. Events, they are provided with their own
 
 screenshot1.png screenshot2.png
 <a href="http://3.18.206.62:8080/GoatEvents/">
-Link to deployed app
+Link to deployed app</a>
 
 
 ### Implementation
