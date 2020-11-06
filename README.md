@@ -34,18 +34,20 @@ Link to deployed app</a>
 
 * Users may have: 1 Address, many venues as an account manager, many favorite venues/events as a guest user and create many comments
 * Venues may be managed by 1 user. Have 1 address Be favorited by many guest users. Create and manage many events. Have many amenities specific or general.
-* Events are created by 1 venue. May have many comments. Have many Artists or types (genre). Be favorited  
+* Events are created by 1 venue. May have many comments. Have many Artists or types (genre). Be favorited by many users.
+
 <img src="/DB/ERD.png">
 
 ### Technologies and Methodologies Used
 * Spring MVC
 * JPA
-* MySQL
+* MySQL Workbench
 * HTML/CSS
 * Gradle
 * Pair Programming
 * Git Collaboration
 * AWS EC2 Deployment
+* JSP
 
 ### Lessons Learned
 Stretch Goals
