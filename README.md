@@ -1,6 +1,7 @@
+<img align="left" src="http://skilldistillery.com/downloads/sd_logo.jpg" height="250">
 # MidtermProject
 
-###Mid-term Team Project for Skill Distillery
+
 ####Team members and roles:
 
 1. Douglas Sigmon (Developer, DBA)
@@ -9,10 +10,12 @@
 4. Christina Pitch (Developer, Project Manager)
 
 ###Overview
-Description of application's premise/purpose, what need it meets
+G.O.A.T Events will be a virtual food court of sorts for all things group gathering. From music festivals, a local poetry slam or your local yoga class. Search and add your favorites to your profile page. Get your event in front of potential ticket buyers. Sell out your event with G.O.A.T Events
 
 ###Description
-How it works, what the user can do
+
+####Users
+Users will be able to browse events posted on the site by subscribing venue members. Guest users will be able to view the main homepage which  Guest users Venues may allow for a manager of their accounts to add events and manage event details.
 
 screenshot1.png screenshot2.png
 
@@ -23,7 +26,7 @@ How to login, username/password, etc.
 ###Implementation
 Description of overall project structure
 
-ERDiagram.png
+<img src="/DB/ERD.png">
 
 ###Technologies and Methodologies Used
 * Spring MVC
@@ -31,10 +34,9 @@ ERDiagram.png
 * MySQL
 * HTML/CSS
 * Gradle
-
-* Agile
 * Pair Programming
 * git Collabortation
+* AWS EC2 Deployment
 
 ###Lessons Learned
 Stretch Goals
