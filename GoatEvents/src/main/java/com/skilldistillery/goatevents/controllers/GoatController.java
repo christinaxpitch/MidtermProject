@@ -55,7 +55,6 @@ public class GoatController {
 		}
 		all.remove(index);
 			model.addAttribute("events", user.getEvents());
-			model.addAttribute("venues", user.getVenues());
 			model.addAttribute("venueFavoritesList", user.getVenues());
 			model.addAttribute("eventFavoritesList", user.getEvents());
 			boolean isAdmin = userDao.isAdmin(user);		
@@ -69,10 +68,14 @@ public class GoatController {
 			}
 		boolean isVendor = userDao.isVendor(user);
 		if(isVendor == true) {
-			
+			session.setAttribute("loginUser", user);
+
+			model.addAttribute("venues", user.getManagerVenues());
 		System.out.println(user);
 		return "vendorProfilePage";
 		}
+		session.setAttribute("loginUser", user);
+
 		return "userProfilePage";
 	}
 

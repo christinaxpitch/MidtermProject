@@ -37,7 +37,7 @@ public class SignUpController {
 			if (user.getImage() == null) {
 				user.setImage(
 						"https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg");
-			userDao.saveUser(user);
+				userDao.saveUser(user);
 			}
 			session.setAttribute("loginUser", user);
 		}
@@ -48,7 +48,6 @@ public class SignUpController {
 			Address userAddress = userDao.addAddress(address);
 			user.setAddress(userAddress);
 			session.setAttribute("loginUser", updatedUser);
-
 
 			if (venue != null) {
 				venue.setAddress(userAddress);
@@ -62,21 +61,17 @@ public class SignUpController {
 			}
 		}
 		boolean isVendor = userDao.isVendor(user);
-		if(isVendor == true) {
-System.err.println(updatedUser.getManagerVenues());
-		model.addAttribute("venues", updatedUser.getManagerVenues());
-		System.err.println(user);
-		return "vendorProfilePage";
+		if (isVendor == true) {
+			System.err.println(updatedUser.getManagerVenues());
+			model.addAttribute("venues", updatedUser.getManagerVenues());
+			System.err.println(user);
+			return "vendorProfilePage";
 		}
-		
-		
-		
-		
-		
+
 		model.addAttribute("eventFavoritesList", user.getEvents());
 		model.addAttribute("venueFavoritesList", user.getVenues());
 		return "userProfilePage";
-		
+
 	}
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
@@ -85,42 +80,42 @@ System.err.println(updatedUser.getManagerVenues());
 		try {
 			user = userDao.login(email, password);
 			boolean isVendor = userDao.isVendor(user);
-			boolean isAdmin = userDao.isAdmin(user);		
-		List<User> all = userDao.findAllUsers();
-		int index = 0;
-		for (User userfind : all) {
-			String username = userfind.getUsername();
-			if(username.equals("1")){
-				break;
+			boolean isAdmin = userDao.isAdmin(user);
+			List<User> all = userDao.findAllUsers();
+			int index = 0;
+			for (User userfind : all) {
+				String username = userfind.getUsername();
+				if (username.equals("1")) {
+					break;
+				}
+				index++;
 			}
-			index++;
-		}
-		all.remove(index);
-		if (user != null) {
-			if (user.getImage() == null) {
-				user.setImage(
-						"https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg");
-			userDao.saveUser(user);
+			all.remove(index);
+			if (user != null) {
+				if (user.getImage() == null) {
+					user.setImage(
+							"https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg");
+					userDao.saveUser(user);
+				}
+				session.setAttribute("loginUser", user);
 			}
-			session.setAttribute("loginUser", user);
-		}
-		
-		if (isAdmin == true) {
-			model.addAttribute("events", dao.findAllEvents());
-			model.addAttribute("venues", userDao.findAllVenues());
-			model.addAttribute("users", all);
-			System.out.println(user);
-			return "admin";
-		}
-		if (isVendor == true) {
-			model.addAttribute("events", user.getEvents());
-			model.addAttribute("venues", user.getVenues());
-			System.out.println(user);
-			return "vendorProfilePage";
-		}
-		model.addAttribute("eventFavoritesList", user.getEvents());
-		model.addAttribute("venueFavoritesList", user.getVenues());
-		return "userProfilePage";
+
+			if (isAdmin == true) {
+				model.addAttribute("events", dao.findAllEvents());
+				model.addAttribute("venues", userDao.findAllVenues());
+				model.addAttribute("users", all);
+				System.out.println(user);
+				return "admin";
+			}
+			if (isVendor == true) {
+				model.addAttribute("events", user.getEvents());
+				model.addAttribute("venues", user.getVenues());
+				System.out.println(user);
+				return "vendorProfilePage";
+			}
+			model.addAttribute("eventFavoritesList", user.getEvents());
+			model.addAttribute("venueFavoritesList", user.getVenues());
+			return "userProfilePage";
 		} catch (Exception e) {
 			return "errorPage";
 		}

@@ -32,6 +32,15 @@ public class GoatDAOJPAImpl implements GoatDAO {
 		for (Venue venue : venues) {
 			System.err.println(venue.getEvents());
 		}
+		List<Venue> managerVenues = user.getManagerVenues();
+		if(managerVenues != null){
+			for (Venue venue : managerVenues) {
+				venue.getEvents().size();
+			}
+			System.err.println(user.getManagerVenues());
+		}
+
+
 		}
 			
 		
