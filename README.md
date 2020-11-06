@@ -1,6 +1,6 @@
 <img align="left" src="/Images/GoatEvents2.png" width="825">
 <img align="left" src="http://skilldistillery.com/downloads/sd_logo.jpg" height="175">
-<br>
+<br>&nbsp;
 
 ##### Douglas Sigmon (Developer, DBA) <br/> Ryan Miskoviak (Developer, Scrum Master)<br/> Aaron Cottrell (Developer, Repo Owner) <br/> Christina Pitch (Developer, Project Manager)
 <br><br>
