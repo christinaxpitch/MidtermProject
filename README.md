@@ -2,19 +2,19 @@
 # MidtermProject
 
 
-####Team members and roles:
+#### Team members and roles:
 
 1. Douglas Sigmon (Developer, DBA)
 2. Ryan Miskoviak (Developer, Scrum Master)
 3. Aaron Cottrell (Developer, Repo Owner)
 4. Christina Pitch (Developer, Project Manager)
 
-###Overview
+### Overview
 G.O.A.T Events will be a virtual food court of sorts for all things group gathering. From music festivals, a local poetry slam or your local yoga class. Search and add your favorites to your profile page. Get your event in front of potential ticket buyers. Sell out your event with G.O.A.T Events
 
-###Description
+### Description
 
-####Users
+#### Users
 Users will be able to browse events posted on the site by subscribing venue members. Guest users will be able to view the main homepage which  Guest users Venues may allow for a manager of their accounts to add events and manage event details.
 
 screenshot1.png screenshot2.png
@@ -23,12 +23,12 @@ Link to deployed app
 
 How to login, username/password, etc.
 
-###Implementation
+### Implementation
 Description of overall project structure
 
 <img src="/DB/ERD.png">
 
-###Technologies and Methodologies Used
+### Technologies and Methodologies Used
 * Spring MVC
 * JPA
 * MySQL
@@ -38,7 +38,7 @@ Description of overall project structure
 * git Collabortation
 * AWS EC2 Deployment
 
-###Lessons Learned
+### Lessons Learned
 Stretch Goals
 How to Download and Run
 How a developer would download and set up, install DB, etc.
