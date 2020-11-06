@@ -1,8 +1,6 @@
-<img align="left" src="http://skilldistillery.com/downloads/sd_logo.jpg" height="250">
 # MidtermProject
+<img align="left" src="http://skilldistillery.com/downloads/sd_logo.jpg" height="250">
 
-
-#### Team members and roles:
 
 1. Douglas Sigmon (Developer, DBA)
 2. Ryan Miskoviak (Developer, Scrum Master)
