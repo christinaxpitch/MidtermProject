@@ -1,4 +1,4 @@
-# MidtermProject
+<img align="middle" src="/Images/GOATEvents.png" width="400">
 <img align="left" src="http://skilldistillery.com/downloads/sd_logo.jpg" height="175">
 <br>
 
@@ -21,7 +21,6 @@ screenshot1.png screenshot2.png
 
 Link to deployed app
 
-How to login, username/password, etc.
 
 ### Implementation
 Description of overall project structure
