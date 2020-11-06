@@ -18,7 +18,7 @@ Users will be able to browse events posted on the site by subscribing venue memb
 Once a Venue has subscribed to G.O.A.T. Events, they are provided with their own personal management dashboard. A venue may manage their own account or allow for a manager of many locations to add events and manage event details. An account manager will also be able to subscribe additional locations for use of G.O.A.T. Events vast user base. G.O.A.T. Events will keep watch for inappropriate content and reserves the right to remove an event from public view or remove a venue or account manager for repeated violations of site content rules.
 
 screenshot1.png screenshot2.png
-
+<a href="http://3.18.206.62:8080/GoatEvents/">
 Link to deployed app
 
 
