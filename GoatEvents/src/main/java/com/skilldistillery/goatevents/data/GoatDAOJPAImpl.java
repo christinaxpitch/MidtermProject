@@ -22,13 +22,15 @@ public class GoatDAOJPAImpl implements GoatDAO {
 	
 	@Override
 	public User getUserByID(int id) {
+		
 		User user = em.find(User.class, id);
-		System.out.println(user.getEvents());
-		System.out.println(user.getVenues());
+		System.err.println(user.getEvents());
+//		user.getManagerVenues().size();
+		System.err.println(user.getVenues());
 		List<Venue> venues = user.getVenues();
 		if(venues != null) {
 		for (Venue venue : venues) {
-			System.out.println(venue.getEvents());
+			System.err.println(venue.getEvents());
 		}
 		}
 			

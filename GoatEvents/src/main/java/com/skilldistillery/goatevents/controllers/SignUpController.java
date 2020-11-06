@@ -42,30 +42,37 @@ public class SignUpController {
 			session.setAttribute("loginUser", user);
 		}
 
+		User updatedUser = dao.getUserByID(user.getId());
 		if (address != null && !address.getStreet().equals("")) {
 			System.err.println("*********************************" + address);
 			Address userAddress = userDao.addAddress(address);
 			user.setAddress(userAddress);
-			User updatedUser = dao.getUserByID(user.getId());
 			session.setAttribute("loginUser", updatedUser);
 
 
 			if (venue != null) {
-				System.err.println("*********************************" + venue);
 				venue.setAddress(userAddress);
+				System.err.println("*********************************" + venue);
 				venue.setUser(user);
 				Venue venueAddress = userDao.addVenue(venue);
+				updatedUser.addManagerVenue(venueAddress);
+				userDao.saveUser(updatedUser);
 				updatedUser = dao.getUserByID(user.getId());
 				session.setAttribute("loginUser", updatedUser);
 			}
 		}
 		boolean isVendor = userDao.isVendor(user);
 		if(isVendor == true) {
-		model.addAttribute("venues", user.getVenues());
-
-		System.out.println(user);
+System.err.println(updatedUser.getManagerVenues());
+		model.addAttribute("venues", updatedUser.getManagerVenues());
+		System.err.println(user);
 		return "vendorProfilePage";
 		}
+		
+		
+		
+		
+		
 		model.addAttribute("eventFavoritesList", user.getEvents());
 		model.addAttribute("venueFavoritesList", user.getVenues());
 		return "userProfilePage";
