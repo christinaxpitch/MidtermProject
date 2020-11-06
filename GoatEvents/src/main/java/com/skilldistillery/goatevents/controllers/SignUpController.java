@@ -55,6 +55,8 @@ public class SignUpController {
 				venue.setAddress(userAddress);
 				venue.setUser(user);
 				Venue venueAddress = userDao.addVenue(venue);
+				updatedUser = dao.getUserByID(user.getId());
+				session.setAttribute("loginUser", updatedUser);
 			}
 		}
 		boolean isVendor = userDao.isVendor(user);
