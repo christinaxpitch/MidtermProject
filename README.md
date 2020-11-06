@@ -48,8 +48,15 @@ Link to deployed app</a>
 * Git Collaboration
 * AWS EC2 Deployment
 * JSP
+* HttpSession
 
 ### Lessons Learned
-Stretch Goals
-How to Download and Run
-How a developer would download and set up, install DB, etc.
+There were many front end aspects that we as a group really improved upon as the week progressed. Our CSS stylesheets became more advanced and more elegant as the week went along.
+
+Pair programming was essential to completing the process. Not a single one of us would have been able to complete the sprint without help from our other teammates. We leaned on each other and instructors to help us through problems that we were encountering and we were able to overcome all of them to date. Unfortunately, we spent some valuable time debugging that left us with some functionality left to future versions.
+
+We also learned more about console errors and debugging in general. Not being afraid of new errors and quickly recognizing duplicate errors for quick resolution.
+
+We utilized HttpSession for the first time extensively and learning about how to set, recall and reset the session data for use as a user navigates the site was interesting and frustrating all in one.
+
+TEAM CRIMSON GOAT!!!!
