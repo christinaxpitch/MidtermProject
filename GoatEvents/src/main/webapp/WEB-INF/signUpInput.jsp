@@ -260,6 +260,9 @@
      </table>
      </div> 
        <input type="submit" class="button" value="Sign Up" /> 
+	<br>
+	<br>
+	<br>
 		
 		
      </form>

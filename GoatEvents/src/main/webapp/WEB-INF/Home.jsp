@@ -5,6 +5,8 @@
 <html>
 <head>
 
+<!-- 	 Midterm Project by: Aaron, Ryan, Christina, & Douglas 
+ -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
@@ -47,7 +49,7 @@
 										placeholder="Password" required>
 								</fieldset>
 								<fieldset id="actions">
-									<input class = "button" type="submit" id="submit" value="Log in">
+									<input class="button" type="submit" id="submit" value="Log in">
 								</fieldset>
 							</form>
 						</div></li>
@@ -83,13 +85,12 @@
 	<br>
 	<div class="title">
 		<h1>
-			THE<br />G.O.A.T Events
+			<br />G.O.A.T Events
 		</h1>
 	</div>
 
 	<br>
 
-	<br>
 	<h3>Upcoming Events</h3>
 
 	<div id="textSlide" class="container-sm">
@@ -135,8 +136,7 @@
 	<br>
 	<br>
 	<br>
-	
-	<p1> Midterm Project by: Aaron, Ryan, Christina, & Douglas  </p1>
+
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
@@ -151,26 +151,27 @@
 </body>
 </html>
 
-	<style type="text/css">	
-		body {
-		font: Verdana;
-		}
-		
-		.button {
-		padding: 10px 20px;
-		color: gray;
-		}
-		
-		.button:hover{
-		color: white;
-		}
-		
-		p{
-		font: Verdana;
-		border: 2px solid white;
-  		border-radius: 12px;
-		}
-		p1{
-		font: Verdana;
-		color: white;
-		}
+<style type="text/css">
+body {
+	font: Verdana;
+}
+
+.button {
+	padding: 10px 20px;
+	color: gray;
+}
+
+.button:hover {
+	color: white;
+}
+
+p {
+	font: Verdana;
+	border: 2px solid white;
+	border-radius: 12px;
+}
+
+p1 {
+	font: Verdana;
+	color: white;
+}
