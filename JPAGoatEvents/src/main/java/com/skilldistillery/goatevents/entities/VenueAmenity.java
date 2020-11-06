@@ -1,5 +1,8 @@
 package com.skilldistillery.goatevents.entities;
 
+import java.util.ArrayList;
+
+import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -19,7 +22,7 @@ public class VenueAmenity {
 	@JoinColumn(name = "amenity_id")
 	@MapsId(value = "amenityId")
 	private Amenity amenity;
-	@ManyToOne
+	@ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name = "venue_id")
 	@MapsId(value = "venueId")
 	private Venue venue;
@@ -62,6 +65,8 @@ public class VenueAmenity {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+
 
 	@Override
 	public String toString() {

@@ -95,6 +95,22 @@ public class Amenity {
 			venueAmenities.remove(ve);
 			}
 		}
+	public void addVenue(Venue a) {
+		if (venues == null) {
+			venues = new ArrayList<Venue>();
+		}
+		if (!venues.contains(a)) {
+			venues.add(a);
+			a.addAmenity(this);
+		}
+	}
+	
+	public void removeVenue(Venue a) {
+		if (venues != null && venues.contains(a)) {
+			venues.remove(a);
+			a.removeAmenity(this);
+		}
+	}
 	
 	@Override
 	public String toString() {

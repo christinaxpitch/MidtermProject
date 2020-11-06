@@ -176,7 +176,7 @@ public class Venue {
 		}
 	}
 
-	public void removeActor(VenueAmenity ve) {
+	public void removeVenueAmenity(VenueAmenity ve) {
 		if (venueAmenities != null && venueAmenities.contains(ve)) {
 			venueAmenities.remove(ve);
 		}
@@ -196,6 +196,22 @@ public class Venue {
 		if (users != null && users.contains(user)) {
 			users.remove(user);
 			user.removeVenue(this);
+		}
+	}
+	public void addAmenity(Amenity a) {
+		if (amenities == null) {
+			amenities = new ArrayList<Amenity>();
+		}
+		if (!amenities.contains(a)) {
+			amenities.add(a);
+			a.addVenue(this);
+		}
+	}
+	
+	public void removeAmenity(Amenity a) {
+		if (amenities != null && amenities.contains(a)) {
+			amenities.remove(a);
+			a.removeVenue(this);
 		}
 	}
 

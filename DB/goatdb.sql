@@ -221,7 +221,7 @@ DROP TABLE IF EXISTS `venue_amenity` ;
 
 CREATE TABLE IF NOT EXISTS `venue_amenity` (
   `amenity_id` INT(11)  NOT NULL ,
-  `venue_id` INT(11)   NULL ,
+  `venue_id` INT(11)  NOT NULL ,
   `description` TEXT NULL,
   PRIMARY KEY (`amenity_id`,`venue_id`),
   INDEX `fk_amenity_has_venue_venue1_idx` (`venue_id` ASC),

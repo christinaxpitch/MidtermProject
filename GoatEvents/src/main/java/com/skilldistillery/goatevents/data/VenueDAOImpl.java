@@ -48,10 +48,15 @@ public class VenueDAOImpl implements VenueDAO{
 	public boolean deleteVenue(int id) {
 		Venue deleteVenue = em.find(Venue.class, id);
 	
+		for (VenueAmenity va : deleteVenue.getVenueAmenities()) {
+			em.remove(va);
+		}
+		
 		for (Event event : deleteVenue.getEvents()) {
 			for (Comment c : event.getComments()) {
 				em.remove(c);
 			}
+			
 			while(event.getUsers().size() > 0) {
 				event.removeUser(event.getUsers().get(0));
 			}
@@ -62,6 +67,9 @@ public class VenueDAOImpl implements VenueDAO{
 		}
 		while(deleteVenue.getUsers().size() > 0) {
 			deleteVenue.removeUser(deleteVenue.getUsers().get(0));
+		}
+		while(deleteVenue.getAmenities().size() > 0) {
+			deleteVenue.removeAmenity(deleteVenue.getAmenities().get(0));
 		}
 		
 		em.remove(deleteVenue);	
