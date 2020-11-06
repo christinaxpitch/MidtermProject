@@ -44,6 +44,7 @@ public class GoatController {
 	@RequestMapping(path = "user.do")
 	public String userProfile(Model model, HttpSession session) {
 		User user = (User) session.getAttribute("loginUser");
+		User updated = dao.getUserByID(user.getId());
 		List<User> all = userDao.findAllUsers();
 		int index = 0;
 		for (User userfind : all) {
@@ -54,27 +55,27 @@ public class GoatController {
 			index++;
 		}
 		all.remove(index);
-			model.addAttribute("events", user.getEvents());
-			model.addAttribute("venueFavoritesList", user.getVenues());
-			model.addAttribute("eventFavoritesList", user.getEvents());
-			boolean isAdmin = userDao.isAdmin(user);		
+			model.addAttribute("events", updated.getEvents());
+			model.addAttribute("venueFavoritesList", updated.getVenues());
+			model.addAttribute("eventFavoritesList", updated.getEvents());
+			boolean isAdmin = userDao.isAdmin(updated);		
 
 			if (isAdmin == true) {
 				model.addAttribute("events", dao.findAllEvents());
 				model.addAttribute("venues", userDao.findAllVenues());
 				model.addAttribute("users", all);
-				System.out.println(user);
+				System.out.println(updated);
 				return "admin";
 			}
-		boolean isVendor = userDao.isVendor(user);
+		boolean isVendor = userDao.isVendor(updated);
 		if(isVendor == true) {
-			session.setAttribute("loginUser", user);
+			session.setAttribute("loginUser", updated);
 
-			model.addAttribute("venues", user.getManagerVenues());
-		System.out.println(user);
+			model.addAttribute("venues", updated.getManagerVenues());
+		System.out.println(updated);
 		return "vendorProfilePage";
 		}
-		session.setAttribute("loginUser", user);
+		session.setAttribute("loginUser", updated);
 
 		return "userProfilePage";
 	}
