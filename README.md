@@ -14,10 +14,10 @@ G.O.A.T Events will be a virtual food court of sorts for all things group gather
 #### Users
 Users will be able to browse events posted on the site by subscribing venue members. Guest users will be able to view the main homepage which will display a scroll of new and upcoming events available through G.O.A.T. Events exclusive venue pool. Guest users can also search for venues posting events on G.O.A.T. Events.
 <br/>
-<img align="middle" src="/Images/UserPro.png" width="825">
+<img align="left" src="/Images/UserPro.png" width="825">
 <br/>
 Sign up is absolutely free for the user. G.O.A.T. Events will be powered by a small ticket transaction fee and venue subscription fees for the site. Enabling your free account allows for additional site usage. Primarily, the ability to purchase tickets for the event of your choosing.
-<br/> <img align="middle" src="/Images/SearchButtons.png" width="825">
+<br/> <img align="left" src="/Images/SearchButtons.png" width="825">
 <br/>
 Other features include favorites lists for venues and events so a user has these at a click upon re-visiting G.O.A.T. Events.
 
@@ -25,13 +25,16 @@ Other features include favorites lists for venues and events so a user has these
 Once a Venue has subscribed to G.O.A.T. Events, they are provided with their own personal management dashboard. A venue may manage their own account or allow for a manager of many locations to add events and manage event details. An account manager will also be able to subscribe additional locations for use of G.O.A.T. Events vast user base. G.O.A.T. Events will keep watch for inappropriate content and reserves the right to remove an event from public view or remove a venue or account manager for repeated violations of site content rules.
 
 
-<a href="http://3.18.206.62:8080/GoatEvents/">
+<a href="http://3.128.124.196:8080/GoatEvents/home.do">
 Link to deployed app</a>
 
 
 ### Implementation
-Description of overall project structure
+#### 3 Main entities
 
+* Users may have: 1 Address, many venues as an account manager, many favorite venues/events as a guest user and create many comments
+* Venues may be managed by 1 user. Have 1 address Be favorited by many guest users. Create and manage many events. Have many amenities specific or general.
+* Events are created by 1 venue. May have many comments. Have many Artists or types (genre). Be favorited  
 <img src="/DB/ERD.png">
 
 ### Technologies and Methodologies Used
@@ -41,7 +44,7 @@ Description of overall project structure
 * HTML/CSS
 * Gradle
 * Pair Programming
-* git Collabortation
+* Git Collaboration
 * AWS EC2 Deployment
 
 ### Lessons Learned
