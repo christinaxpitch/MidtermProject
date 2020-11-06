@@ -220,7 +220,7 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `venue_amenity` ;
 
 CREATE TABLE IF NOT EXISTS `venue_amenity` (
-  `amenity_id` INT(11)  NULL ,
+  `amenity_id` INT(11)  NOT NULL ,
   `venue_id` INT(11)   NULL ,
   `description` TEXT NULL,
   PRIMARY KEY (`amenity_id`),
