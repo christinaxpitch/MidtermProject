@@ -7,7 +7,7 @@
 ### Overview
 G.O.A.T Events will be a virtual food court of sorts for all things group gathering. From music festivals, a local poetry slam or your local yoga class. Search and add your favorites to your profile page. Buy tickets or just browse everything G.O.A.T Events has to offer.
 
- Venues, get your event in front of potential ticket buyers. Market your event or venue's list of upcoming events to users you wouldn't be able to reach, in markets too expansive or expensive to do on your own. Users are on G.O.A.T Events because events and gatherings of any kind can post. Why isn't yours?
+ Venues, get your event in front of potential ticket buyers. Market your event or venue's list of upcoming events to users you wouldn't be able to reach. To markets too expansive or expensive to do on your own. Users are on G.O.A.T Events because events and gatherings of any kind can post. Why isn't yours?
 
 ### Description
 
