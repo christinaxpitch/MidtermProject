@@ -1,4 +1,4 @@
-<img align="left" src="/Images/GOATEvents.png" width="825">
+<img align="left" src="/Images/GOATEvents2.png" width="825">
 <img align="left" src="http://skilldistillery.com/downloads/sd_logo.jpg" height="175">
 <br>
 
