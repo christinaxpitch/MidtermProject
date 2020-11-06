@@ -3,7 +3,7 @@
 <br>
 
 ##### Douglas Sigmon (Developer, DBA) <br/> Ryan Miskoviak (Developer, Scrum Master)<br/> Aaron Cottrell (Developer, Repo Owner) <br/> Christina Pitch (Developer, Project Manager)
-
+<br><br>
 ### Overview
 G.O.A.T Events will be a virtual food court of sorts for all things group gathering. From music festivals, a local poetry slam or your local yoga class. Search and add your favorites to your profile page. Get your event in front of potential ticket buyers. Sell out your event with G.O.A.T Events
 
