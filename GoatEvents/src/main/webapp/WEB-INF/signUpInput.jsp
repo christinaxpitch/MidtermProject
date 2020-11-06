@@ -77,7 +77,7 @@
 			your favorite venues.<br>AND MORE!
 		</p>
 	</div>
-	<form action="signUp.do" method="POST">
+<!-- 	<form action="signUp.do" method="POST">
 	
 	<div class="slashed">
   <div class="top" title="Slashed"></div>
@@ -115,7 +115,166 @@
 			Venue Description: <br> <input type="text" name="description" /><br>
 		</div>
 		<input type="submit" class="button" value="Sign Up" /> <br> <br>
-		<br> <br> <br> </a>
+		<br> <br> <br> </a> -->
+		
+		
+		
+	<form action="signUp.do" method="POST">
+ 	<table class="table table-striped table-hover, table-dark">
+  	<thead class="thead thead-dark">
+    <th colspan = 4 style="text-align:center" > SIGN UP</th></thead>  
+    
+    <tr>
+    <td>First Name:</td>
+    <td><input type="text" name="firstName" placeholder= "Professor" /></td>
+  </tr>
+  
+   <tr>
+    <td>Last Name:</td>
+    <td><input type="text" name="lastName" placeholder= "Tofu" /></td>
+  </tr>
+
+   <tr>
+    <td>Email:</td>
+    <td><input type="email" name="email" placeholder= "cryforhelp@SD.com" /> </td>
+  </tr>
+  
+  <tr>
+    <td>Username:</td>
+    <td><input type="text" name="username" placeholder="dfresh99" /></td>
+
+     <tr>
+    <td>Password:</td>
+    <td> <input type="text" name="password" /> <br> <input type="hidden" >
+		</td>
+       </tr>
+       
+       <input type="hidden"
+			name="enabled" value="1" /> <br> <input type="hidden"
+		name="role" value="User" />
+        
+       <!--  <tr><td>
+        <input type="checkbox"
+			name="role" value="Vendor" id="choice-user" /> 	<label
+			for="choice-user">Venue Owner</label>
+  		</td></tr> -->
+  		</table>
+  		
+  		<div class = "container"  >
+  		<input type="checkbox"
+			name="role" value="Vendor" id="choice-user" /> 	<label
+			for="choice-user">Venue Owner</label>
+  		</td></tr>
+  		
+ 
+<div class="reveal-if-active">
+ <table class="table table-striped table-hover, table-dark">
+
+  <tr>
+    <td>Venue Name:</td>
+    <td><input type="text" placeholder="Venue Name"  name="name"/></td>
+  </tr>
+  
+  <tr>
+    <td>Venue Street:</td>
+    <td><input type="text" placeholder="Street"  name="street"/></td>
+  </tr>
+  
+  <tr>
+    <td>Venue City:</td>
+    <td><input type="text" placeholder="City"  name="city"/></td>
+  </tr>
+  
+  
+  <tr>
+    <td>Venue State:</td>
+    <td><select	name= "state" > 
+            <option value="AL">AL</option> 
+            <option value="AK">AK</option> 
+            <option value="AZ">AZ</option> 
+            <option value="CA">CA</option> 
+            <option value="CO">CO</option>
+            <option value="CT">CT</option> 
+            <option value="DE">DE</option> 
+            <option value="FL">FL</option> 
+            <option value="GA">GA</option> 
+            <option value="HI">HI</option> 
+            <option value="ID">ID</option> 
+            <option value="IL">IL</option> 
+            <option value="IN">IN</option> 
+            <option value="IA">IA</option> 
+            <option value="KS">KS</option>
+            <option value="KY">KY</option> 
+            <option value="ME">ME</option> 
+            <option value="MD">MD</option> 
+            <option value="MA">MA</option> 
+            <option value="MI">MI</option>
+            <option value="MN">MN</option> 
+            <option value="MS">MS</option> 
+            <option value="MO">MO</option> 
+            <option value="MT">MT</option> 
+            <option value="NE">NE</option>
+            <option value="NV">NV</option> 
+            <option value="NH">NH</option> 
+            <option value="NJ">NJ</option> 
+            <option value="NM">NM</option> 
+            <option value="NY">NY</option> 
+            <option value="NC">NC</option> 
+            <option value="ND">ND</option> 
+            <option value="OH">OH</option> 
+            <option value="OK">OK</option> 
+            <option value="OR">OR</option>
+            <option value="PA">PA</option> 
+            <option value="RI">RI</option> 
+            <option value="SC">SC</option> 
+            <option value="SD">SD</option> 
+            <option value="TX">TX</option> 
+            <option value="UT">UT</option> 
+            <option value="VT">VT</option> 
+            <option value="VA">VA</option> 
+            <option value="WA">WA</option> 
+            <option value="WV">WV</option> 
+            <option value="WI">WI</option> 
+            <option value="WY">WY</option>     
+        </select> </td>
+  </tr>
+  
+  
+    <tr>
+    <td>Venue Zip:</td>
+    <td><input type="text" maxlength="5" placeholder="11111"  name="zip"/></td>
+  </tr>
+  
+  <tr>
+    <td>Venue Phone #:</td>
+    <td><input type="text" placeholder="012-345-6789"  name="phone"/></td>
+  </tr>
+  
+  <tr>
+    <td>Venue Description:</td>
+    <td><input type="text" placeholder="Description" name="description" /></td>
+  </tr>
+    
+   </div> 
+  
+ 
+     </table>
+     </div> 
+       <input type="submit" class="button" value="Sign Up" /> 
+		
+		
+     </form>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	</form>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
