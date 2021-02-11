@@ -59,4 +59,3 @@ We also learned more about console errors and debugging in general. Not being af
 
 We utilized HttpSession for the first time extensively and learning about how to set, recall and reset the session data for use as a user navigates the site was interesting and frustrating all in one.
 
-TEAM CRIMSON GOAT!!!!
